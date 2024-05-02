@@ -18,5 +18,6 @@ public class CloudMusicMediaPlayerSelectContextMenu extends BaseTestClass {
 
         TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(vz_strings.DataType.MUSIC,
                 vz_strings.view_musicAlbums, false));
+        System.out.println("Testing is complete");
     }
 }
