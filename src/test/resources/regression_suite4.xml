@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Full" parallel="false">
+    <parameter name="udid" value="ec297e6bf48845a9df87c9700a587c3a97f216d3"/>
+	<test name="Photos and Videos">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos"/>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos.actionBars"/>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos.downloads"/>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos.filter"/>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos.fuji"/>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos.real"/>
+		</packages>
+	</test>
+	<test name="PublicShare">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.publicshare" />
+		</packages>
+	</test>
+	<test name="Search">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.search" />
+		</packages>
+	</test>
+	<test name="Settings">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.settings" />
+		<!-- 	<package name="com.sncr.verizon.appiumtests.settings.managestorage" /> -->
+			<package name="com.sncr.verizon.appiumtests.settings.whattobackup" />
+		</packages>
+	</test>
+
+    <listeners>
+		<listener class-name="com.verizon.appiumtests.listenersReport.TestListener" />
+		<listener class-name="com.verizon.appiumtests.listenersReport.AnnotationTransformer"/>
+	</listeners>
+    
+</suite>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Full" parallel="false">
+	<parameter name="udid" value="ec297e6bf48845a9df87c9700a587c3a97f216d3" />
+	<test name="Provisioning">
+		<classes>
+			<class name="com.verizon.appiumtests.provisioning.LoginWithSim" />
+		</classes>
+	</test>
+	<test name="Exclude" preserve-order="true">
+		<groups>
+			<run>
+				<exclude name="com.sncr.verizon.appiumtests.delete" />
+				<exclude name="com.sncr.verizon.appiumtests.provisioning" />
+				<exclude name="com.sncr.verizon.appiumtests.backup" />
+			</run>
+		</groups>
+	</test>
+	<test name="Albums">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.albums" />
+		</packages>
+	</test>
+	
+	<test name="All Files">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.allFiles" />
+			<package name="com.sncr.verizon.appiumtests.allFiles.Sort" />
+		</packages>
+	</test>
+	<test name="AppsUsingCloud">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.appsusingcloud" />
+		</packages>
+	</test>
+	
+<!-- 	<test name="Deeplinks">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.deeplinks" />
+		</packages>
+	</test> -->
+	
+	<test name="Documents">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.documents" />
+			<package name="com.sncr.verizon.appiumtests.documents.favorite" />
+			<package name="com.sncr.verizon.appiumtests.documents.sort" />
+		</packages>
+	</test>
+<!-- 	<test name="Empty Content">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.emptyContent" />
+		</packages>
+	</test> -->
+
+	<listeners>
+		<listener class-name="com.verizon.appiumtests.listenersReport.TestListener" />
+		<listener class-name="com.verizon.appiumtests.listenersReport.AnnotationTransformer"/>
+	</listeners>
+</suite>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Full" parallel="false">
+    <parameter name="udid" value="ec297e6bf48845a9df87c9700a587c3a97f216d3"/>
+	<test name="MessageCenter">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.messagecenter" />
+		</packages>
+	</test>
+	<test name="Music">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.music" />
+		</packages>
+	</test>
+	<test name="Smart Albums">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.smartAlbums" />
+		</packages>
+	</test>
+<!-- 	<test name="Tools">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.tools" />
+		</packages>
+	</test> -->
+	
+	<test name="WhatsNew">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.whatsnew" />
+		</packages>
+	</test>
+
+    <listeners>
+		<listener class-name="com.verizon.appiumtests.listenersReport.TestListener" />
+		<listener class-name="com.verizon.appiumtests.listenersReport.AnnotationTransformer"/>
+	</listeners>
+    
+</suite>

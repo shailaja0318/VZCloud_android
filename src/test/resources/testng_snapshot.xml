@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sanity" parallel="false">
+    <test name="Provisioning">
+        <classes>
+            <class name="com.verizon.appiumtests.provisioning.LoginWithSim"/>
+        </classes>
+    </test>
+    <test name="PhotosVideos">
+        <classes>
+            <class name="com.verizon.appiumtests.photosandvideos.PhotoOpen"/>
+            <class name="com.verizon.appiumtests.albums.AddPhotoVideoToExistingAlbum"/>
+            <class name="com.verizon.appiumtests.photosandvideos.VideoOpen"/>
+            <class name="com.verizon.appiumtests.photosandvideos.PhotoOrientation"/>
+            <class name="com.verizon.appiumtests.photosandvideos.downloads.DownloadPhotoFromMultiSelectView"/>
+            <!--<class name="smartAlbums.com.verizon.appiumtests.PlaySavedStory"/>-->
+        </classes>
+    </test>
+    <test name="Documents">
+        <classes>
+            <class name="com.verizon.appiumtests.documents.DocumentOpen"/>
+        </classes>
+    </test>
+    <test name="FileInfo">
+        <classes>
+            <class name="com.verizon.appiumtests.fileInfo.PhotoInfo"/>
+        </classes>
+    </test>
+    <test name="Favorite">
+        <classes>
+            <class name="com.verizon.appiumtests.favorites.PhotoFavorite"/>
+        </classes>
+    </test>
+    <test name="Albums">
+        <classes>
+            <class name="com.verizon.appiumtests.albums.AlbumCreate"/>
+        </classes>
+    </test>
+    <test name="Music">
+        <classes>
+            <class name="com.verizon.appiumtests.music.SongsPlaySuccessfully"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.sncr.verizon.appiumtests.listenersReport.RetryListener"/>
+    </listeners>
+    <listeners>
+        <listener class-name="com.verizon.appiumtests.listenersReport.TestListener"/>
+    </listeners>
+</suite>

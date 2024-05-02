@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Full" parallel="false">
+	<parameter name="udid" value="ec297e6bf48845a9df87c9700a587c3a97f216d3" />
+	
+	<test name="Favorites">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.favorites" />
+		</packages>
+	</test>
+	<test name="File Info">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.fileInfo" />
+		</packages>
+	</test>
+	<test name="Help">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.help" />
+		</packages>
+	</test>
+	<test name="Home">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.home" />
+		</packages>
+	</test>
+
+	<listeners>
+		<listener class-name="com.verizon.appiumtests.listenersReport.TestListener" />
+		<listener class-name="com.verizon.appiumtests.listenersReport.AnnotationTransformer"/>
+	</listeners>
+</suite>

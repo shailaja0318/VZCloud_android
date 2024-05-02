@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Localytics" parallel="false">
+
+<!-- 	<test name="Provisioning"> <classes> <class name="provisioning.com.verizon.appiumtests.LoginWithSim"/>
+		</classes> </test> <test name="Exclude" preserve-order="true"> <groups> <run> 
+		<exclude name="com.sncr.verizon.appiumtests.delete" /> <exclude name="com.sncr.verizon.appiumtests.provisioning" 
+		/> <exclude name="com.sncr.verizon.appiumtests.backup" /> </run> </groups> 
+		</test> -->
+	
+	<test name="Localytics">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.localytics" />
+			
+			<package name="com.sncr.verizon.appiumtests.localytics.album" />
+			<package name="com.sncr.verizon.appiumtests.localytics.favorite" />
+
+			<package name="com.sncr.verizon.appiumtests.localytics.fuji" />
+
+			<package name="com.sncr.verizon.appiumtests.localytics.home" />
+			<package name="com.sncr.verizon.appiumtests.localytics.livePhotos" />
+			<package name="com.sncr.verizon.appiumtests.localytics.Real" />
+
+			<package name="com.sncr.verizon.appiumtests.localytics.settings" />
+			
+		<!-- 	<package name="com.sncr.verizon.appiumtests.localytics.music" />
+			
+			<package name="com.sncr.verizon.appiumtests.localytics.contactsAndAllFiles" /> 
+			<package name="com.sncr.verizon.appiumtests.localytics.deeplinks" />
+			<package name="com.sncr.verizon.appiumtests.localytics.documents" /> -->
+		
+		</packages>
+	</test>
+	<listeners>
+		<listener
+			class-name="com.verizon.appiumtests.listenersReport.TestListener" />
+		<listener
+			class-name="com.verizon.appiumtests.listenersReport.AnnotationTransformer" />
+	</listeners>
+</suite>

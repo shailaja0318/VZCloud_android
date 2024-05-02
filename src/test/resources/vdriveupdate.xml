@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<update>
+  <vdrive>
+    <windows>
+      <!-- <opcospecific>ie</opcospecific> -->
+      <details Version="21.3.30.68" UpdateLocation="https://vx2530-dev.synchronoss.net/pc-vzcloud-install.msi" Mandatory="0"></details>
+      <description text="Latest version"/>
+    </windows>
+    <macOS>
+      <!-- <opcospecific>ie</opcospecific> -->
+      <details Version="21.3.30.68" UpdateLocation="https://vx2530-dev.synchronoss.net/mac-vzcloud-install.dmg" Mandatory="0"></details>
+      <description text="Latest version"/>
+    </macOS>
+  </vdrive>
+</update>

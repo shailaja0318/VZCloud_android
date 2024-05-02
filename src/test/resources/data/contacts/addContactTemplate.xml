@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f1:contacts-add xsi:schemaLocation="http://www.fusionone.com/xmlns/f1 ContactsAddRequest.xsd" xmlns:f1="http://www.fusionone.com/xmlns/f1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <f1:contact tempid="1">
+        <f1:firstname>%s</f1:firstname>
+        <f1:lastname>%s</f1:lastname>
+        <f1:nameprefix>Mr</f1:nameprefix>
+        <f1:tel type="home" indx="1">
+            <f1:number>%s</f1:number>
+            <f1:carrier>abc</f1:carrier>
+            <f1:preference>2</f1:preference>
+        </f1:tel>
+        <f1:tel type="mobile" indx="1">
+            <f1:number>%s</f1:number>
+            <f1:carrier>abc</f1:carrier>
+            <f1:preference>2</f1:preference>
+        </f1:tel>
+    </f1:contact>
+</f1:contacts-add>

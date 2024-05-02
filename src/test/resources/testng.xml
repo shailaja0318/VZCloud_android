@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Full" parallel="false">
+    <parameter name="udid" value="ec297e6bf48845a9df87c9700a587c3a97f216d3"/>
+	<test name="Provisioning">
+		<classes>
+            <class name="com.verizon.appiumtests.provisioning.LoginWithSim"/>
+		</classes>
+    </test>
+	<test name="Exclude" preserve-order="true">
+		<groups>
+			<run>
+				<exclude name="com.sncr.verizon.appiumtests.delete" />
+				<exclude name="com.sncr.verizon.appiumtests.provisioning" />
+				<exclude name="com.sncr.verizon.appiumtests.backup" />
+			</run>
+		</groups>
+	</test>
+	<test name="Albums">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.albums" />
+		</packages>
+	</test>
+	<test name="All Files">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.allFiles" />
+			<package name="com.sncr.verizon.appiumtests.allFiles.Sort" />
+		</packages>
+	</test>
+<!--     <test name="Deeplinks">
+		<packages>
+            <package name="com.sncr.verizon.appiumtests.deeplinks"/>
+		</packages>
+	</test> -->
+    <test name="Documents">
+        <packages>
+            <package name="com.sncr.verizon.appiumtests.documents"/>
+			<package name="com.sncr.verizon.appiumtests.documents.favorite"/>
+			<package name="com.sncr.verizon.appiumtests.documents.sort"/>
+        </packages>
+    </test>
+<!-- 	<test name="Empty Content">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.emptyContent" />
+		</packages>
+	</test> -->
+	<test name="Favorites">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.favorites" />
+		</packages>
+	</test>
+	<test name="File Info">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.fileInfo" />
+		</packages>
+	</test>
+	<test name="Help">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.help" />
+		</packages>
+	</test>
+	<test name="Home">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.home" />
+		</packages>
+	</test>
+	<test name="MessageCenter">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.messagecenter" />
+		</packages>
+	</test>
+<!-- 	<test name="Music">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.music" />
+		</packages>
+	</test> -->
+	<test name="Photos and Videos">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos"/>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos.downloads"/>
+		</packages>
+	</test>
+	<test name="Filter">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos.filter"/>
+		</packages>
+	</test>
+	<test name="Sort">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos.sort"/>
+		</packages>
+	</test>
+	<test name="Fuji">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos.fuji"/>
+			<package name="com.sncr.verizon.appiumtests.photosandvideos.real"/>
+		</packages>
+	</test>
+	<test name="PublicShare">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.publicshare" />
+		</packages>
+	</test>
+	<test name="Search">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.search" />
+		</packages>
+	</test>
+<!-- 	<test name="Settings">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.settings" />
+			<package name="com.sncr.verizon.appiumtests.settings.managestorage" />
+			<package name="com.sncr.verizon.appiumtests.settings.whattobackup" />
+		</packages>
+	</test> -->
+	<test name="Smart Albums">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.smartAlbums" />
+		</packages>
+	</test>
+<!-- 	<test name="Timeline">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.timeline" />
+		</packages>
+	</test> -->
+	<test name="Tools">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.tools" />
+		</packages>
+	</test>
+<!-- 	<test name="WhatsNew">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.whatsnew" />
+		</packages>
+	</test> -->
+	<test name="AppsUsingCloud">
+		<packages>
+			<package name="com.sncr.verizon.appiumtests.appsusingcloud" />
+		</packages>
+	</test>
+    <listeners>
+        <listener class-name="com.verizon.appiumtests.listenersReport.TestListener"/>
+    </listeners>
+</suite>
