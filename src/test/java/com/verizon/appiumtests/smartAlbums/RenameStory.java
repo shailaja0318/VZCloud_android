@@ -18,9 +18,9 @@ public class RenameStory extends BaseTestClass {
         baseControlsHelper.openContext(vz_strings.context_renameStory);
         baseControlsHelper.setValuetoTextFieldByName("Renamed Story", vz_strings.alertTextField);
         baseControlsHelper.clickOn(vz_strings.button_ok);
+        TestCase.assertTrue("Renamed story not found", baseControlsHelper.getCountByNameContains("Renamed Story") > 0);
         baseControlsHelper.tapOnBackButton();
 
-        TestCase.assertTrue("Renamed story not found", baseControlsHelper.getCountByNameContains("Renamed Story") > 0);
     }
 
 }

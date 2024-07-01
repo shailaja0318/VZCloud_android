@@ -45,7 +45,7 @@ public class BackupPhotos {
 	//InterruptedException{
 		
 		
-		JavascriptExecutor js = (JavascriptExecutor)wdriver;
+		JavascriptExecutor js = wdriver;
 		WebDriverWait wait = new WebDriverWait(wdriver, Duration.ofSeconds(60));	
 					
 			for (int i = 0; i < times; i ++){

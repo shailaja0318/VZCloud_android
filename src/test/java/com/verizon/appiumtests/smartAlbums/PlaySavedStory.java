@@ -2,6 +2,7 @@
 package com.verizon.appiumtests.smartAlbums;
 
 import com.verizon.appiumtests.constants.vz_strings;
+import com.verizon.appiumtests.controls.BaseControlsHelper;
 import com.verizon.appiumtests.controls.BaseTestClass;
 import org.testng.annotations.Test;
 
@@ -17,8 +18,8 @@ public class PlaySavedStory extends BaseTestClass {
             baseControlsHelper.clickOn(vz_strings.tab_all);
         }
         baseControlsHelper.clickOnNameLike(vz_strings.name_savedStory);
-        photosAndVideosView.playVideo();
         baseControlsHelper.waitForShowByTypeAndLabel("XCUIElementTypeButton", "Play");
+        photosAndVideosView.playVideo();
     }
 
     public void preCond() throws Exception {
@@ -37,18 +38,21 @@ public class PlaySavedStory extends BaseTestClass {
         baseControlsHelper.clickOn(vz_strings.button_save);
         baseControlsHelper.waitForContent();
         baseControlsHelper.waitForDismiss(vz_strings.progressbar);
+        baseControlsHelper.clickOn(vz_strings.navi_back);
     }
 
     public void uploadSavedStory() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_settings);
         baseControlsHelper.clickOn(vz_strings.settings_whatToBackUp);
-        if (!baseControlsHelper.isSelectedByTypeAndName("XCUIElementTypeSwitch", "Videos")) {
-            baseControlsHelper.clickOnNameBeginswithAndType("Videos", "XCUIElementTypeSwitch");
-        }
+        //if (baseControlsHelper.isSelectedByTypeAndName("XCUIElementTypeSwitch", "videosToggleButton"))
+        //{
+         //   baseControlsHelper.clickOnNameBeginswithAndType("videosToggleButton", "XCUIElementTypeSwitch");
+        //}
         baseControlsHelper.tapOnBackButton();
+        baseControlsHelper.clickOnElementByXpath(vz_strings.settings_closeBtn);
         homeScreenView.navigateTo(vz_strings.navi_home);
         baseControlsHelper.clickOn(vz_strings.button_backUp_icon);
-        baseControlsHelper.clickOn(vz_strings.navi_backUpNow);
+       // baseControlsHelper.clickOn(vz_strings.navi_backUpNow);
         photosAndVideosView.checkDownload();
     }
 }

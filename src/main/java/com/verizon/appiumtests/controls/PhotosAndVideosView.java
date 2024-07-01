@@ -4,6 +4,7 @@ import com.verizon.appiumtests.constants.vz_strings;
 import com.verizon.appiumtests.driver.BaseDriver;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import org.opencv.photo.Photo;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebElement;
@@ -90,7 +91,7 @@ public class PhotosAndVideosView {
         baseControlsHelper.setValuetoTextFieldByName(albumName, vz_strings.alertTextField);
         baseControlsHelper.clickOn(vz_strings.button_addItems);
         baseControlsHelper.waitForShow("Save Album");
-        gridView.tapItems();
+        baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
         baseControlsHelper.clickOn(vz_strings.button_done);
         baseControlsHelper.waitForDismiss(vz_strings.toast_photoAddtoAlbum);
     }
@@ -169,8 +170,9 @@ public class PhotosAndVideosView {
     }
 
     public void addToAlbum10(vz_strings.DataType DataType) throws Exception {
+       baseControlsHelper.swipe("up");
         gridView.tapItemInSelectMode(DataType);
-        baseControlsHelper.clickOn(vz_strings.actionBar_AddToAlbum);;
+        baseControlsHelper.clickOnElementByXpath(vz_strings.actionBar_AddToAlbum);
         baseControlsHelper.clickOn(vz_strings.button_addToAlbumPickerOk);
         baseControlsHelper.waitForDismiss(vz_strings.toast_photoAddtoAlbum);
     }
@@ -194,6 +196,9 @@ public class PhotosAndVideosView {
         gridView.tapItem(DataType);
         Thread.sleep(3000);
         baseControlsHelper.clickOn(vz_strings.button_done);
+        if(baseControlsHelper.isVisible(vz_strings.button_done)){
+            baseControlsHelper.clickOn(vz_strings.button_cancel);
+        }
         baseControlsHelper.waitForShow(vz_strings.context_menu);
         baseControlsHelper.tapOnBackButton();
     }
@@ -273,7 +278,7 @@ public class PhotosAndVideosView {
         return getCountInAlbumAPI() < 1;
     }*/
 
-    private List<String> sortOptions = Arrays.asList(
+    private final List<String> sortOptions = Arrays.asList(
             vz_strings.sort_dateUploaded,
             vz_strings.sort_dateTaken);
 
@@ -400,7 +405,7 @@ public class PhotosAndVideosView {
      */
     public void pinchZoom(float scale, float velocity) {
         System.out.println("Trying to pinch zoom");
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = driver;
         Map<String, Object> params = new HashMap<>();
         WebElement element = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeScrollView/**/XCUIElementTypeImage"));
         params.put("scale", scale);
@@ -577,9 +582,7 @@ public class PhotosAndVideosView {
             j = dot + 2;
         }
         char[] s3 = new char[j];
-        for (int i = 0; i < j; i++) {
-            s3[i] = s1[i];
-        }
+        System.arraycopy(s1, 0, s3, 0, j);
         String contentSize = String.valueOf(s3) + " MB";
         System.out.println("Appium Helper ContentSize Value is " + contentSize);
         return contentSize;
@@ -591,7 +594,7 @@ public class PhotosAndVideosView {
         String type = gridView.selectDataTypeSwitch(DataType);
         ArrayList<String> list = baseControlsHelper.getListOfAttrLabel(index, type);
         for (int i = 0; i < index; i++) {
-            baseControlsHelper.clickOn(list.get(i).toString());
+            baseControlsHelper.clickOn(list.get(i));
             baseControlsHelper.openContext(vz_strings.context_info);
             String size1 = baseControlsHelper.infoItems(vz_strings.sort_size);
             photo = Double.parseDouble(contentSize(size1));
@@ -604,8 +607,7 @@ public class PhotosAndVideosView {
     }
 
     public boolean isNoFlashBackTextPresent() throws Exception {
-        if (baseControlsHelper.getCountById(vz_strings.text_NoFlashBacksText) > 0) return true;
-        else return false;
+        return baseControlsHelper.getCountById(vz_strings.text_NoFlashBacksText) > 0;
     }
 
     public void clickFlashBackThumnail(int thumbnailIndex, String className) throws Exception {
@@ -781,7 +783,7 @@ public class PhotosAndVideosView {
         Thread.sleep(3000);
     }
     
-    private List<String> alBumsortOptions = Arrays.asList(
+    private final List<String> alBumsortOptions = Arrays.asList(
             vz_strings.sort_dateCreateNewtoOld,
             vz_strings.sort_dateCreateOldtoNew,
             vz_strings.sort_AtoZ,

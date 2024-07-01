@@ -19,9 +19,7 @@ public class AlbumSelectAllDownload extends BaseTestClass {
 
 		String logs = localyticsHelper.getLogs();
 		localyticsHelper.print(logs, vz_strings.logs_tagEvent);
-		TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaDownload + " is not 1 in logs",
-				localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaDownload) == 1);
-		TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaType + " Media type is not 1 in logs",
-				localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_album) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaDownload + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaDownload));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaType + " Media type is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_album));
 	}
 }

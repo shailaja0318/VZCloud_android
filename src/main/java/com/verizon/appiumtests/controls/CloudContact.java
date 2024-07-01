@@ -17,7 +17,7 @@ public class CloudContact {
         long HomePhoneNumber = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
         FirstName = "CFName" + currentSeed;
         LastName = "CLName" + currentSeed;
-        Mobile = "1"+String.valueOf(MobileNumber);
-        HomePhone = "1"+String.valueOf(HomePhoneNumber);
+        Mobile = "1"+ MobileNumber;
+        HomePhone = "1"+ HomePhoneNumber;
     }
 }

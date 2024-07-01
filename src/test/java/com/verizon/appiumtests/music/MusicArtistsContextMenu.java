@@ -9,13 +9,16 @@ import org.testng.annotations.Test;
 public class MusicArtistsContextMenu extends BaseTestClass {
 
     @Test
-    public void testMusicAlbumsContextMenu() throws Exception {
+    public void testMusicArtistsContextMenu() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_artists);
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(null,
-                vz_strings.view_musicArtists, true));
+        TestCase.assertTrue("sort not present",
+                baseControlsHelper.getCountById(vz_strings.context_select) > 0);
+        TestCase.assertTrue("select not present",
+                baseControlsHelper.getCountById(vz_strings.context_sort) > 0);
+
     }
 }

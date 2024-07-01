@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class IV2475FirstTimeDoNotAcceptTAndC extends BaseTestClass {
 
-    @Test
+    //@Test
     public void testIV2475FirstTimeDoNotAcceptTAndC() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);

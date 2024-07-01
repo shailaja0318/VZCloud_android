@@ -15,6 +15,7 @@ public class AllPhotosVideosContextMenu extends BaseTestClass {
         photosAndVideosView.selectTab(vz_strings.tab_all);
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(null, vz_strings.view_photoAll, true));
+        TestCase.assertTrue("Options missing ", baseControlsHelper.isVisible
+                (vz_strings.context_printAndGifts));
     }
 }

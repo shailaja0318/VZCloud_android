@@ -18,7 +18,6 @@ public class LocalyticsHMMusicCTA extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagScreen);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaTypeMusic + " exists",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_mediaTypeMusic + " " + vz_strings.logs_CTA) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaTypeMusic + " exists", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_mediaTypeMusic + " " + vz_strings.logs_CTA));
     }
 }

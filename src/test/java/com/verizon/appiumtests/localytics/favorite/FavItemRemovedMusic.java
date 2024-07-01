@@ -24,7 +24,7 @@ public class FavItemRemovedMusic extends BaseTestClass {
         localyticsHelper.print(logs, vz_strings.logs_favItemRemoved);
 
         TestCase.assertTrue("Localytics of " + vz_strings.logs_favItemRemoved + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_favItemRemoved));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_favItemRemoved) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_favItemRemoved));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_count + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_count + " = " + "1"));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaType + " does not exist", localyticsHelper.isExisted(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypeMusic));
 

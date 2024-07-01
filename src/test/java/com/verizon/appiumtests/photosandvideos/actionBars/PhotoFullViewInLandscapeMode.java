@@ -13,7 +13,7 @@ public class PhotoFullViewInLandscapeMode extends BaseTestClass {
 		Thread.sleep(2000);
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnLabelLike(vz_strings.name_photo);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
 		//baseControlsHelper.setOrientation(ScreenOrientation.LANDSCAPE);
 
 		SoftAssert sa = new SoftAssert();

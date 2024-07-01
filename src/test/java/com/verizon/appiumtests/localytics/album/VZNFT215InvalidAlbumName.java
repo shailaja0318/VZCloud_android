@@ -28,7 +28,7 @@ public class VZNFT215InvalidAlbumName extends BaseTestClass {
 
         String logs = localyticsHelper.getLogs();
         TestCase.assertTrue("Localytics of " + vz_strings.logs_appError + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_appError));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_appError + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_appError) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_appError + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_appError));
         localyticsHelper.print(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_appError);
     }
 }

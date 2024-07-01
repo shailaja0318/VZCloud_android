@@ -22,8 +22,8 @@ public class RemoveFromAlbumNoCheckDialog extends BaseTestClass {
         gridView.tapFolderInSelectMode10(vz_strings.album_photo_select);
         gridView.tapContextDelete();
 
-        TestCase.assertTrue("There is no Delete album Label", baseControlsHelper.getTextById(vz_strings.dialog_delete_question).equals(vz_strings.dialog_delete_question));
-        TestCase.assertTrue("Text label does not match", baseControlsHelper.getTextById(vz_strings.dialog_message_question).equals(vz_strings.dialog_message_question));
+        TestCase.assertEquals("There is no Delete album Label", vz_strings.dialog_delete_question, baseControlsHelper.getTextById(vz_strings.dialog_delete_question));
+        TestCase.assertEquals("Text label does not match", vz_strings.dialog_message_question, baseControlsHelper.getTextById(vz_strings.dialog_message_question));
 
         baseControlsHelper.clickOn(vz_strings.dialog_no);
         int count1 = gridView.getAlbumCount();

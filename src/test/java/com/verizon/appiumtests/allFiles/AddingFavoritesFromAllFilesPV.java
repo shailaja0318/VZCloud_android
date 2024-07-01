@@ -49,7 +49,7 @@ public class AddingFavoritesFromAllFilesPV extends BaseTestClass {
 		} else if (savedStoryCount + videoCount == 1) {
 			TestCase.assertTrue("Video found", true);
 		} else {
-			TestCase.assertTrue("Photo or Video not found", false);
+            TestCase.fail("Photo or Video not found");
 		}
 	}
 }

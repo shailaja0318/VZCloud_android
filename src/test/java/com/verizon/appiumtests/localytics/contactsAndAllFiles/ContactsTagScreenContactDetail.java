@@ -25,10 +25,8 @@ public class ContactsTagScreenContactDetail extends BaseTestClass {
             contactsView.clickOncontactsListView();
             String logs = localyticsHelper.getLogs();
             localyticsHelper.print(logs, vz_strings.logs_tagScreen);
-            TestCase.assertTrue("Localytics of " + vz_strings.logs_contacts + " exists",
-                    localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_contacts) == 1);
-            TestCase.assertTrue("Localytics of " + vz_strings.logs_Contact_Detail + " exists",
-                    localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_Contact_Detail) == 1);
+            TestCase.assertEquals("Localytics of " + vz_strings.logs_contacts + " exists", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_contacts));
+            TestCase.assertEquals("Localytics of " + vz_strings.logs_Contact_Detail + " exists", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_Contact_Detail));
         } finally {
             settingsView.tapOnBackButtonAndSetWhatToBackup(true, 1);
         }

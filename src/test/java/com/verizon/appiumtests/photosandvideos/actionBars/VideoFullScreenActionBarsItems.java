@@ -16,7 +16,8 @@ public class VideoFullScreenActionBarsItems extends BaseTestClass {
       photosAndVideosView.selectTab(vz_strings.tab_all);
       baseControlsHelper.clickOnLabelLike(vz_strings.name_video);
       
-      TestCase.assertTrue("Add to Album option is not present in Action Bar", baseControlsHelper.getCountById(vz_strings.actionBar_AddToAlbum) != 0);
+      TestCase.assertTrue("Add to Album option is not present in Action Bar",
+              baseControlsHelper.getCountById(vz_strings.actionBar_AddToAlbum) != 0);
       TestCase.assertTrue("Share option is not present in Action Bar", baseControlsHelper.getCountById(vz_strings.actionBar_share) != 0);
       TestCase.assertTrue("Download option is not present in Action Bar", baseControlsHelper.getCountById(vz_strings.actionBar_download) != 0);
   }

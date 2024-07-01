@@ -15,10 +15,10 @@ public class EditPhotosPVAllMultiSelectSingle extends BaseTestClass {
 		photosAndVideosView.selectTab(vz_strings.tab_all);
 		baseControlsHelper.openContext(vz_strings.context_select);
 		gridView.tapItem(vz_strings.DataType.PHOTO);
-		baseControlsHelper.waitForShow(vz_strings.actionBar_EditPhoto);
-		baseControlsHelper.clickOn(vz_strings.actionBar_EditPhoto);
+		baseControlsHelper.openContext(vz_strings.context_editPhoto);
+        baseControlsHelper.clickOn(vz_strings.context_editPhoto);
 		baseControlsHelper.waitForShowByPredicate("Edit Photo", "XCUIElementTypeNavigationBar");
 		String pageTitle = baseControlsHelper.getNameByIndexfromClassName(0, "XCUIElementTypeNavigationBar");
-		TestCase.assertTrue("Edit Photo view is not open", pageTitle.equals("Edit Photo"));
+        TestCase.assertEquals("Edit Photo view is not open", "Edit Photo", pageTitle);
 	}
 }

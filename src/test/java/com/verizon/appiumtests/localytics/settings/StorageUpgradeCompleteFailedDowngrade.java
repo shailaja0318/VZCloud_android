@@ -37,14 +37,11 @@ public class StorageUpgradeCompleteFailedDowngrade extends BaseTestClass {
             localyticsHelper.print(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_Storage_Upgrade);
             TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_Upgrade + " does not exist",
                     localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Upgrade) >= 1 && localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Upgrade) <= 2);
-            TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_Change_Plan_Downgrade + " does not exist",
-                    localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Change_Plan_Downgrade) == 1);
+            TestCase.assertEquals("Localytics of " + vz_strings.logs_Storage_Change_Plan_Downgrade + " does not exist", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Change_Plan_Downgrade));
             TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_Promotion + " does not exist",
                     localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Promotion) >= 1 && localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Promotion) <= 2);
-            TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_Failed_Status + " does not exist",
-                    localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Failed_Status) == 1);
-            TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_Downgrade_Type + " does not exist",
-                    localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Downgrade_Type) == 1);
+            TestCase.assertEquals("Localytics of " + vz_strings.logs_Storage_Failed_Status + " does not exist", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Failed_Status));
+            TestCase.assertEquals("Localytics of " + vz_strings.logs_Storage_Downgrade_Type + " does not exist", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Downgrade_Type));
             TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_Source + " does not exist",
                     localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Source) >= 1 && localyticsHelper.getCountOf(logs, vz_strings.logs_Storage_Source) <= 2);
         } finally {

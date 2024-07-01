@@ -28,6 +28,6 @@ public class UserCreatedPlaylistDelete extends BaseTestClass {
         baseControlsHelper.openContext(vz_strings.context_delete);
         baseControlsHelper.clickOn("Yes");
         baseControlsHelper.waitForDismiss(vz_strings.toast_deletePlaylist);
-        TestCase.assertTrue("Playlist not deleted", baseControlsHelper.getCountById(playlist_name) == 0);
+        TestCase.assertEquals("Playlist not deleted", 0, baseControlsHelper.getCountById(playlist_name));
     }
 }

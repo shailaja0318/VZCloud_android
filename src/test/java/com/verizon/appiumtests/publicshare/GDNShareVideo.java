@@ -11,13 +11,23 @@ import org.testng.annotations.Test;
  */
 public class GDNShareVideo extends BaseTestClass {
 
+    int count=0;
+
     @Test
     public void testGDNShareVideo() throws Exception {
 
-
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        baseControlsHelper.clickOnNameLike("Video");
+        while(true){
+            try {
+                baseControlsHelper.clickOnElementByXpath(vz_strings.name_video_open);
+                break;
+            }catch (Exception e){
+                baseControlsHelper.swipe("up");
+                count++;
+                if(count==10) break;
+            }
+        }
         baseControlsHelper.clickOn(vz_strings.actionBar_share);
 
         TestCase.assertTrue("OK to Share Location? , not present", baseControlsHelper.getCountById(vz_strings.text_OkToShareLocation) != 0);

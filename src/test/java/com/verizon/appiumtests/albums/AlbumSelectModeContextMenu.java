@@ -14,10 +14,10 @@ public class AlbumSelectModeContextMenu extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_albums);
         precondition.createAlbum();
-        gridView.tapFolderInSelectMode10("Photos albums folder");
+        photosAndVideosView.openAlbum();
         baseControlsHelper.openContext(null);
 
         TestCase.assertTrue("Options missing ",
-                contextualMenu.verifyOptions(vz_strings.DataType.PHOTO, vz_strings.view_photoAlbum, true));
+                contextualMenu.verifyOptions(null, vz_strings.view_insideAlbum, true));
     }
 }

@@ -21,8 +21,7 @@ public class BackUpPhotosYes extends BaseTestClass {
         TestCase.assertTrue("Localytics of " + vz_strings.logs_whatToBackupModification + " does not exist",
                 localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_whatToBackupModification) >= 1
                         && localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_whatToBackupModification) <= 2);
-        TestCase.assertTrue(vz_strings.logs_whatToBackupPhotos + " does not exist",
-                localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_whatToBackupPhotos + "\"" + " = " + vz_strings.logs_yes) == 1);
+        TestCase.assertEquals(vz_strings.logs_whatToBackupPhotos + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_whatToBackupPhotos + "\"" + " = " + vz_strings.logs_yes));
     }
 }
 

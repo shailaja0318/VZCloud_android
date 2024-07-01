@@ -37,14 +37,17 @@ public class ContextualMenu {
 			} else if (view.equals(vz_strings.view_photoFull)) {
 
 				mList.add(vz_strings.context_createStory);
+				mList.add(vz_strings.context_makePrivate);
+				mList.add(vz_strings.context_editPhoto);
+				mList.add(vz_strings.context_printAndGifts);
 				mList.add(vz_strings.context_info);
-				mList.add(vz_strings.context_delete);
+
 
 			} else if (view.equals(vz_strings.view_videoFull)) {
 
 				mList.add(vz_strings.context_topActionBarcreateStory);
 				mList.add(vz_strings.context_info);
-				mList.add(vz_strings.context_delete);
+				mList.add(vz_strings.context_makePrivate);
 
 			} else if (view.equals(vz_strings.view_photoAlbum)) {
 
@@ -57,43 +60,37 @@ public class ContextualMenu {
 
 			} else if (view.equals(vz_strings.view_insideAlbum)) {
 
-				mList.add(vz_strings.context_createStory);
-				mList.add(vz_strings.context_editPhoto);
-				mList.add(vz_strings.context_download);
-				mList.add(vz_strings.context_addToAlbum);
-				mList.add(vz_strings.context_removeFromAlbum);
-				mList.add(vz_strings.context_addFavorite);
+				mList.add(vz_strings.context_createPhotoBook);
+				mList.add(vz_strings.context_printAndGifts);
+				mList.add(vz_strings.context_select);
+				mList.add(vz_strings.context_addPhotoAndVideos);
 				mList.add(vz_strings.context_share);
-				mList.add(vz_strings.context_info);
-				mList.add(vz_strings.context_delete);
+				mList.add(vz_strings.context_rename);
+				mList.add(vz_strings.context_deleteAlbum);
 
 			} else if (view.equals(vz_strings.view_insideFavorite)) {
 
 				mList.add(vz_strings.context_createStory);
+				mList.add(vz_strings.context_makePrivate);
 				mList.add(vz_strings.context_editPhoto);
-				mList.add(vz_strings.context_download);
-				mList.add(vz_strings.context_addToAlbum);
-				mList.add(vz_strings.context_removeFavorite);
-				mList.add(vz_strings.context_share);
+				mList.add(vz_strings.context_playPuzzleGame);
+				mList.add(vz_strings.context_printAndGifts);
 				mList.add(vz_strings.context_info);
-				mList.add(vz_strings.context_delete);
 
 			} else if (view.equals(vz_strings.view_emptyAlbum)) {
-
-				mList.add(vz_strings.context_addPhotoAndVideos);
 				mList.add(vz_strings.context_deleteAlbum);
+
 			} else if (view.equals(vz_strings.view_Flashbacks)) {
 
-				mList.add(vz_strings.context_connectToATV);
 				mList.add(vz_strings.context_createStory);
-				mList.add(vz_strings.context_editPhoto);
-				mList.add(vz_strings.context_printShop);
-				mList.add(vz_strings.context_download);
-				mList.add(vz_strings.context_addToAlbum);
-				mList.add(vz_strings.context_addFavorite);
+				mList.add(vz_strings.context_createcollage);
+				mList.add(vz_strings.context_printAndGifts);
+				mList.add(vz_strings.context_select);
 				mList.add(vz_strings.context_share);
-				mList.add(vz_strings.context_info);
-				mList.add(vz_strings.context_delete);
+				mList.add(vz_strings.context_addToAlbum);
+				mList.add(vz_strings.context_addToPrintAlbum);
+				mList.add(vz_strings.context_download);
+
 			}
 		}
 		/**
@@ -103,21 +100,19 @@ public class ContextualMenu {
 
 			if (view.equals(vz_strings.view_musicAlbums)) {
 
-				mList.add(vz_strings.context_playSelected);
-				mList.add(vz_strings.context_addToPlaylist);
+				mList.add(vz_strings.context_select);
+				mList.add(vz_strings.context_sort);
 				mList.add(vz_strings.context_share);
-
-				mList.add(vz_strings.context_delete);
 
 			} else if (view.equals(vz_strings.view_musicSongs) || view.equals(vz_strings.view_insideMusicGenres)) {
 
-				mList.add(vz_strings.context_playSelected);
+				mList.add(vz_strings.context_showQueue);
 				mList.add(vz_strings.context_addToPlaylist);
 				mList.add(vz_strings.context_addFavorite);
 				mList.add(vz_strings.context_share);
-
 				mList.add(vz_strings.context_info);
 				mList.add(vz_strings.context_delete);
+				mList.add(vz_strings.context_makePrivate);
 
 			} else if (view.equals(vz_strings.view_musicPlaylists)) {
 
@@ -317,7 +312,7 @@ public class ContextualMenu {
 			list.remove(vz_strings.context_connectToATV);
 		}
 
-		if (multiSelect && list.contains(vz_strings.context_info)) {
+		if (multiSelect) {
 			list.remove(vz_strings.context_info);
 		}
 

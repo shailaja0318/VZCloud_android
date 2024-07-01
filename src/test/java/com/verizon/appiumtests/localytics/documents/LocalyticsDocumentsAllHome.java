@@ -15,7 +15,6 @@ public class LocalyticsDocumentsAllHome extends BaseTestClass {
         localyticsHelper.print(logs, vz_strings.logs_allDocuments);
         TestCase.assertTrue("Localytics of " + vz_strings.logs_allDocuments + " does not exist",
                 localyticsHelper.isExisted(logs, vz_strings.logs_allDocuments));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_allDocuments + " is not 1 in logs",
-                localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_allDocuments) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_allDocuments + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_allDocuments));
     }
 }

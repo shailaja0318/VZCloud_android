@@ -70,8 +70,11 @@ public class MusicView {
         if (baseControlsHelper.getCountById(vz_strings.view_musicFavorites) != 0) {
             //going in to playlist to select a song
             baseControlsHelper.clickOn(vz_strings.view_musicFavorites);
-            listView.clickOnAllElementsInMusicList(vz_strings.MusicView.Favorites);
-            baseControlsHelper.openContext(vz_strings.context_removeFavorite);
+         //   listView.clickOnAllElementsInMusicList(vz_strings.MusicView.Favorites);
+            baseControlsHelper.openContext(vz_strings.context_select);
+            baseControlsHelper.openContext("");
+            Thread.sleep(3000);
+            baseControlsHelper.clickOnElementByXpath(vz_strings.context_removeFavourite);
         }
     }
 
@@ -130,9 +133,7 @@ public class MusicView {
         baseControlsHelper.waitForShowByTypeAndLabel(elementType, elementLabel);
         System.out.println("Appium Helper Checking from music at " + elementType + " and " + elementLabel);
         String value = driver.findElement(AppiumBy.iOSNsPredicateString("wdType CONTAINS '" + elementType + "' AND wdLabel == '" + elementLabel + "'")).getAttribute("value");
-        if (value.equals("true"))
-            return true;
-        else return false;
+        return value.equals("true");
     }
 
 /*    public void uploadMusic(String fileName) throws Exception {

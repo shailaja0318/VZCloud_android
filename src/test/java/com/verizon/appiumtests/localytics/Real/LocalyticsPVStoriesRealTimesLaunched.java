@@ -19,9 +19,9 @@ public class LocalyticsPVStoriesRealTimesLaunched extends BaseTestClass{
 	  
 		String logs = localyticsHelper.getLogs();
 		localyticsHelper.print(logs, vz_strings.logs_realtimeView);
-		TestCase.assertTrue("Locaytics for "+vz_strings.logs_tagScreen+" is not 1 in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen +": "+ vz_strings.logs_realtimeView)==1);
+        TestCase.assertEquals("Locaytics for " + vz_strings.logs_tagScreen + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_realtimeView));
 		
 		localyticsHelper.print(logs, vz_strings.logs_realtimesLaunched);
-		TestCase.assertTrue("Localytics for "+ vz_strings.logs_tagEvent +" is not 1 in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent +": "+ vz_strings.logs_realtimesLaunched)==1);	  
+        TestCase.assertEquals("Localytics for " + vz_strings.logs_tagEvent + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_realtimesLaunched));
   }
 }

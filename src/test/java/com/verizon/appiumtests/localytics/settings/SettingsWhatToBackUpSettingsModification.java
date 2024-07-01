@@ -18,10 +18,9 @@ public class SettingsWhatToBackUpSettingsModification extends BaseTestClass {
             baseControlsHelper.clickOn(vz_strings.settings_whatToBackUp);
             settingsView.setWhatNotToBackUp(HelperUtilities.setArguments(vz_strings.settings_whatToBackUp_Contacts));
             String logs = localyticsHelper.getLogs();
-            TestCase.assertTrue("Localytics of " + vz_strings.navi_settings + " does not exists",
-                    localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.navi_settings + "") == 1);
-            TestCase.assertTrue("Localytics of " + vz_strings.logs_whatToBackupModification + " does not exist", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_whatToBackupModification) == 1);
-            TestCase.assertTrue(vz_strings.logs_whatToBackupContacts + " does not exist", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_whatToBackupContacts + "\"" + " = " + vz_strings.logs_no) == 1);
+            TestCase.assertEquals("Localytics of " + vz_strings.navi_settings + " does not exists", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.navi_settings));
+            TestCase.assertEquals("Localytics of " + vz_strings.logs_whatToBackupModification + " does not exist", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_whatToBackupModification));
+            TestCase.assertEquals(vz_strings.logs_whatToBackupContacts + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_whatToBackupContacts + "\"" + " = " + vz_strings.logs_no));
         } finally {
             settingsView.setWhatToBackUp(HelperUtilities.setArguments(vz_strings.settings_whatToBackUp_Contacts, vz_strings.settings_whatToBackUp_Photos, vz_strings.settings_whatToBackUp_Videos));
         }

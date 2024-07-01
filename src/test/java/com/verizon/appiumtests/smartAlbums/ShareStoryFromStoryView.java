@@ -19,7 +19,7 @@ public class ShareStoryFromStoryView extends BaseTestClass {
         baseControlsHelper.waitForDismiss(vz_strings.toast_creatingSocialShareLink);
         baseControlsHelper.waitForShow("Cancel");
 
-        TestCase.assertTrue("Message not seen", baseControlsHelper.getCountById("Message") > 0);
+        TestCase.assertTrue(baseControlsHelper.getCountById("Cancel") > 0);
 
     }
 }

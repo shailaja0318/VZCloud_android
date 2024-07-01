@@ -143,16 +143,15 @@ public class MailMessageSample {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("-------------------------------------\n");
-        sb.append("FROM: " + getFrom() + "\n");
-        sb.append("TO: " + getTo() + "\n");
-        sb.append("Subject: " + getSubject() + "\n");
-        sb.append("Send Date: " + getSendDate() + "\n");
-        sb.append("Flags: " + getFlags() + "\n");
-        sb.append("Messages: " + getContent() + "\n");
-        sb.append("-------------------------------------\n");
-        return sb.toString();
+        String sb = "-------------------------------------\n" +
+                "FROM: " + getFrom() + "\n" +
+                "TO: " + getTo() + "\n" +
+                "Subject: " + getSubject() + "\n" +
+                "Send Date: " + getSendDate() + "\n" +
+                "Flags: " + getFlags() + "\n" +
+                "Messages: " + getContent() + "\n" +
+                "-------------------------------------\n";
+        return sb;
     }
 }
 

@@ -46,14 +46,14 @@ public class ListView {
         int count = baseControlsHelper.getCountByNameContains("section - 0");
         baseControlsHelper.openContext(vz_strings.context_select);
         for (int i = 0; i < num && i < count; i++ ){
-            baseControlsHelper.clickOnNameContains("section - 0, row - "+i+"");
+            baseControlsHelper.clickOnNameContains("section - 0, row - "+i);
         }
     }
 
     public void clickOnAllElementsInMusicList(vz_strings.MusicView mType) throws Exception {
         baseControlsHelper.openContext(vz_strings.context_select);
         String thisMusicType = selectMusicView(mType);
-        list = (List) driver.findElement(AppiumBy.iOSNsPredicateString("wdType LIKE \'XCUIElementTypeCell\' AND wdName CONTAINS \'" + thisMusicType + "\'"));
+        list = (List) driver.findElement(AppiumBy.iOSNsPredicateString("wdType LIKE 'XCUIElementTypeCell' AND wdName CONTAINS '" + thisMusicType + "'"));
         ArrayList<String> newlist = new ArrayList<>();
 
         for (int i = 0; i < list.size(); i++) {
@@ -119,7 +119,7 @@ public class ListView {
         int count = 0;
         //increase detection accuracy.
         for (int i = 0; i < 2; i++)
-            count = driver.findElements(MobileBy.iOSNsPredicateString("wdName CONTAINS \'section - " + section + "\'")).size();
+            count = driver.findElements(MobileBy.iOSNsPredicateString("wdName CONTAINS 'section - " + section + "'")).size();
         return count;
     }
 
@@ -173,7 +173,7 @@ public class ListView {
     private List<WebElement> getItemsRecursive(int section) {
         List<WebElement> list = new ArrayList<>();
         if (this.getCountInSection(section) == 0) return list;
-        list = driver.findElements(AppiumBy.iOSNsPredicateString("wdName CONTAINS 'section - " + section + "\'"));
+        list = driver.findElements(AppiumBy.iOSNsPredicateString("wdName CONTAINS 'section - " + section + "'"));
         list.addAll(getItemsRecursive(section + 1));
         return list;
     }
@@ -187,7 +187,7 @@ public class ListView {
      */
     public List<WebElement> getFavoriteElements() {
     	if(this.hasFavorites())
-    		list = driver.findElements(AppiumBy.iOSNsPredicateString("wdName CONTAINS \'section - 0\'"));
+    		list = driver.findElements(AppiumBy.iOSNsPredicateString("wdName CONTAINS 'section - 0'"));
     	return list;
     }
     
@@ -221,7 +221,7 @@ public class ListView {
         baseControlsHelper.openContext(vz_strings.context_info);
         String after = baseControlsHelper.infoItems(infotype);
         baseControlsHelper.tapOnBackButton();
-        String ar[] = new String[2];
+        String[] ar = new String[2];
         ar[0] = before;
         ar[1] = after;
         return ar;
@@ -256,7 +256,7 @@ public class ListView {
 
     //list view item contains icon such as menu_active_indicator.png or favorites.png
     public int itemContainsIconCount(String item, String iconName) throws Exception {
-    	WebElement element = driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS \'" +  item + "\' AND type == \'XCUIElementTypeCell\'"));
+    	WebElement element = driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS '" +  item + "' AND type == 'XCUIElementTypeCell'"));
         List<WebElement> icons = element.findElements(AppiumBy.accessibilityId(iconName));
         return icons.size();
     }

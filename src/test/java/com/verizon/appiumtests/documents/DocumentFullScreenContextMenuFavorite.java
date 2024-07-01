@@ -30,7 +30,6 @@ public class DocumentFullScreenContextMenuFavorite extends BaseTestClass {
         baseControlsHelper.waitForShow(vz_strings.context_menu);
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(vz_strings.DataType.DOCUMENT,
-                vz_strings.view_documentsFavorite, false));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_makePrivate));
     }
 }

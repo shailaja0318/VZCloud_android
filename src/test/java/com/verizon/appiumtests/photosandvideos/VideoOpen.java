@@ -14,13 +14,10 @@ public class VideoOpen extends BaseTestClass {
 
     @Test
     public void testOpenVideo() throws Exception {
-
-
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
         baseControlsHelper.clickOnLabelLike(vz_strings.name_video);
+        TestCase.assertTrue("video" ,baseControlsHelper.isVisible(vz_strings.button_videoPlay));
         photosAndVideosView.playVideo();
-        baseControlsHelper.waitForShow("Play/Pause");
-        TestCase.assertTrue("Video is not open", baseControlsHelper.getCountById(vz_strings.name_video) != 0);
     }
 }

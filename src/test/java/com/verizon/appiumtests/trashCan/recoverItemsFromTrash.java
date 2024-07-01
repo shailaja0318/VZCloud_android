@@ -33,7 +33,7 @@ public class recoverItemsFromTrash extends BaseTestClass {
       int count2 = gridView.getAlbumContentCount();
       
       if (count2==count1) {
-          TestCase.assertTrue("Photo is not revovered back to ALbums from Trashcan, before count: " + count + ", after recover count:" + count2, count2 == count);
+          TestCase.assertEquals("Photo is not revovered back to ALbums from Trashcan, before count: " + count + ", after recover count:" + count2, count2, count);
       } else {
           TestCase.assertTrue("Album still empty", gridView.getAlbumContentCount() != 0);
       }

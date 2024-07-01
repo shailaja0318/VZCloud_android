@@ -10,7 +10,7 @@ public class ConnectedApps extends BaseTestClass {
     @Test
     public void testConnectedApps() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_settings);
-        baseControlsHelper.clickOn(vz_strings.navi_appsUsingCloud);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.navi_connectedApps);
         baseControlsHelper.waitForShow(vz_strings.auc_appsusingcloud);
         TestCase.assertTrue("Apps Using Cloud heading missing? ", baseControlsHelper.getCountById(vz_strings.auc_appsusingcloud) > 0);
     }

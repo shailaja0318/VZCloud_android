@@ -23,13 +23,17 @@ public class SettingsView {
 
     public void setWhatToBackUp(List<String> options) throws Exception {
     	Thread.sleep(2000);
-        baseControlsHelper.clickOn(vz_strings.settings_whatToBackUp);
+      //  baseControlsHelper.clickOn(vz_strings.settings_whatToBackUp);
+        System.out.println(options);
+        System.out.println(baseControlsHelper.getCountByXpath("//*[@type='XCUIElementTypeSwitch']"));
         System.out.println("***** i Options SIZE*****" +options.size());
         for (int i = 0; i < options.size(); i++) {
-            for (int j = 0; j < baseControlsHelper.getCountByClassName("XCUIElementTypeSwitch"); j++) {
-                if (options.get(i).contentEquals(baseControlsHelper.getNameByIndexfromClassName(j, "XCUIElementTypeSwitch"))) {
-                    if (Integer.parseInt(baseControlsHelper.getValueByIndexfromClassName(j, "XCUIElementTypeSwitch")) != 1) {
-                        baseControlsHelper.clickOnByIndexFromClassName(i, "XCUIElementTypeSwitch");
+            for (int j = 0; j < baseControlsHelper.getCountByXpath("//*[@type='XCUIElementTypeSwitch']"); j++) {
+                if (options.get(i).contentEquals(baseControlsHelper.getTypeByIndexfromXpath
+                        (j, "//*[@type='XCUIElementTypeSwitch']"))) {
+                    if (Integer.parseInt(baseControlsHelper.getValueByIndexfromXpath
+                            (j, "//*[@type='XCUIElementTypeSwitch']")) != 1) {
+                        baseControlsHelper.clickOnByIndexFromXpath(i, "//*[@type='XCUIElementTypeSwitch']");
                     }
                 }
             }
@@ -37,12 +41,13 @@ public class SettingsView {
     }
 
     public void setWhatNotToBackUp(List<String> options) throws Exception {
-        baseControlsHelper.clickOn(vz_strings.settings_whatToBackUp);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.setting_uploadSettings);
         for (int i = 0; i < options.size(); i++) {
-            for (int j = 0; j < baseControlsHelper.getCountByClassName("XCUIElementTypeSwitch"); j++) {
-                if (options.get(i).contentEquals(baseControlsHelper.getNameByIndexfromClassName(j, "XCUIElementTypeSwitch"))) {
-                    if (Integer.parseInt(baseControlsHelper.getValueByIndexfromClassName(j, "XCUIElementTypeSwitch")) != 0)
-                        baseControlsHelper.clickOnByIndexFromClassName(i, "XCUIElementTypeSwitch");
+            for (int j = 0; j < baseControlsHelper.getCountByXpath("//*[@type='XCUIElementTypeSwitch']"); j++) {
+                if (options.get(i).contentEquals(baseControlsHelper.
+                        getTypeByIndexfromXpath(j, "//*[@type='XCUIElementTypeSwitch']"))) {
+                    if (Integer.parseInt(baseControlsHelper.getValueByIndexfromXpath(j, "//*[@type='XCUIElementTypeSwitch']")) != 0)
+                        baseControlsHelper.clickOnByIndexFromXpath(i, "//*[@type='XCUIElementTypeSwitch']");
                 }
             }
         }
@@ -133,9 +138,20 @@ public class SettingsView {
     }
 
     public boolean verifyDisplayOfBackUpOptions() throws Exception {
-        return baseControlsHelper.isDisplayedByNameAndType("Contacts","XCUIElementTypeSwitch") &&
-                baseControlsHelper.isDisplayedByNameAndType("Photos","XCUIElementTypeSwitch") &&
-                baseControlsHelper.isDisplayedByNameAndType("Videos","XCUIElementTypeSwitch");
+        return baseControlsHelper.isDisplayedByNameAndType
+                ("Contacts","XCUIElementTypeSwitch") &&
+                baseControlsHelper.isDisplayedByNameAndType
+                        ("Photos","XCUIElementTypeSwitch") &&
+                baseControlsHelper.isDisplayedByNameAndType
+                        ("Videos","XCUIElementTypeSwitch");
+    }
+
+    public boolean verifyDisplayOfBackUpOptionsByIndex() throws Exception {
+        return baseControlsHelper.clickOnByIndexFromXpath("XCUIElementTypeSwitch") &&
+                baseControlsHelper.clickOnByIndexFromXpath
+                        ("XCUIElementTypeSwitch") &&
+                baseControlsHelper.clickOnByIndexFromXpath
+                        ("XCUIElementTypeSwitch");
     }
 
 

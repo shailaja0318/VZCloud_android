@@ -21,8 +21,7 @@ public class LocalyticsMusicSongInfo extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         TestCase.assertTrue("Localytics of " + vz_strings.logs_musicSongs + " does not exist",
                 localyticsHelper.isExisted(logs, vz_strings.logs_musicSongs));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_musicSongs + " is not 1 in logs",
-                localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicSongs) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_musicSongs + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicSongs));
         localyticsHelper.print(logs, vz_strings.logs_musicSongs);
     }
 }

@@ -26,7 +26,7 @@ public class SelectNewStoragePlan extends BaseTestClass {
                 settingsView.upgradeStorageToOneTB();
                 storagePlan = true;
             }
-            TestCase.assertTrue("Storage plan not changes", !settingsView.getCurrentStoragePlan().equalsIgnoreCase(currentPlan));
+            TestCase.assertFalse("Storage plan not changes", settingsView.getCurrentStoragePlan().equalsIgnoreCase(currentPlan));
         } finally {
             if (storagePlan)
                 settingsView.downgradeStorageTo500GB();

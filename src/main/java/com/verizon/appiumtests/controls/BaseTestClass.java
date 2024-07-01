@@ -9,7 +9,7 @@ import static com.verizon.appiumtests.driver.BaseDriver.launchApp;
 import static com.verizon.appiumtests.driver.BaseDriver.quitDriver;
 
 public class BaseTestClass extends AppiumBaseClass {
-	//public class BaseTestClass extends BaseMediaTest {
+    //public class BaseTestClass extends BaseMediaTest {
 
     protected BaseControlsHelper baseControlsHelper;
     protected AllFilesView allFilesView;
@@ -33,7 +33,7 @@ public class BaseTestClass extends AppiumBaseClass {
     public void setUp() throws Exception {
         System.out.println(getClass().getSimpleName());
         launchApp();
-       
+
         baseControlsHelper = new BaseControlsHelper(driver());
         allFilesView = new AllFilesView(driver());
         contextualMenu = new ContextualMenu(driver());
@@ -52,34 +52,41 @@ public class BaseTestClass extends AppiumBaseClass {
         nativeIosAppsView = new NativeIosAppsView(driver());
         contactsView = new ContactsView(driver());
     }
-	/*
-	 * @AfterTest(alwaysRun = true) public void close() throws Exception {
-	 * BaseDriver.closeApp(); }
-	 */
-   
-    @AfterTest (alwaysRun = true)
+    /*
+     * @AfterTest(alwaysRun = true) public void close() throws Exception {
+     * BaseDriver.closeApp(); }
+     */
+
+    @AfterTest(alwaysRun = true)
     public void quiSession() throws Exception {
-    	//BaseDriver.captureLog(getClass().getSimpleName());
+        //BaseDriver.captureLog(getClass().getSimpleName());
         quitDriver();
-    	
+        //  BaseDriver.terminateApp("com.synchronoss.vz.cloud");
+
     }
+
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
-    	BaseDriver.terminateApp("com.synchronoss.vz.cloud");
+        BaseDriver.terminateApp("com.synchronoss.vz.cloud");
     }
 
     @BeforeSuite
     public void beforeSuite() throws Exception {
-       // killAllNode();
-       // setupDevice();
+        // killAllNode();
+        // setupDevice();
         //setupSimulator();
-       // buildAppiumService();
-       // startAppiumServer();
+        // buildAppiumService();
+        // startAppiumServer();
     }
 
     @AfterSuite
     public void afterSuite() throws Exception {
         stopAppiumServer();
+    }
+
+    @AfterMethod
+    public void closeApp() {
+        BaseDriver.terminateApp("com.synchronoss.vz.cloud");
     }
 }
 

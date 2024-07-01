@@ -23,12 +23,10 @@ public class ABSavedStoryShare extends BaseTestClass{
 		String logs = localyticsHelper.getLogs();
 		localyticsHelper.print(logs, vz_strings.LOGS_SHARE_SEND_CONTENT);
 
-		TestCase.assertTrue(vz_strings.LOGS_SHARE_SEND_CONTENT + " is not 1 in logs",
-				localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.LOGS_SHARE_SEND_CONTENT) == 1);
+        TestCase.assertEquals(vz_strings.LOGS_SHARE_SEND_CONTENT + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.LOGS_SHARE_SEND_CONTENT));
 
-		TestCase.assertTrue(vz_strings.logs_shareContentSize + " does not exist",
-				localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_shareContentSize + "\"") == 1);
-		TestCase.assertTrue("Localytics of "+vz_strings.logs_source+" does not exits", localyticsHelper.getPatternMatch(logs, vz_strings.logs_source +" = \"" + vz_strings.logs_storyDetail+ "\"")==1);
+        TestCase.assertEquals(vz_strings.logs_shareContentSize + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_shareContentSize + "\""));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_source + " does not exits", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_source + " = \"" + vz_strings.logs_storyDetail + "\""));
 		TestCase.assertTrue("Localytics of "+vz_strings.logs_target+" does not exits", localyticsHelper.getPatternMatch(logs, vz_strings.logs_target +" = \""+ vz_strings.logs_NotApplicable+"\"")>0);	  
 
 	}

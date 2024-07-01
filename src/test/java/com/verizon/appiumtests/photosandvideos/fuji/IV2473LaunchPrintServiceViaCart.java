@@ -14,18 +14,26 @@ public class IV2473LaunchPrintServiceViaCart extends BaseTestClass {
 
     @Test
     public void testIV2473LaunchPrintServiceViaCart() throws Exception {
-
+// need to check the steps
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        baseControlsHelper.clickOn(vz_strings.button_cartIcon);
-        baseControlsHelper.waitForDismiss(vz_strings.spinner);
+        baseControlsHelper.waitForShow(vz_strings.context_menu);
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        baseControlsHelper.waitForShow(vz_strings.context_printAndGifts);
+        baseControlsHelper.clickOn(vz_strings.context_printAndGifts);
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.text_printsAndGifts));
+
         if (baseControlsHelper.getCountById(vz_strings.text_printsAndGifts) != 0) {
-            baseControlsHelper.clickOn(vz_strings.button_exit);
+            baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit_1);
             baseControlsHelper.clickOn(vz_strings.button_yes);
             baseControlsHelper.waitForShow(vz_strings.tab_all);
-            TestCase.assertTrue("Photos and Videos screen missing ", baseControlsHelper.isVisible(vz_strings.text_photosAndVideos));
+            baseControlsHelper.clickOn(vz_strings.tab_all);
+            baseControlsHelper.waitForShowByXpath(vz_strings.text_photosAndVideos);
+            TestCase.assertTrue("Photos and Videos screen missing ",
+                    baseControlsHelper.elementIsVisible(vz_strings.text_photosAndVideos));
         } else {
-            TestCase.assertTrue("Cart screen not found", ("Cart").equals(baseControlsHelper.getTextByNameContains("Cart")));
+            TestCase.assertEquals("Cart screen not found", ("Cart"),
+                    baseControlsHelper.getTextByNameContains("Cart"));
         }
     }
 }

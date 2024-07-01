@@ -23,13 +23,10 @@ public class MediaOpenPVAlbum extends BaseTestClass {
 		String logs = localyticsHelper.getLogs();
 		localyticsHelper.print(logs, vz_strings.logs_tagEvent);
 
-		TestCase.assertTrue(vz_strings.logs_mediaOpen + " is not 1 in logs",
-				localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaOpen) == 1);
+        TestCase.assertEquals(vz_strings.logs_mediaOpen + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaOpen));
 
-		TestCase.assertTrue(vz_strings.logs_mediaTypePhoto + " is not 1 in logs",
-				localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypePhotos) == 1);
+        TestCase.assertEquals(vz_strings.logs_mediaTypePhoto + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypePhotos));
 
-		TestCase.assertTrue(vz_strings.logs_photosVideosAll + " is not 1 in logs",
-				localyticsHelper.getPatternMatch(logs, vz_strings.logs_page + " = \"" + vz_strings.logs_photosVideosAlbums + "\"") == 1);
+        TestCase.assertEquals(vz_strings.logs_photosVideosAll + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_page + " = \"" + vz_strings.logs_photosVideosAlbums + "\""));
 	}
 }

@@ -23,13 +23,12 @@ public class ShareSendContentInMultiSelectMode extends BaseTestClass {
 		String logs = localyticsHelper.getLogs();
 		localyticsHelper.print(logs, vz_strings.LOGS_SHARE_SEND_CONTENT);
 
-		TestCase.assertTrue(vz_strings.LOGS_SHARE_SEND_CONTENT + " is not 1 in logs",
-				localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.LOGS_SHARE_SEND_CONTENT) == 1);
+        TestCase.assertEquals(vz_strings.LOGS_SHARE_SEND_CONTENT + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.LOGS_SHARE_SEND_CONTENT));
 
 		TestCase.assertTrue("Localytics of " + vz_strings.logs_shareContentSize + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_shareContentSize));
-		TestCase.assertTrue("Localytics of " + vz_strings.logs_shareContentType + " does not exist", localyticsHelper.getCountOf(logs, "\"" + vz_strings.logs_shareContentType + "\"" + " = " + vz_strings.logs_mediaTypePhotos) == 1);
-		TestCase.assertTrue("Localytics of " + vz_strings.logs_shareItemShared + " does not exist", localyticsHelper.getCountOf(logs, "\"" + vz_strings.logs_shareItemShared + "\"" + " = " + "2") == 1);
-		TestCase.assertTrue("Localytics of "+vz_strings.logs_source+" does not exits", localyticsHelper.getPatternMatch(logs, vz_strings.logs_source +" = \"" + vz_strings.logs_NotApplicable+ "\"")==1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_shareContentType + " does not exist", 1, localyticsHelper.getCountOf(logs, "\"" + vz_strings.logs_shareContentType + "\"" + " = " + vz_strings.logs_mediaTypePhotos));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_shareItemShared + " does not exist", 1, localyticsHelper.getCountOf(logs, "\"" + vz_strings.logs_shareItemShared + "\"" + " = " + "2"));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_source + " does not exits", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_source + " = \"" + vz_strings.logs_NotApplicable + "\""));
 		TestCase.assertTrue("Localytics of "+vz_strings.logs_target+" does not exits", localyticsHelper.getPatternMatch(logs, vz_strings.logs_target +" = \""+ vz_strings.logs_NotApplicable+"\"")>0);	  
 
     }

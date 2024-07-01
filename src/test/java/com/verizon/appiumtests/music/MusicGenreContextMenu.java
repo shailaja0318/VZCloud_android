@@ -14,6 +14,6 @@ public class MusicGenreContextMenu extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_genres);
 
-        TestCase.assertTrue("Context menu is found ", baseControlsHelper.getCountById(vz_strings.context_menu) == 0);
+        TestCase.assertEquals("Context menu is found ", 0, baseControlsHelper.getCountById(vz_strings.context_menu));
     }
 }

@@ -47,7 +47,7 @@ public class BaseDriver {
 			XCUITestOptions options = new XCUITestOptions();
 			options.setDeviceName(vz_strings.Vz_configs.DEVICE_NAME);
 			options.setPlatformVersion(vz_strings.Vz_configs.PLATFORM_VERSION);
-			options.setWdaLaunchTimeout(Duration.ofSeconds(20));
+			options.setWdaLaunchTimeout(Duration.ofSeconds(200));
 			options.setCapability("xcodeOrgId", "QBAM5SN9DR");
 			options.setCapability("xcodeSigningId", "iPhone Developer");
 			options.setCapability("udid", vz_strings.Vz_configs.UDID);
@@ -182,7 +182,7 @@ public class BaseDriver {
 
 	public static final void runAppInBackground(int duration) {
 
-		((IOSDriver) driver).runAppInBackground(Duration.ofSeconds(duration));
+		driver.runAppInBackground(Duration.ofSeconds(duration));
 	}
 
 	public static String takeScreenshotAppium(String screenshotPath, String imageName) {
@@ -192,7 +192,7 @@ public class BaseDriver {
 		try {
 			FileUtils.copyFile(srcFile, dstFile, true);
 			if (!srcFile.delete()) {
-				logger.error(String.format("Failed to delete source file (%s)", srcFile.toString()));
+				logger.error(String.format("Failed to delete source file (%s)", srcFile));
 			}
 		} catch (IOException e) {
 			logger.error(e);

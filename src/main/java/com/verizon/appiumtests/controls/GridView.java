@@ -34,7 +34,7 @@ public class GridView {
 
     public void tapItem(vz_strings.DataType DataType) throws Exception {
        // baseControlsHelper.clickOnNameLike(selectDataTypeSwitch(DataType));
-        baseControlsHelper.clickOnLabelLike(selectDataTypeSwitch(DataType));
+        baseControlsHelper.clickOnElementByXpath(selectDataTypeSwitch(DataType));
         
     }
 
@@ -42,7 +42,14 @@ public class GridView {
         baseControlsHelper.clickOn(vz_strings.context_menu);
         baseControlsHelper.clickOn(vz_strings.context_select);
         baseControlsHelper.waitForContent();
-        baseControlsHelper.clickOnLabelLike(selectDataTypeSwitch(DataType));
+        baseControlsHelper.clickOnElementByXpath(selectDataTypeSwitch(DataType));
+    }
+
+    public void tapItemInSelectModeByXpath(vz_strings.DataType DataType) throws Exception {
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        baseControlsHelper.clickOn(vz_strings.context_select);
+        baseControlsHelper.waitForContent();
+        baseControlsHelper.clickOnElementByXpath(selectDataTypeSwitch(DataType));
     }
 
     public String selectDataTypeSwitch(vz_strings.DataType DataType) {
@@ -99,7 +106,7 @@ public class GridView {
         ArrayList<String> list = baseControlsHelper.getListOfAttrLabel(index, type);
         
         for (int i = 0; i < index; i++) {
-            baseControlsHelper.clickOnLabelContains(list.get(i).toString());
+            baseControlsHelper.clickOnElementByDynamicXpath(list.get(i), i);
         }
     }
 

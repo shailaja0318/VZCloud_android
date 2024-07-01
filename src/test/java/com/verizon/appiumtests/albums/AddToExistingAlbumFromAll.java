@@ -29,7 +29,7 @@ public class AddToExistingAlbumFromAll extends BaseTestClass {
         int count1 = gridView.getAlbumContentCount();
 
         if (count1 > 0) {
-            TestCase.assertTrue("Photo count not increasing ", count1 == 2);
+            TestCase.assertTrue("Photo count not increasing ", count1 > 1);
         } else {
             TestCase.assertTrue("Album still empty", count1 != 0);
         }

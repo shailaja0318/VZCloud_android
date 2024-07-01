@@ -12,8 +12,10 @@ public class WhatToBackupScreen extends BaseTestClass {
     @Test
     public void testWhatToBackupScreen() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_settings);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.setting_uploadSettings);
         settingsView.setWhatToBackUp(HelperUtilities.setArguments("", vz_strings.settings_whatToBackUp_Photos));
-        TestCase.assertEquals("Background photo backup option not displayed", true, baseControlsHelper.isVisible(vz_strings.settings_WhatToBackUp_BackGroundPhotoBackUp));
+        TestCase.assertTrue("Background photo backup option not displayed",
+                baseControlsHelper.isVisible(vz_strings.settings_WhatToBackUp_BackGroundPhotoBackUp));
         TestCase.assertEquals("Toggle is not enabled", "1", baseControlsHelper.getValueByIndexfromClassName(3, "XCUIElementTypeSwitch"));
 		/*
 		 * TestCase.assertEquals(vz_strings.settings_WhatToBackUp_CloudBackupPhotosText

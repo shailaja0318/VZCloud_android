@@ -23,13 +23,10 @@ public class LocalyticsDocumentSort4 extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_sortMedia);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_sortMedia + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_sortMedia) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_sortMedia + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_sortMedia));
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaType + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypeDocument) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaType + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypeDocument));
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_sortOption + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_sortOption + "\"" + " = " + newPickerValue ) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_sortOption + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_sortOption + "\"" + " = " + newPickerValue));
     }
 }

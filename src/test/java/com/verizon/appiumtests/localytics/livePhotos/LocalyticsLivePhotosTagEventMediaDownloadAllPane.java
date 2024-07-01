@@ -21,7 +21,7 @@ public class LocalyticsLivePhotosTagEventMediaDownloadAllPane extends BaseTestCl
             localyticsHelper.print(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaDownload);
             TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaDownload + " does not exist", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaDownload) > 0);
             TestCase.assertTrue("Localytics of " + vz_strings.logs_count + " is not 1 in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_count + " = " + "1") > 0);
-            TestCase.assertTrue(vz_strings.logs_mediaType + " does not exist", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + "\"" + vz_strings.name_livePhoto + "\"") == 1);
+        TestCase.assertEquals(vz_strings.logs_mediaType + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + "\"" + vz_strings.name_livePhoto + "\""));
        
     }
 }

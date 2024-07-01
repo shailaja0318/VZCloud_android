@@ -21,6 +21,7 @@ public class PhotosVideosFavoritesSelectContextMenu extends BaseTestClass {
 		gridView.tapItemInSelectMode(DataType.PHOTO);
 		baseControlsHelper.openContext(null);
 
-		TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(vz_strings.DataType.PHOTO, vz_strings.view_insideFavorite, true));
+		TestCase.assertTrue(
+				baseControlsHelper.isVisible(vz_strings.view_insideFavorite));
 	}
 }

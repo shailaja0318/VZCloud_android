@@ -12,13 +12,14 @@ public class WithinAlbumSelect extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_albums);
         preCondition();
-        baseControlsHelper.clickOn("Photos albums folder");
+        baseControlsHelper.clickOnElementByXpath(vz_strings.photos_albumFolder);
         PreConditionData();
-        gridView.tapItemInSelectMode(vz_strings.DataType.PHOTO);
-        photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_icon_printShop);
+        gridView.tapItemInSelectModeByXpath(vz_strings.DataType.PHOTO);
+        photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_createStory);
         baseControlsHelper.waitForDismiss(vz_strings.spinner);
-        baseControlsHelper.clickOn(vz_strings.button_exit);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit_1);
         baseControlsHelper.clickOn(vz_strings.button_yes);
+        baseControlsHelper.tapOnBackButton();
         baseControlsHelper.tapOnBackButton();
         baseControlsHelper.waitForShow(vz_strings.tab_albums);
     }
@@ -36,7 +37,7 @@ public class WithinAlbumSelect extends BaseTestClass {
         if (baseControlsHelper.getCountById(vz_strings.empty_albumTitle) > 0) {
             photosAndVideosView.addItemFromAlbum(vz_strings.DataType.PHOTO);
             baseControlsHelper.waitForShow(vz_strings.context_menu);
-            baseControlsHelper.clickOn("Photos albums folder");
+          //  baseControlsHelper.clickOn("Photos albums folder");
         }
         System.out.println("--End PreconditionData--");
     }

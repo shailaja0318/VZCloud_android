@@ -18,7 +18,6 @@ public class LocalyticsTools extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagScreen);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_tools + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_tools) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_tools + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_tools));
     }
 }

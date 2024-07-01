@@ -120,7 +120,8 @@ public class AllFilesView {
 
     public void search(String content) throws Exception {
         if (content != null) {
-            baseControlsHelper.setValuetoTextFieldByName(content, vz_strings.allFile_searchBar);
+            baseControlsHelper.clickOn(vz_strings.searchIcon);
+            baseControlsHelper.setValuetoTextFieldByName(content, vz_strings.searchIcon);
         }
     }
 
@@ -131,10 +132,7 @@ public class AllFilesView {
         current.toArray(currentarray);
         Arrays.sort(actualarray);
         Arrays.sort(currentarray);
-        if (Arrays.equals(actualarray, currentarray)) {
-            return true;
-        }
-        return false;
+        return Arrays.equals(actualarray, currentarray);
 
     }
 

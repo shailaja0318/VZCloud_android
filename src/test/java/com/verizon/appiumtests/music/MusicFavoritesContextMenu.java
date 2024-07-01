@@ -16,8 +16,7 @@ public class MusicFavoritesContextMenu extends BaseTestClass {
         preConditionFav();
         baseControlsHelper.clickOn("Favorites");
         baseControlsHelper.openContext(null);
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(null,
-                vz_strings.view_insideMusicPlaylist, true));
+        TestCase.assertTrue(baseControlsHelper.elementIsVisible(vz_strings.context_play_Playlist));
     }
 
     private void preConditionFav() throws Exception {

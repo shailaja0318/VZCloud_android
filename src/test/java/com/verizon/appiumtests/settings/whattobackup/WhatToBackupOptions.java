@@ -21,10 +21,12 @@ public class WhatToBackupOptions extends BaseTestClass {
     public void testWhatToBackupOptions() throws Exception {
         logger.info("*****Start Test*****");
         homeScreenView.navigateTo(vz_strings.navi_settings);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.setting_uploadSettings);
         settingsView.setWhatToBackUp(HelperUtilities.setArguments("", vz_strings.settings_whatToBackUp_Photos));
         logger.info("Photo backup option enabled");
-        TestCase.assertEquals("Backup options not displayed ", true, settingsView.verifyDisplayOfBackUpOptions());
-        TestCase.assertEquals("Background photo backup option not displayed", true,
+        TestCase.assertTrue("Backup options not displayed ",
+                settingsView.verifyDisplayOfBackUpOptionsByIndex());
+        TestCase.assertTrue("Background photo backup option not displayed",
                 baseControlsHelper.isVisible(vz_strings.settings_WhatToBackUp_BackGroundPhotoBackUp));
         logger.info("*****End Test*****");
     }

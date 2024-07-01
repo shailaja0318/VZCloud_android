@@ -26,8 +26,8 @@ public class VZNFT14RestoreFlowStep extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_restoreFlowStep);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_contentRestoreListItemClick + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_contentRestoreListItemClick) == 1);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_contentRestoreButtonClick + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_contentRestoreButtonClick) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_contentRestoreListItemClick + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_contentRestoreListItemClick));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_contentRestoreButtonClick + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_contentRestoreButtonClick));
         reset();
 
     }

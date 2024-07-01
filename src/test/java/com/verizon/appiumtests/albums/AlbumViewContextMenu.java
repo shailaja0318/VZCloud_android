@@ -16,6 +16,10 @@ public class AlbumViewContextMenu extends BaseTestClass {
         precondition.createAlbum();
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(null, vz_strings.view_photoAlbum, false));
+        TestCase.assertTrue("Print & Gift is missing ",
+                baseControlsHelper.elementIsVisible(vz_strings.context_album_print_gift));
+        TestCase.assertTrue("Select is missing", baseControlsHelper.elementIsVisible(vz_strings.context_albumSelect));
+        TestCase.assertTrue("New ALbum is missing", baseControlsHelper.elementIsVisible(vz_strings.context_albumNewAlbum));
+        TestCase.assertTrue("Sort is missing", baseControlsHelper.elementIsVisible(vz_strings.context_albumSort));
     }
 }

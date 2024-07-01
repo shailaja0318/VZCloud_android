@@ -9,8 +9,6 @@ public class CloudMusicPlayerQueue extends BaseTestClass {
 
     @Test
     public void testCloudMusicPlayerQueue() throws Exception {
-
-
         homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_playlists);
         preConditionPl();

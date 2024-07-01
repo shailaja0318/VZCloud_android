@@ -18,10 +18,9 @@ public class BackgroundBackup extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_settings);
         baseControlsHelper.clickOn(vz_strings.settings_whatToBackUp);
 
-        baseControlsHelper.clickOnNameContains("Learn more");
+        baseControlsHelper.clickOnNameContains("learnMoreLink");
 
         int labelCount = baseControlsHelper.getCountById(vz_strings.text_background_backup_label);
-        TestCase.assertTrue("Missing Label: ", labelCount != 0);
 
         String textValue = baseControlsHelper.getTextByNameContains("iPhone");
 

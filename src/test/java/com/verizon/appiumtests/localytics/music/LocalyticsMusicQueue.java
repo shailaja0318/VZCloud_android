@@ -20,7 +20,6 @@ public class LocalyticsMusicQueue extends BaseTestClass {
         localyticsHelper.print(logs, vz_strings.logs_mediaType);
         localyticsHelper.print(logs, vz_strings.logs_tagScreen);
 
-        TestCase.assertTrue(vz_strings.logs_musicArtistSongs + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicQueue) == 1);
+        TestCase.assertEquals(vz_strings.logs_musicArtistSongs + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicQueue));
     }
 }

@@ -16,8 +16,8 @@ public class PhotoFullViewCreateNewAlbum extends BaseTestClass {
       photosAndVideosView.selectTab(vz_strings.tab_albums);
       precondition.deleteAllAlbums();
       photosAndVideosView.selectTab(vz_strings.tab_all);
-      baseControlsHelper.clickOnLabelLike(vz_strings.name_photo);
-      baseControlsHelper.clickOn(vz_strings.actionBar_AddToAlbum);
+      baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
+      baseControlsHelper.clickOnElementByXpath(vz_strings.actionBar_AddToAlbum_xpath);
       photosAndVideosView.createAlbumFromAllView(vz_strings.create_newAlbumName);
       baseControlsHelper.tapOnBackButton();
       photosAndVideosView.selectTab(vz_strings.tab_albums);
@@ -25,7 +25,7 @@ public class PhotoFullViewCreateNewAlbum extends BaseTestClass {
       photosAndVideosView.openAlbum();
 
       int count1 = gridView.getAlbumContentCount();
-      TestCase.assertTrue("PV count not increasing, before count: " + 1 + ", after count:" + count1, count1 == 1);
+      TestCase.assertEquals("PV count not increasing, before count: " + 1 + ", after count:" + count1, 1, count1);
 
   }
 }

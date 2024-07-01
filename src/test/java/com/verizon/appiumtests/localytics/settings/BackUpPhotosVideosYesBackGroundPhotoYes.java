@@ -20,6 +20,6 @@ public class BackUpPhotosVideosYesBackGroundPhotoYes extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_whatToBackupModification);
         TestCase.assertTrue("Localytics of " + vz_strings.logs_whatToBackupModification + " does not exist", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_whatToBackupModification) >= 1 && localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_whatToBackupModification) <= 4);
-        TestCase.assertTrue(vz_strings.logs_whatToBackupPhotosBackground + " does not exist", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_whatToBackupPhotosBackground + "\"" + " = " + vz_strings.logs_yes) == 1);
+        TestCase.assertEquals(vz_strings.logs_whatToBackupPhotosBackground + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_whatToBackupPhotosBackground + "\"" + " = " + vz_strings.logs_yes));
     }
 }

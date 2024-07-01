@@ -70,7 +70,7 @@ public class FavItemRemovedVideo extends BaseTestClass {
 		}
 
 		TestCase.assertTrue("Localytics of " + vz_strings.logs_favItemRemoved + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_favItemRemoved));
-		TestCase.assertTrue("Localytics of " + vz_strings.logs_tagEvent + " is not "+ mediaType +" in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_favItemRemoved) == mediaType);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_tagEvent + " is not " + mediaType + " in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_favItemRemoved), mediaType);
 
 	}
 }

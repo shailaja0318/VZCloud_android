@@ -37,7 +37,7 @@ public class DocumentsSortBySize extends BaseTestClass {
 		sortedData.sort((o1, o2) -> {
 			int v1 = Integer.parseInt(o1);
 			int v2 = Integer.parseInt(o2);
-			return new Integer(v2).compareTo(new Integer(v1));
+			return Integer.valueOf(v2).compareTo(Integer.valueOf(v1));
 		});
 
 		TestCase.assertTrue(sort_option + " sorting doesn't match",

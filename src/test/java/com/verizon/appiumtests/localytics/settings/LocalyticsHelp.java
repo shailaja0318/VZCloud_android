@@ -22,9 +22,7 @@ public class LocalyticsHelp extends BaseTestClass {
                 localyticsHelper.isExisted(logs, vz_strings.logs_helpAccess));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_helpScreen + " does not exist",
                 localyticsHelper.isExisted(logs, vz_strings.logs_helpScreen));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_helpAccess + " does not exist",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_helpAccess) == 1);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_helpScreen + " does not exist",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_helpScreen) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_helpAccess + " does not exist", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_helpAccess));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_helpScreen + " does not exist", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_helpScreen));
     }
 }

@@ -18,11 +18,11 @@ public class LocalyticsStoriesOpenHome extends BaseTestClass {
         
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_mediaOpen);
-        
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_storyDetail + " is not in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_storyDetail ) == 1);
+
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_storyDetail + " is not in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_storyDetail));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaOpen+ " is not in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaOpen)>0);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaType + " is not in logs", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypePhoto) == 1);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_page + " is not in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_page + " = " + "\"" + vz_strings.logs_photosVideosStories + "\"") == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaType + " is not in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypePhoto));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_page + " is not in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_page + " = " + "\"" + vz_strings.logs_photosVideosStories + "\""));
         homeScreenView.backToHome();
     }
 }

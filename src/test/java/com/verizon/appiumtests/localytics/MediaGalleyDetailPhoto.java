@@ -16,7 +16,7 @@ public class MediaGalleyDetailPhoto extends BaseTestClass {
 		String logs = localyticsHelper.getLogs();
 		localyticsHelper.print(logs, vz_strings.logs_galleryDetail);
 
-		TestCase.assertTrue("Localytics of " + vz_strings.logs_galleryDetail + " is not 1 in logs", localyticsHelper
-				.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_galleryDetail) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_galleryDetail + " is not 1 in logs", 1, localyticsHelper
+                .getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_galleryDetail));
 	}
 }

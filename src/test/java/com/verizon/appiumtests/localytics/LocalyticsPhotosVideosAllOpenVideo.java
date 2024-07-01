@@ -19,7 +19,7 @@ public class LocalyticsPhotosVideosAllOpenVideo extends BaseTestClass {
 
         String logs = localyticsHelper.getLogs();
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaOpen + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_mediaOpen));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaOpen + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaOpen) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaOpen + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaOpen));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaType + " does not exist", localyticsHelper.isExisted(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypeVideos)
                 || localyticsHelper.isExisted(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypeStory));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_page + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_page + " = " + "\"" + vz_strings.logs_photosVideosAll + "\""));

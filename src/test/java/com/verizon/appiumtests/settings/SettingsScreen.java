@@ -10,6 +10,6 @@ public class SettingsScreen extends BaseTestClass {
     @Test
     public void settingScreen() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_settings);
-        TestCase.assertTrue( "Settings page items are not available", settingsView.elementVisibleSettings(vz_strings.navi_settings));
+        TestCase.assertTrue( "Settings page items are not available", settingsView.elementVisibleSettings(vz_strings.settings_navi_notificationManager));
     }
 }

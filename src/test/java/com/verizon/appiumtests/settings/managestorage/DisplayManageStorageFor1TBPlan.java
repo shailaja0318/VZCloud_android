@@ -10,7 +10,7 @@ import org.testng.asserts.SoftAssert;
  * Created by ssam0003 on 23/05/18.
  */
 public class DisplayManageStorageFor1TBPlan extends BaseTestClass {
-    private SoftAssert softAssert = new SoftAssert();
+    private final SoftAssert softAssert = new SoftAssert();
 
     @Test
     public void testDisplayManageStorageFor1TBPlan() throws Exception {

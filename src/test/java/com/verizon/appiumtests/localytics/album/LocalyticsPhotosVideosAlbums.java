@@ -16,7 +16,7 @@ public class LocalyticsPhotosVideosAlbums extends BaseTestClass {
 
         String logs = localyticsHelper.getLogs();
         TestCase.assertTrue("Localytics of " + vz_strings.logs_photosVideosAlbums + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_photosVideosAlbums));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_photosVideosAlbums + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_photosVideosAlbums) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_photosVideosAlbums + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_photosVideosAlbums));
         localyticsHelper.print(logs, vz_strings.logs_photosVideosAlbums);
     }
 }

@@ -14,7 +14,7 @@ public class GDNSharePhotoVideo extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
         gridView.tapItemsInSelectMode();
-        baseControlsHelper.clickOn(vz_strings.actionBar_share);
+        baseControlsHelper.clickOn(vz_strings.actionBar_selectView_share);
 
         TestCase.assertTrue("OK to Share Location? , not present", baseControlsHelper.getCountById(vz_strings.text_OkToShareLocation) != 0);
         TestCase.assertTrue("Some of these photos... , not present", baseControlsHelper.getCountByNameContains(vz_strings.text_SomeOfThesePhotos) != 0);

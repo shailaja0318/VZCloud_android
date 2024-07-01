@@ -17,6 +17,6 @@ public class DownloadMixtureOfPhotosVideos extends BaseTestClass{
 		   baseControlsHelper.clickOn(vz_strings.actionBar_selectView_download);
 		   photosAndVideosView.checkDownload();
 		   Thread.sleep(1000);
-		   TestCase.assertTrue("Download still in progress", baseControlsHelper.getCountById(vz_strings.progressbar)==0);
+           TestCase.assertEquals("Download still in progress", 0, baseControlsHelper.getCountById(vz_strings.progressbar));
 		   }
 	   }

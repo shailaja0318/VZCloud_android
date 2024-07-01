@@ -22,12 +22,12 @@ public class PhotosVideosFavoritesAndStickyAlbum extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_Fav_stickyAlbum);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_Fav_stickyAlbum + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_Fav_stickyAlbum) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_Fav_stickyAlbum + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_Fav_stickyAlbum));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaGalleryOpen + " is not 1 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_type + " = " + vz_strings.logs_Favorites));
   
         localyticsHelper.print(logs, vz_strings.logs_pvFavorites);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_pvFavorites + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_pvFavorites) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_pvFavorites + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_pvFavorites));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaGalleryOpen + " is not 1 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_page + " = " + vz_strings.logs_album));
 
     }

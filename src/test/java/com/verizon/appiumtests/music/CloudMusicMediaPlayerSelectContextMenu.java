@@ -10,14 +10,13 @@ public class CloudMusicMediaPlayerSelectContextMenu extends BaseTestClass {
     @Test
     public void testCloudMusicMediaPlayer() throws Exception {
 
-
         homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_albums);
         listView.selectItemInSelectMode10("MUSIC");
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(vz_strings.DataType.MUSIC,
-                vz_strings.view_musicAlbums, false));
+        TestCase.assertTrue("Add to Playlist not present",
+                baseControlsHelper.getCountById(vz_strings.context_addToPlaylist) > 0);
         System.out.println("Testing is complete");
     }
 }

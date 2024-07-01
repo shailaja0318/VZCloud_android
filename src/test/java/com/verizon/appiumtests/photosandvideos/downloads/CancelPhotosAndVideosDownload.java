@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
  * IV847-CancelDownloading
  */
 public class CancelPhotosAndVideosDownload extends BaseTestClass {
-	private SoftAssert softAssert = new SoftAssert();
+	private final SoftAssert softAssert = new SoftAssert();
     @Test
     public void testCancelPhotosAndVideosDownload() throws Exception {
          homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);

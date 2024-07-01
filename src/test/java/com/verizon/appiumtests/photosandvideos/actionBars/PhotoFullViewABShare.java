@@ -14,7 +14,7 @@ public class PhotoFullViewABShare extends BaseTestClass {
   public void testPhotoFullViewABShare() throws Exception {
 	  homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
       photosAndVideosView.selectTab(vz_strings.tab_all);
-      baseControlsHelper.clickOnLabelLike("Photo");
+      baseControlsHelper.clickOnElementByXpath("Photo");
       baseControlsHelper.clickOn(vz_strings.actionBar_share);
 
       TestCase.assertTrue("OK to Share Location? , not present", baseControlsHelper.getCountById(vz_strings.text_OkToShareLocation) != 0);

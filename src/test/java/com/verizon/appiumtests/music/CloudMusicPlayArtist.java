@@ -14,7 +14,8 @@ public class CloudMusicPlayArtist extends BaseTestClass {
         playMusicFromArtists();
       //  musicView.openPlaylist("On-The-Go");
         Thread.sleep(3000);
-        int count = baseControlsHelper.getCountInViewByPredicate("MusicView");
+        int count = baseControlsHelper.getCountById("MUSIC: AlbumArtImage");
+        System.out.println(count);
         TestCase.assertTrue("Number of song after adding up from songs", count != 0);
 
     }

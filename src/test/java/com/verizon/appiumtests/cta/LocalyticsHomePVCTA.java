@@ -18,7 +18,6 @@ public class LocalyticsHomePVCTA extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagScreen);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.navi_Photosandvideos + " exists",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.navi_Photosandvideos + " " + vz_strings.logs_CTA) ==1);
+        TestCase.assertEquals("Localytics of " + vz_strings.navi_Photosandvideos + " exists", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.navi_Photosandvideos + " " + vz_strings.logs_CTA));
     }
 }

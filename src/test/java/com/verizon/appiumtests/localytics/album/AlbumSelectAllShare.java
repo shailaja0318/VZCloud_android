@@ -24,9 +24,9 @@ public class AlbumSelectAllShare extends BaseTestClass {
         TestCase.assertTrue("Localytics of " + vz_strings.LOGS_SHARE_SEND_CONTENT + " is not 2 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_tagEvent + ": " + vz_strings.LOGS_SHARE_SEND_CONTENT));
         for (String contentstype : contenttype) {
             if ((contentstype.contains("Video")) || (contentstype.contains("Photo"))) {
-                TestCase.assertTrue("Localytics of " + vz_strings.logs_shareContentType + " photo is not 1 in logs", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_shareContentType + "\" " + contentstype) == 1);
+                TestCase.assertEquals("Localytics of " + vz_strings.logs_shareContentType + " photo is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_shareContentType + "\" " + contentstype));
             } else
-                TestCase.assertFalse("Localytics of " + vz_strings.logs_shareContentType + " not matches", true);
+                TestCase.fail("Localytics of " + vz_strings.logs_shareContentType + " not matches");
         }
     }
 }

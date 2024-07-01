@@ -21,6 +21,6 @@ public class AlbumCreate extends BaseTestClass {
       //  baseControlsHelper.waitForShow("Albums");
         int count1 = gridView.getAlbumCount();
 
-        TestCase.assertTrue("Album count not increasing", count1 == count + 1);
+        TestCase.assertEquals("Album count not increasing", count1, count + 1);
     }
 }

@@ -7,7 +7,7 @@ import com.verizon.appiumtests.controls.BaseTestClass;
 import org.testng.asserts.SoftAssert;
 
 public class VZNFT16EmailAddressChange extends BaseTestClass {
-    private SoftAssert softAssert = new SoftAssert();
+    private final SoftAssert softAssert = new SoftAssert();
 
     public void testLocalyticsEmailAddressChange() throws Exception {
 

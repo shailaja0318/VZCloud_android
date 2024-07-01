@@ -10,8 +10,8 @@ public class RecommendedApps extends BaseTestClass {
 	@Test
 	public void testAppsUsingCloud() throws Exception {
 		homeScreenView.navigateTo(vz_strings.navi_settings);
-		baseControlsHelper.clickOn(vz_strings.navi_appsUsingCloud);
-		baseControlsHelper.waitForShow(vz_strings.navi_recommendedApps);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.navi_connectedApps);
+		baseControlsHelper.waitForShow(vz_strings.auc_appsusingcloud);
 		baseControlsHelper.clickOn(vz_strings.navi_recommendedApps);
 		baseControlsHelper
 				.waitForShow("Explore the recommended apps below and discover new ways to use the Verizon Cloud.");

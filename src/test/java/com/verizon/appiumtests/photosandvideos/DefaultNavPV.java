@@ -14,6 +14,7 @@ public class DefaultNavPV extends BaseTestClass {
     public void testDefaultNavPV() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
        // homeScreenView.fromHomeClickAt(vz_strings.home_photsAndVideos);
+        homeScreenView.navigateTo(tab_all);
         TestCase.assertTrue("Are we not at PV All tab?", (baseControlsHelper.isSelected(tab_all)));
 
         homeScreenView.navigateTo(vz_strings.navi_home);

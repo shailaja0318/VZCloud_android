@@ -17,11 +17,10 @@ public class LocalyticsSettingsManageStorageView extends BaseTestClass {
 	  String logs = localyticsHelper.getLogs();
 	  localyticsHelper.print(logs, vz_strings.logs_ManageStorage);
 
-	  TestCase.assertTrue("Localytics of " + vz_strings.settings_manageStorage+ " is not 1 in logs",
-			  localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + "Storage Upgrade Step") == 1);
+      TestCase.assertEquals("Localytics of " + vz_strings.settings_manageStorage + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + "Storage Upgrade Step"));
 
-      TestCase.assertTrue("Localytics of " + vz_strings.logs_settingsView
-              + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_step
-              + " = " + "\"" + vz_strings.logs_settingsView + "\"")==1);
+      TestCase.assertEquals("Localytics of " + vz_strings.logs_settingsView
+              + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_step
+              + " = " + "\"" + vz_strings.logs_settingsView + "\""));
   }
 }

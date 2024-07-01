@@ -21,10 +21,10 @@ public class LocalyticsCloudPrintItemComposedEditPrintsProduct extends BaseTestC
         photosAndVideosView.selectAllAddToCartAndEdit();
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketCloudItemComposed + " is not 1 in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_photoBucketCloudItemComposed) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_photoBucketCloudItemComposed + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_photoBucketCloudItemComposed));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketDeliveryType + " is not 1 in logs", localyticsHelper.isExisted(logs, "\"" + vz_strings.logs_photoBucketDeliveryType + "\"" + " = " + "\"" + vz_strings.logs_photoBucketMailOrder + "\""));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketPickupLocation + " is not 1 in logs", localyticsHelper.isExisted(logs, "\"" + vz_strings.logs_photoBucketPickupLocation + "\"" + " = " + "\"" + vz_strings.logs_NotApplicable + "\""));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketItemBrowsed + " is not 1 in logs", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_photoBucketItemBrowsed + "\"" + " = " + "\"" + vz_strings.logs_photoBucketItemFirstPrintSize + "\"") == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_photoBucketItemBrowsed + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_photoBucketItemBrowsed + "\"" + " = " + "\"" + vz_strings.logs_photoBucketItemFirstPrintSize + "\""));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_source + " is not 1 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_source + " = " + "\"" + vz_strings.logs_photoBucketCartPage + "\""));
     }
 }

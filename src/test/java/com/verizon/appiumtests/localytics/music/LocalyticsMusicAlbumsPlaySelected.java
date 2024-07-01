@@ -19,9 +19,7 @@ public class LocalyticsMusicAlbumsPlaySelected extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_mediaPlay);
 
-        TestCase.assertTrue(vz_strings.logs_tagEvent + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaPlay) == 1);
-        TestCase.assertTrue(vz_strings.logs_mediaType + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_mediaTypeSong) == 1);
+        TestCase.assertEquals(vz_strings.logs_tagEvent + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaPlay));
+        TestCase.assertEquals(vz_strings.logs_mediaType + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_mediaTypeSong));
     }
 }

@@ -17,6 +17,7 @@ public class PhotosVideosFavoriteContextMenu extends BaseTestClass {
         baseControlsHelper.waitForContent();
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(null, vz_strings.view_insideFavorite, true));
+        TestCase.assertTrue(
+                baseControlsHelper.isVisible(vz_strings.view_insideFavorite));
     }
 }

@@ -7,7 +7,7 @@ import org.testng.asserts.SoftAssert;
 
 
 public class VZNFT18LocalyticsMergeContent extends BaseTestClass {
-    private SoftAssert softAssert = new SoftAssert();
+    private final SoftAssert softAssert = new SoftAssert();
 
   //  @Test
     public void testLocalyticsMergeContent() throws Exception {

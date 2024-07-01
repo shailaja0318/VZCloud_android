@@ -20,7 +20,7 @@ public class MusicFavoritesSelectAllPlayPlaylist extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_mediaPlay);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaPlay) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaPlay));
         //here we can check for exists becuase checking for 1 wont work with when pre cond runs
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaType + " is not 1 in logs", localyticsHelper.isExisted(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + "Song"));
     }

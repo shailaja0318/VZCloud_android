@@ -23,9 +23,9 @@ public class PhotosAndVideosStrySelectCpyShrlnk extends BaseTestClass {
         List<String> contenttype = localyticsHelper.dynamicCount(logs, vz_strings.logs_shareContentType);
         for (String contentstype : contenttype) {
             if ((contentstype.contains("Video")) || (contentstype.contains("Photo"))) {
-                TestCase.assertTrue("Localytics of " + vz_strings.logs_shareContentType + " is not 1 in logs", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_shareContentType + "\" " + contentstype) == 1);
+                TestCase.assertEquals("Localytics of " + vz_strings.logs_shareContentType + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_shareContentType + "\" " + contentstype));
             }
-            else TestCase.assertFalse("Localytics of " + vz_strings.logs_shareContentType + " not matches", true);
+            else TestCase.fail("Localytics of " + vz_strings.logs_shareContentType + " not matches");
         }
     }
 }

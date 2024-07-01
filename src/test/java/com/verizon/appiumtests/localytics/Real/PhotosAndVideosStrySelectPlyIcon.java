@@ -18,6 +18,6 @@ public class PhotosAndVideosStrySelectPlyIcon extends BaseTestClass {
         baseControlsHelper.clickOn(vz_strings.button_smartAlbumPlay);
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_realtimesLaunched + " is not 1 in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_realtimesLaunched)==1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_realtimesLaunched + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_realtimesLaunched));
     }
 }

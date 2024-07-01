@@ -10,10 +10,19 @@ public class Videos_shareViaLink extends BaseTestClass {
 	@Test
 	public void testVideos_shareViaLink() throws Exception {
 
-
+		int count =0;
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnLabelLike("Video");
+		while(true){
+			try {
+				baseControlsHelper.clickOnElementByXpath(vz_strings.name_video_open);
+				break;
+			}catch (Exception e){
+				baseControlsHelper.swipe("up");
+				count++;
+				if(count==10) break;
+			}
+		}
 		baseControlsHelper.clickOn(vz_strings.actionBar_share);
 
 		TestCase.assertTrue("OK to Share Location? , not present", baseControlsHelper.getCountById(vz_strings.text_OkToShareLocation) != 0);

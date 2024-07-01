@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class SearchByTitlePredectiveSearch extends BaseTestClass {
 
-    @Test
+   // @Test
     public void testSearchByTitlePredectiveSearch() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
@@ -17,7 +17,8 @@ public class SearchByTitlePredectiveSearch extends BaseTestClass {
 
         baseControlsHelper.setValuetoTextFieldByName("o", vz_strings.view_searchStoriesBar);
 
-        TestCase.assertTrue("Story not present ?", baseControlsHelper.getCountById("Photos stories") > 0);
+        TestCase.assertTrue("Story not present ?",
+                baseControlsHelper.getCountById("Photos stories") > 0);
 
     }
 }

@@ -42,6 +42,6 @@ public class LocalyticsAllFilesCopyShareLink extends BaseTestClass {
 	        TestCase.assertTrue("Localytics of " + vz_strings.logs_shareItemShared + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_shareItemShared));
 
 	        TestCase.assertTrue("Localytics of " + vz_strings.LOGS_SHARE_SEND + " is not 1 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_tagEvent + ": " + vz_strings.LOGS_SHARE_SEND));
-	        TestCase.assertTrue("Localytics of " + vz_strings.LOGS_SUCCESSFUL + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.LOGS_STATUS + " = " + vz_strings.LOGS_SUCCESSFUL) == 1);
+            TestCase.assertEquals("Localytics of " + vz_strings.LOGS_SUCCESSFUL + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.LOGS_STATUS + " = " + vz_strings.LOGS_SUCCESSFUL));
 	    }
 }

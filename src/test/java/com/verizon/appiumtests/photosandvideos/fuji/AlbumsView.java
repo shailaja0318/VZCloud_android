@@ -13,11 +13,14 @@ public class AlbumsView extends BaseTestClass {
         photosAndVideosView.selectTab(vz_strings.tab_albums);
         preCondition();
         gridView.tapFolderInSelectMode10("Photos albums folder");
-        photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_icon_printShop);
+        photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_createStory);
         baseControlsHelper.waitForDismiss(vz_strings.spinner);
-        baseControlsHelper.clickOn(vz_strings.button_exit);
+        //baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit_1);
         baseControlsHelper.clickOn(vz_strings.button_yes);
+        baseControlsHelper.clickOn(vz_strings.button_cancel);
         baseControlsHelper.waitForShow(vz_strings.tab_albums);
+
     }
 
     private void preCondition() throws Exception {

@@ -17,6 +17,6 @@ public class LocalyticsDeleteMyAccount extends BaseTestClass {
         baseControlsHelper.clickOn(vz_strings.delete_My_Account);
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagScreen + ": " + vz_strings.delete_My_Account);
-        TestCase.assertTrue("Localytics of " + vz_strings.delete_My_Account + "does not exists", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.delete_My_Account + "") == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.delete_My_Account + "does not exists", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.delete_My_Account));
     }
 }

@@ -15,6 +15,9 @@ public class FilterByEverything extends BaseTestClass {
         photosAndVideosView.selectTab(vz_strings.tab_all);
         photosAndVideosView.filterBy(vz_strings.filter_Everything);
         baseControlsHelper.openContext(vz_strings.context_sortAndFilter);
-        TestCase.assertTrue("All file types are not selected.", baseControlsHelper.getCountById(vz_strings.filter_selectedRadioButton)==3); //count= 3 (photos, videos, saved stories)
+       // baseControlsHelper.waitForShowByXpath(vz_strings.filter_selectAllText);
+        Thread.sleep(3000);
+        TestCase.assertEquals("All file types are not selected.", 3, baseControlsHelper.getListByType(vz_strings.filter_selectedRadioButton));
+        //count= 3 (photos, videos, saved stories)
     }
 }

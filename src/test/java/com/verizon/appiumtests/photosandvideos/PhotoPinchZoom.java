@@ -20,7 +20,7 @@ public class PhotoPinchZoom extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
 
-        gridView.tapItem(vz_strings.DataType.PHOTO);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
         Rectangle beforeRect = photosAndVideosView.getPhotoRect();
         photosAndVideosView.pinchZoomInPhoto();
         Thread.sleep(2000);

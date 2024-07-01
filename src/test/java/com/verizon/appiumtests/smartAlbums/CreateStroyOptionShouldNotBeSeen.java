@@ -13,11 +13,11 @@ public class CreateStroyOptionShouldNotBeSeen extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_allFiles);
         baseControlsHelper.clickOn(vz_strings.folder_mobile);
         Thread.sleep(3000);
-        baseControlsHelper.clickOn(vz_strings.Vz_configs.DEVICE_NAME);
+        baseControlsHelper.clickOn(vz_strings.folder_mobile_name);
         baseControlsHelper.waitForContent();
         listView.selectFirstItemInSelectMode10();
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Create Story present ?", baseControlsHelper.getCountById(vz_strings.context_createStory) == 0);
+        TestCase.assertEquals("Create Story present ?", 0, baseControlsHelper.getCountById(vz_strings.context_createStory));
     }
 }

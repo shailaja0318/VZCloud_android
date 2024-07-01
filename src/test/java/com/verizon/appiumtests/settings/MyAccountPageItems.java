@@ -12,8 +12,8 @@ public class MyAccountPageItems extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_settings);
         baseControlsHelper.clickOn(vz_strings.my_Account);
 
-        TestCase.assertTrue("My Profile missing ", baseControlsHelper.getCountById(vz_strings.settings_My_Profile) != 0);
-        TestCase.assertTrue("Complete not found ", baseControlsHelper.getCountById(vz_strings.settings_complete) != 0);
-        TestCase.assertTrue("Delete my account not found ", baseControlsHelper.getCountById(vz_strings.delete_My_Account) != 0);
+        TestCase.assertTrue(baseControlsHelper.getCountById(vz_strings.settings_My_Profile) != 0);
+        TestCase.assertTrue(baseControlsHelper.getCountById(vz_strings.settings_complete) != 0);
+        TestCase.assertTrue(baseControlsHelper.getCountById(vz_strings.delete_My_Account) != 0);
     }
 }

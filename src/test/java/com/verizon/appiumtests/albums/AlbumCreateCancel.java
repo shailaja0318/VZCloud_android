@@ -16,6 +16,6 @@ public class AlbumCreateCancel extends BaseTestClass {
         photosAndVideosView.cancelCreateAlbum(vz_strings.create_newAlbumName);
         int count1 = gridView.getAlbumContentCount();
 
-        TestCase.assertTrue("Photo count not increasing", count1 == count);
+        TestCase.assertEquals("Photo count not increasing", count1, count);
     }
 }

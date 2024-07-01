@@ -17,6 +17,6 @@ public class PhotosAndVideosAllTab extends BaseTestClass {
         photosAndVideosView.selectTab(vz_strings.tab_all);
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagScreen);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_photosVideosAll + " is not 1 in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_photosVideosAll) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_photosVideosAll + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_photosVideosAll));
     }
 }

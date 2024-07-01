@@ -13,9 +13,13 @@ public class PhotosDetailViewFuji extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
         gridView.tapItem(vz_strings.DataType.PHOTO);
-        photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_icon_printShop);
-        baseControlsHelper.waitForDismiss(vz_strings.spinner);
-        baseControlsHelper.clickOn(vz_strings.button_exit);
+        baseControlsHelper.waitForShow(vz_strings.context_menu);
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        baseControlsHelper.waitForShow(vz_strings.context_printAndGifts);
+        baseControlsHelper.clickOn(vz_strings.context_printAndGifts);
+        Thread.sleep(3000);
+        //baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit_1);
         baseControlsHelper.clickOn(vz_strings.button_yes);
         baseControlsHelper.tapOnBackButton();
         baseControlsHelper.waitForShow(vz_strings.tab_all);

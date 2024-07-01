@@ -8,7 +8,7 @@ import junit.framework.TestCase;
  * @author leletsn
  *
  */
-public class StoryFromHomeScreenPhotoFullView extends BaseTestClass {
+public class StoryFromHomeScreenPhotoFullView_depricated extends BaseTestClass {
 
    // @Test
     public void testStoryFromHomeScreenPhotoFullView() throws Exception {

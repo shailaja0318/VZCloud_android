@@ -23,17 +23,13 @@ public class VZNFT128SAClickedSearchItem extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_storiesSearch + " does not exist",
-                 localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_storiesSearch) == 3);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_storiesSearch + " does not exist", 3, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_storiesSearch));
 
-        TestCase.assertTrue("Localytics of " + "\"" + vz_strings.logs_enteredSearchText + "\"" + " is not 1 in logs",
-                localyticsHelper.getCountOf(logs, vz_strings.logs_step + " = \"" + vz_strings.logs_enteredSearchText + "\"") == 1);
+        TestCase.assertEquals("Localytics of " + "\"" + vz_strings.logs_enteredSearchText + "\"" + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_step + " = \"" + vz_strings.logs_enteredSearchText + "\""));
 
-        TestCase.assertTrue("Localytics of " + "\"" + vz_strings.logs_clickedSearchButton + "\"" + " is not 1 in logs",
-                localyticsHelper.getCountOf(logs, vz_strings.logs_step + " = \"" + vz_strings.logs_clickedSearchButton + "\"") == 1);
+        TestCase.assertEquals("Localytics of " + "\"" + vz_strings.logs_clickedSearchButton + "\"" + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_step + " = \"" + vz_strings.logs_clickedSearchButton + "\""));
 
-        TestCase.assertTrue(vz_strings.logs_clickedSearchItem + " does not exist",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_step + " = \"" + vz_strings.logs_clickedSearchItem + "\"") == 1);
+        TestCase.assertEquals(vz_strings.logs_clickedSearchItem + " does not exist", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_step + " = \"" + vz_strings.logs_clickedSearchItem + "\""));
     }
 }
 

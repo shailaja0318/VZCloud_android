@@ -18,9 +18,7 @@ public class MediaGalleryOpenHomeStory extends BaseTestClass{
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaGalleryOpen) == 1);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_page + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_page + " = " + vz_strings.logs_story) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaGalleryOpen));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_page + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_page + " = " + vz_strings.logs_story));
     }
 }

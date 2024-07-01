@@ -27,11 +27,9 @@ public class LocalyticsMusicSortAZ extends BaseTestClass{
       String logs = localyticsHelper.getLogs();
       localyticsHelper.print(logs, vz_strings.logs_sortMedia);
 
-      TestCase.assertTrue("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs",
-              localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_sortMedia) == 1);
+      TestCase.assertEquals("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_sortMedia));
 
-      TestCase.assertTrue("Localytics of " + vz_strings.logs_sortOption + " is not 1 in logs",
-              localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_sortOption + "\" = " + "\"" + vz_strings.logs_sortAtoZ + "\"") == 1);
+      TestCase.assertEquals("Localytics of " + vz_strings.logs_sortOption + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_sortOption + "\" = " + "\"" + vz_strings.logs_sortAtoZ + "\""));
 
 
   }

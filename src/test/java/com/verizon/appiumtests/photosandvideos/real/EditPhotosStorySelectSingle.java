@@ -19,6 +19,6 @@ public class EditPhotosStorySelectSingle extends BaseTestClass {
         baseControlsHelper.openContext(vz_strings.context_editPhoto);
         baseControlsHelper.waitForShowByPredicate("Edit Photo", "XCUIElementTypeNavigationBar");
         String pageTitle = baseControlsHelper.getNameByIndexfromClassName(0, "XCUIElementTypeNavigationBar");
-        TestCase.assertTrue("Edit photo view is not open", pageTitle.equals("Edit Photo"));
+        TestCase.assertEquals("Edit photo view is not open", "Edit Photo", pageTitle);
     }
 }

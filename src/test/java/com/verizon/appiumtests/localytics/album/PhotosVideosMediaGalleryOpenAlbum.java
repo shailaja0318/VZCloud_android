@@ -20,7 +20,7 @@ public class PhotosVideosMediaGalleryOpenAlbum extends BaseTestClass {
         localyticsHelper.print(logs, vz_strings.logs_mediaGalleryOpen);
 
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaGalleryOpen + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_mediaGalleryOpen));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaGalleryOpen + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaGalleryOpen) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaGalleryOpen + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaGalleryOpen));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaGalleryOpen + " is not 1 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_page + " = " + vz_strings.logs_album));
 
     }

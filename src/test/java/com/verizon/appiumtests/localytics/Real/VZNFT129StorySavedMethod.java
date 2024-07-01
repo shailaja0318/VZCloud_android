@@ -20,14 +20,11 @@ public class VZNFT129StorySavedMethod extends BaseTestClass {
         baseControlsHelper.openContext(vz_strings.context_saveAsAlbum);
 
         String logs = localyticsHelper.getLogs();
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_storySaved + " does not exist",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_storySaved) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_storySaved + " does not exist", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_storySaved));
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_storySaved + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_storySaved) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_storySaved + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_storySaved));
 
-        TestCase.assertTrue(vz_strings.logs_method + " does not exist",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_method + " = " + "\"" + vz_strings.logs_cloudContextualMenu) == 1);
+        TestCase.assertEquals(vz_strings.logs_method + " does not exist", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_method + " = " + "\"" + vz_strings.logs_cloudContextualMenu));
 
         localyticsHelper.print(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_storySaved);
 

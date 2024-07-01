@@ -23,10 +23,8 @@ public class LocalyticsMusicArtistsPlaySong extends BaseTestClass {
         localyticsHelper.print(logs, vz_strings.logs_mediaType);
         localyticsHelper.print(logs, vz_strings.logs_tagScreen);
 
-        TestCase.assertTrue(vz_strings.logs_mediaTypeSong + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_mediaTypeSong) == 1);
+        TestCase.assertEquals(vz_strings.logs_mediaTypeSong + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_mediaTypeSong));
 
-        TestCase.assertTrue(vz_strings.logs_musicArtistSongs + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicArtistSongs) == 1);
+        TestCase.assertEquals(vz_strings.logs_musicArtistSongs + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicArtistSongs));
     }
 }

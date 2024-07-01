@@ -26,7 +26,7 @@ public class AddPhotoVideoToExistingAlbum extends BaseTestClass {
 
         if (count != 0) {
             int count1 = gridView.getAlbumContentCount();
-            TestCase.assertTrue("Photo count not increasing, before count: " + count + ", after count:" + count1, count1 == count + 1);
+            TestCase.assertEquals("Photo count not increasing, before count: " + count + ", after count:" + count1, count1, count1);
         } else {
             TestCase.assertTrue("Album still empty", gridView.getAlbumContentCount() != 0);
         }

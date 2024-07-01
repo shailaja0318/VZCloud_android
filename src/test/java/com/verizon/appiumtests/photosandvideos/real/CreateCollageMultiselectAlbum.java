@@ -25,7 +25,7 @@ public class CreateCollageMultiselectAlbum extends BaseTestClass {
 		baseControlsHelper.waitForShowByPredicate("Collage", "XCUIElementTypeNavigationBar");
 		String pageTitle = baseControlsHelper.getNameByIndexfromClassName(0, "XCUIElementTypeNavigationBar");
 		//System.out.println(baseControlsHelper.getNameByIndexfromClassName(0, "XCUIElementTypeNavigationBar"));
-		TestCase.assertTrue("Create Collage view is not open", pageTitle.equals("Collage"));
+        TestCase.assertEquals("Create Collage view is not open", "Collage", pageTitle);
 	}
 	private void createAlbum() throws Exception {
 		System.out.println("--Start Preconditions Create Album--");
@@ -56,7 +56,7 @@ public class CreateCollageMultiselectAlbum extends BaseTestClass {
 		System.out.println(list);
 		for (int i = 0; i < index; i++) {
 			Thread.sleep(2000);
-			baseControlsHelper.clickOnLabelLike(list.get(i).toString());
+			baseControlsHelper.clickOnElementByDynamicXpath(list.get(i), i);
 			//baseControlsHelper.clickOnLabelLike(list.get(i));
 			
 		}

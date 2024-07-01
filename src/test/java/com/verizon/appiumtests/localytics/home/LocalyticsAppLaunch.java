@@ -15,13 +15,10 @@ public class LocalyticsAppLaunch extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_appLaunch);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_appLaunch + " is not 1 in logs",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_appLaunch) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_appLaunch + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_appLaunch));
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_networkType + " does not exist",
-                localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_networkType + "\" = \"" + vz_strings.logs_networkTypeWifi + "\"") == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_networkType + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_networkType + "\" = \"" + vz_strings.logs_networkTypeWifi + "\""));
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_source + " does not exist",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_source + " = " + vz_strings.logs_sourceDirect) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_source + " does not exist", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_source + " = " + vz_strings.logs_sourceDirect));
     }
 }

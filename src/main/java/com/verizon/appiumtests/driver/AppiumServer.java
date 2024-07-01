@@ -21,7 +21,7 @@ public class AppiumServer {
                 .usingPort(vz_strings.Vz_configs.APPIUM_PORT)
                 .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                 .withArgument(GeneralServerFlag.LOG_LEVEL, "error");
-        appiumDriverLocalService = appiumDriverLocalService.buildService(builder);
+        appiumDriverLocalService = AppiumDriverLocalService.buildService(builder);
     }
 
     public static void startAppiumServer() throws Exception {

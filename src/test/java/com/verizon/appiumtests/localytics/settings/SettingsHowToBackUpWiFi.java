@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class SettingsHowToBackUpWiFi extends BaseTestClass {
-	private SoftAssert softAssert = new SoftAssert();
+	private final SoftAssert softAssert = new SoftAssert();
 
 	private void precondition() throws Exception{
 		baseControlsHelper.clickOn(vz_strings.settings_HowToBackUp);

@@ -19,9 +19,10 @@ public class ShareVideoSceneFromStory extends BaseTestClass {
         baseControlsHelper.openContext(vz_strings.context_share);
         baseControlsHelper.clickOn(vz_strings.button_yesRemindMeNextTime);
         baseControlsHelper.waitForDismiss(vz_strings.toast_creatingSocialShareLink);
-        baseControlsHelper.waitForShow("Cancel");
+        //baseControlsHelper.waitForShow("Cancel");
 
-        TestCase.assertTrue("Message not seen", baseControlsHelper.getCountById("Message") > 0);
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.share_ShareViaLink));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.share_ShareTo));
 
     }
 

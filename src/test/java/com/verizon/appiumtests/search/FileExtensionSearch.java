@@ -12,6 +12,8 @@ public class FileExtensionSearch extends BaseTestClass {
 
 
         homeScreenView.navigateTo(vz_strings.navi_allFiles);
+      //  baseControlsHelper.clickOnElementByXpath(vz_strings.mobile_file);
+        //baseControlsHelper.clickOnElementByXpath(vz_strings.mobile_file_iphone);
 
         boolean isEmpty = true;
         String[] ext = {".mp3", ".jpg", ".doc"};

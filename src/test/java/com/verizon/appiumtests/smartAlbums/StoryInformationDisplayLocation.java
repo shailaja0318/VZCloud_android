@@ -12,6 +12,6 @@ public class StoryInformationDisplayLocation extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
-        TestCase.assertTrue("Name and date of album missing ?", baseControlsHelper.getTextByNameContains("2021").contains("2021"));
+        TestCase.assertTrue("Name and date of album missing ?", baseControlsHelper.getTextByNameContains("2024").contains("2024"));
     }
 }

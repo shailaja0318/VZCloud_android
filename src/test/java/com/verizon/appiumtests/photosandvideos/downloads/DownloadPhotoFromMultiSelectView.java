@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class DownloadPhotoFromMultiSelectView extends BaseTestClass {
-    private SoftAssert softAssert = new SoftAssert();
+    private final SoftAssert softAssert = new SoftAssert();
 
     @Test
     public void testDownloadPhotoFromMultiSelectView() throws Exception {

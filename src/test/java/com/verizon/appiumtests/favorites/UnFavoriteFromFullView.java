@@ -23,7 +23,7 @@ public class UnFavoriteFromFullView extends BaseTestClass {
         if (!photosAndVideosView.isFavoriteAlbumExisted()) {
             TestCase.assertTrue("Fav album has no favorites", true);
         } else {
-            TestCase.assertTrue("Fav album has favorites", false);
+            TestCase.fail("Fav album has favorites");
         }
     }
 }

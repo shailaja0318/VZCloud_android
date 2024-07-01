@@ -14,7 +14,7 @@ public class TimelineView extends BaseTestClass {
         gridView.tapItemInSelectMode(vz_strings.DataType.PHOTO);
         photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_icon_printShop);
         baseControlsHelper.waitForDismiss(vz_strings.spinner);
-        baseControlsHelper.clickOn(vz_strings.button_exit);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit);
         baseControlsHelper.clickOn(vz_strings.button_yes);
         baseControlsHelper.tapOnBackButton();
         TestCase.assertTrue("Time line not present ?", baseControlsHelper.isVisible("Photos timeline"));

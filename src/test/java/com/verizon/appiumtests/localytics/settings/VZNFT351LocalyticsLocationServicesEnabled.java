@@ -23,10 +23,8 @@ public class VZNFT351LocalyticsLocationServicesEnabled extends BaseTestClass {
         localyticsHelper.print(logs, "attr" + " = " + "\"" + vz_strings.logs_location_services + "\"");
         localyticsHelper.print(logs, "value" + " = " + vz_strings.logs_enabled);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_location_services + " does not exist",
-                localyticsHelper.getCountOf(logs, "attr" + " = " + "\"" + vz_strings.logs_location_services + "\"") == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_location_services + " does not exist", 1, localyticsHelper.getCountOf(logs, "attr" + " = " + "\"" + vz_strings.logs_location_services + "\""));
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_enabled + " does not exist",
-                localyticsHelper.getCountOf(logs, "value" + " = " + vz_strings.logs_enabled) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_enabled + " does not exist", 1, localyticsHelper.getCountOf(logs, "value" + " = " + vz_strings.logs_enabled));
     }
 }

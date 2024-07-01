@@ -19,7 +19,7 @@ public class AlbumSelectPrints extends BaseTestClass {
         baseControlsHelper.waitForDismiss(vz_strings.spinner);
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_photoBucketEntry);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_photoBucketEntry) == 1);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketEntryPoint + " does not exist", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_photoBucketEntryPoint + "\" = \"" + vz_strings.logs_photosVideosAlbums + "\"")==1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_photoBucketEntry));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_photoBucketEntryPoint + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_photoBucketEntryPoint + "\" = \"" + vz_strings.logs_photosVideosAlbums + "\""));
     }
 }

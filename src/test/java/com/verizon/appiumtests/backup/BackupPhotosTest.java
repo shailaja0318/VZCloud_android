@@ -18,9 +18,7 @@ public class BackupPhotosTest extends BaseTestClass {
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		int pvCountAfterBackup = photosAndVideosView.getTotalPhotosAndVideosCount();
 		System.out.println("***** AFTER BACKUP COMPLETE **** " + pvCountAfterBackup);
-		TestCase.assertTrue(
-				"Photo count not increasing, before backup: " + pvCount + ", after backup:" + pvCountAfterBackup,
-				pvCountAfterBackup == pvCount + 3);
+        TestCase.assertEquals("Photo count not increasing, before backup: " + pvCount + ", after backup:" + pvCountAfterBackup, pvCountAfterBackup, pvCount + 3);
 
 	}
 

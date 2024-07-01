@@ -15,8 +15,14 @@ public class StoriesView extends BaseTestClass {
         gridView.tapFolderInSelectMode10("Story-0");
         photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_icon_printShop);
         baseControlsHelper.waitForDismiss(vz_strings.spinner);
-        baseControlsHelper.clickOn(vz_strings.button_exit);
+        try{
+            baseControlsHelper.clickOn("Continue");
+        }catch (Exception e){
+            System.out.println("Continue button is not available");
+        }
+        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit_1);
         baseControlsHelper.clickOn(vz_strings.button_yes);
+        baseControlsHelper.clickOn(vz_strings.button_cancel);
         baseControlsHelper.waitForShow(vz_strings.tab_albums);
         TestCase.assertTrue("Story not present ?", baseControlsHelper.isVisible("Photos stories"));
     }

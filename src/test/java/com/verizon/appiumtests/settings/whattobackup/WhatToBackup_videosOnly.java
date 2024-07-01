@@ -10,10 +10,12 @@ public class WhatToBackup_videosOnly extends BaseTestClass {
 	public void testWhatToBackup_videosOnly() throws Exception {
 
 		homeScreenView.navigateTo(vz_strings.navi_settings);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.setting_uploadSettings);
 		Thread.sleep(3000);
 		settingsView.setWhatToBackUp(HelperUtilities.setArguments("", "", vz_strings.settings_whatToBackUp_Videos));
-		baseControlsHelper.clickOn(vz_strings.settings_BackButton);
-		settingsView.setWhatNotToBackUp(HelperUtilities.setArguments(vz_strings.settings_whatToBackUp_Contacts, vz_strings.settings_whatToBackUp_Photos, ""));
+		baseControlsHelper.clickOnElementByXpath(vz_strings.settings_BackButton);
+		settingsView.setWhatNotToBackUp(HelperUtilities.setArguments
+				("",vz_strings.settings_whatToBackUp_Contacts, vz_strings.settings_whatToBackUp_Photos, ""));
 
 	}
 }

@@ -14,7 +14,6 @@ public class PhotoVideoFilterInfo extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        photosAndVideosView.filterBy(vz_strings.filterByPhotos);
         gridView.tapItemsInMultiSelectMode(1, vz_strings.DataType.PHOTO);
         baseControlsHelper.openContext(null);
 

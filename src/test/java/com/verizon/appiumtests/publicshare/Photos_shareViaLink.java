@@ -13,7 +13,7 @@ public class Photos_shareViaLink extends BaseTestClass {
 
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnLabelLike("Photo");
+		baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
 		baseControlsHelper.clickOn(vz_strings.actionBar_share);
 
 		TestCase.assertTrue("OK to Share Location? , not present", baseControlsHelper.getCountById(vz_strings.text_OkToShareLocation) != 0);
@@ -25,11 +25,13 @@ public class Photos_shareViaLink extends BaseTestClass {
 		baseControlsHelper.clickOn(vz_strings.button_yesRemindMeNextTime);
 
 		TestCase.assertTrue("Share to option is not present ", baseControlsHelper.getCountById(vz_strings.share_ShareTo) != 0);
-		TestCase.assertTrue("Share Via Link option is not present", baseControlsHelper.getCountById(vz_strings.share_ShareViaLink) != 0);
+		TestCase.assertTrue("Share Via Link option is not present",
+				baseControlsHelper.getCountById(vz_strings.share_ShareViaLink) != 0);
 
 		baseControlsHelper.clickOn(vz_strings.share_ShareViaLink);
 		Thread.sleep(2000);
-		TestCase.assertTrue("Share Via Link activity list not present", baseControlsHelper.getCountById(vz_strings.share_ShareViaLinkActivityList) != 0);
+		TestCase.assertTrue("Share Via Link activity list not present",
+				baseControlsHelper.getCountById(vz_strings.share_ShareViaLinkActivityList) != 0);
 
 
 	}

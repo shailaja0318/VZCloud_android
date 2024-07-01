@@ -28,7 +28,7 @@ public class PhotoFullViewAddPhotoToExistingAlbum extends BaseTestClass {
 		int count1 = gridView.getAlbumContentCount();
 
 		if (count1 > 0) {
-			TestCase.assertTrue("Photo count not increasing ", count1 == 1);
+            TestCase.assertEquals("Photo count not increasing ", 1, count1);
 		} else {
 			TestCase.assertTrue("Album still empty", count1 != 0);
 		}
@@ -36,8 +36,8 @@ public class PhotoFullViewAddPhotoToExistingAlbum extends BaseTestClass {
 
 	public void addToAlbumFromFullView() throws Exception {
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnLabelLike(vz_strings.name_photo);
-		baseControlsHelper.clickOn(vz_strings.actionBar_AddToAlbum);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.actionBar_AddToAlbum_xpath);
 		baseControlsHelper.clickOn(vz_strings.button_addToAlbumPickerOk);
 		baseControlsHelper.waitForDismiss(vz_strings.toast_photoAddtoAlbum);
 	}

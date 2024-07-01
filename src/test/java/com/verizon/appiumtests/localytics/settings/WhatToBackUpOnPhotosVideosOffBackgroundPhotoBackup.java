@@ -22,12 +22,12 @@ public class WhatToBackUpOnPhotosVideosOffBackgroundPhotoBackup extends BaseTest
             settingsView.setWhatToBackUp(HelperUtilities.setArguments("", vz_strings.settings_whatToBackUp_Photos, vz_strings.settings_whatToBackUp_Videos));
             String logs = localyticsHelper.getLogs();
             localyticsHelper.print(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_whatToBackupModification);
-            TestCase.assertTrue("Localytics of " + vz_strings.logs_whatToBackupModification + " does not exist", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_whatToBackupModification) == 2);
-            TestCase.assertTrue(vz_strings.logs_whatToBackupVideos + " does not exist", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_whatToBackupPhotos + "\"" + " = " + vz_strings.logs_yes) == 1);
-            TestCase.assertTrue(vz_strings.logs_whatToBackupVideos + " does not exist", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_whatToBackupVideos + "\"" + " = " + vz_strings.logs_yes) == 1);
+            TestCase.assertEquals("Localytics of " + vz_strings.logs_whatToBackupModification + " does not exist", 2, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_whatToBackupModification));
+            TestCase.assertEquals(vz_strings.logs_whatToBackupVideos + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_whatToBackupPhotos + "\"" + " = " + vz_strings.logs_yes));
+            TestCase.assertEquals(vz_strings.logs_whatToBackupVideos + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_whatToBackupVideos + "\"" + " = " + vz_strings.logs_yes));
             settingsView.setWhatNotToBackUp(HelperUtilities.setArguments("", "", "", vz_strings.settings_WhatToBackUp_BackGroundPhotoBackUp_Button));
             String log = localyticsHelper.getLogs();
-            TestCase.assertTrue(vz_strings.logs_whatToBackupVideos + " does not exist", localyticsHelper.getPatternMatch(log, "\"" + vz_strings.logs_whatToBackupPhotosBackground + "\"" + " = " + vz_strings.logs_no) == 1);
+            TestCase.assertEquals(vz_strings.logs_whatToBackupVideos + " does not exist", 1, localyticsHelper.getPatternMatch(log, "\"" + vz_strings.logs_whatToBackupPhotosBackground + "\"" + " = " + vz_strings.logs_no));
         } finally {
             settingsView.setWhatToBackUp(HelperUtilities.setArguments(vz_strings.settings_whatToBackUp_Contacts, vz_strings.settings_whatToBackUp_Photos, vz_strings.settings_whatToBackUp_Videos, vz_strings.settings_WhatToBackUp_BackGroundPhotoBackUp_Button));
         }

@@ -22,7 +22,7 @@ public class DocumentsView {
 		this.driver = driver;
 	}
 
-    private List<String> sortOptions = Arrays.asList(
+    private final List<String> sortOptions = Arrays.asList(
             vz_strings.sort_dateUploaded,
             vz_strings.sort_fileName,
             vz_strings.sort_extension,
@@ -103,12 +103,12 @@ public class DocumentsView {
 		resetPickerList();
 		while (baseControlsHelper.isEnabled(vz_strings.button_next)) {
 			Thread.sleep(3000);
-			String current = baseControlsHelper.getTextByType("XCUIElementTypePicker");
+			String current = baseControlsHelper.getTextByType("XCUIElementTypePickerWheel");
 			System.out.println("current is:" +current);
 			list.add(current);
 			baseControlsHelper.clickOn(vz_strings.button_next);
 		}
-		String current = baseControlsHelper.getTextByType("XCUIElementTypePicker");
+		String current = baseControlsHelper.getTextByType("XCUIElementTypePickerWheel");
 		list.add(current);
 		
 		return list;
@@ -198,7 +198,7 @@ public class DocumentsView {
 				value *= CONVERT_VALUE;
 		}
 		
-		return "" + value;
+		return String.valueOf(value);
 	}
 
 	/**
@@ -229,7 +229,7 @@ public class DocumentsView {
 		Date d = new Date();
 		try {
 			d = df.parse(date + time);
-			return "" + d.getTime();
+			return String.valueOf(d.getTime());
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

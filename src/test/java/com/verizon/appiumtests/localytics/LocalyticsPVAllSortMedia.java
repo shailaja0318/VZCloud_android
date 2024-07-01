@@ -27,13 +27,10 @@ public class LocalyticsPVAllSortMedia extends BaseTestClass {
         localyticsHelper.print(logs, vz_strings.logs_sortMedia);
         localyticsHelper.print(logs, vz_strings.logs_sortOption);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaType + " does not exist",
-                localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + "\"" + vz_strings.logs_mediaTypePhotosAndVideos + "\"") == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaType + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + "\"" + vz_strings.logs_mediaTypePhotosAndVideos + "\""));
         if (!dateTaken) {
-            TestCase.assertTrue("Localytics of " + vz_strings.logs_sortOption + " does not exist",
-                    localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_sortOption + "\"" + " = " + "\"" + vz_strings.sort_dateTaken + "\"") == 1);
+            TestCase.assertEquals("Localytics of " + vz_strings.logs_sortOption + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_sortOption + "\"" + " = " + "\"" + vz_strings.sort_dateTaken + "\""));
         } else
-            TestCase.assertTrue("Localytics of " + vz_strings.logs_sortOption + " does not exist",
-                    localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_sortOption + "\"" + " = " + "\"" + vz_strings.sort_dateUploaded + "\"") == 1);
+            TestCase.assertEquals("Localytics of " + vz_strings.logs_sortOption + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_sortOption + "\"" + " = " + "\"" + vz_strings.sort_dateUploaded + "\""));
     }
 }

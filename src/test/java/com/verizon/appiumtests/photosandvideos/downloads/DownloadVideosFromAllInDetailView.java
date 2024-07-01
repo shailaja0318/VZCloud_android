@@ -20,10 +20,10 @@ public class DownloadVideosFromAllInDetailView extends BaseTestClass {
 	//	pre_condition();
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnNameLike(vz_strings.name_video);
+		baseControlsHelper.clickOnLabelLike(vz_strings.name_video);
 		baseControlsHelper.clickOn(vz_strings.actionBar_download);
 		photosAndVideosView.checkDownload();
 		Thread.sleep(1000);
-		TestCase.assertTrue("Download still in progress", baseControlsHelper.getCountById(vz_strings.progressbar)==0);
+        TestCase.assertEquals("Download still in progress", 0, baseControlsHelper.getCountById(vz_strings.progressbar));
 		}
 	}

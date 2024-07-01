@@ -11,7 +11,7 @@ import org.testng.asserts.SoftAssert;
  */
 public class CancelNewStoragePlanAfterSelecting extends BaseTestClass {
     String currentPlan;
-    private SoftAssert softAssert = new SoftAssert();
+    private final SoftAssert softAssert = new SoftAssert();
 
     @Test
     public void testCancelNewStoragePlanAfterSelecting() throws Exception {

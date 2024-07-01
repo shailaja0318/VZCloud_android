@@ -19,6 +19,6 @@ public class CreateCollageMultiselectStory extends BaseTestClass {
         baseControlsHelper.openContext(vz_strings.context_createcollage);
         baseControlsHelper.waitForShowByPredicate("Collage", "XCUIElementTypeNavigationBar");
         String pageTitle = baseControlsHelper.getNameByIndexfromClassName(0, "XCUIElementTypeNavigationBar");
-        TestCase.assertTrue("Create Collage view is not open", pageTitle.equals("Collage"));
+        TestCase.assertEquals("Create Collage view is not open", "Collage", pageTitle);
     }
 }

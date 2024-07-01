@@ -16,7 +16,6 @@ public class LocalyticsTaggedScreenMyAccount extends BaseTestClass {
         baseControlsHelper.clickOn(vz_strings.my_Account);
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagScreen + ": " + vz_strings.my_Account);
-        TestCase.assertTrue("Localytics of " + vz_strings.my_Account + " not exists",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.my_Account + "") == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.my_Account + " not exists", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.my_Account));
     }
 }

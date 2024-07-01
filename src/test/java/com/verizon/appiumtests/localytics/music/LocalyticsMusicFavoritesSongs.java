@@ -20,15 +20,14 @@ public class LocalyticsMusicFavoritesSongs extends BaseTestClass{
       listView.selectFirstItem10();
       baseControlsHelper.openContext(vz_strings.context_addFavorite);
 
-      StringBuilder stringBuilder = new StringBuilder(vz_strings.logs_count).append(" = ").append(1);
+      String stringBuilder = vz_strings.logs_count + " = " + 1;
 
       String logs = localyticsHelper.getLogs();
       localyticsHelper.print(logs, vz_strings.logs_favItemAdded);
 
-      TestCase.assertTrue("Localytics of " + vz_strings.logs_favItemAdded + " does not exist",
-              localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_favItemAdded) == 1);
+      TestCase.assertEquals("Localytics of " + vz_strings.logs_favItemAdded + " does not exist", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_favItemAdded));
       TestCase.assertTrue("Localytics of " + vz_strings.logs_count + " does not exist",
-              localyticsHelper.isExisted(logs, stringBuilder.toString()));
+              localyticsHelper.isExisted(logs, stringBuilder));
       TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaType + " does not exist",
               localyticsHelper.isExisted(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypeMusic));
   }

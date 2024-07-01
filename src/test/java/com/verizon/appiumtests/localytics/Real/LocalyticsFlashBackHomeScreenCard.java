@@ -22,13 +22,13 @@ public class LocalyticsFlashBackHomeScreenCard extends BaseTestClass {
       String logs = localyticsHelper.getLogs();
       localyticsHelper.print(logs, vz_strings.logs_flashBackTab);
 
-      TestCase.assertTrue("Localytics of " + vz_strings.logs_flashBackTab
-              + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent
-              + ": " + vz_strings.logs_flashBackTab) == 1);
+      TestCase.assertEquals("Localytics of " + vz_strings.logs_flashBackTab
+              + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent
+              + ": " + vz_strings.logs_flashBackTab));
 
-      TestCase.assertTrue("Localytics of " + vz_strings.logs_HomeScreenCard 
-              + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_source
-              + " = " + "\"" + vz_strings.logs_HomeScreenCard  + "\"") == 1);
+      TestCase.assertEquals("Localytics of " + vz_strings.logs_HomeScreenCard
+              + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_source
+              + " = " + "\"" + vz_strings.logs_HomeScreenCard + "\""));
 	  
   }
 }

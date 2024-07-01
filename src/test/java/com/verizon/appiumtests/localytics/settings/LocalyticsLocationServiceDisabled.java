@@ -28,10 +28,8 @@ public class LocalyticsLocationServiceDisabled extends BaseTestClass {
             String logs = localyticsHelper.getLogs();
             localyticsHelper.print(logs, "attr" + " = " + "\"" + vz_strings.logs_location_services + "\"");
             localyticsHelper.print(logs, "value" + " = " + vz_strings.logs_disbled);
-            TestCase.assertTrue("Localytics of " + vz_strings.logs_location_services + " does not exist",
-                    localyticsHelper.getPatternMatch(logs, "attr" + " = " + "\"" + vz_strings.logs_location_services + "\"") == 1);
-            TestCase.assertTrue("Localytics of " + vz_strings.logs_disbled + " does not exist",
-                    localyticsHelper.getPatternMatch(logs, "value" + " = " + vz_strings.logs_disbled) == 1);
+            TestCase.assertEquals("Localytics of " + vz_strings.logs_location_services + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "attr" + " = " + "\"" + vz_strings.logs_location_services + "\""));
+            TestCase.assertEquals("Localytics of " + vz_strings.logs_disbled + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "value" + " = " + vz_strings.logs_disbled));
         } finally {
           //  BaseDriver.getDriver().terminateApp(vz_strings.BundleIds.VZ_ID);
             BaseDriver.terminateApp(vz_strings.BundleIds.VZ_ID);

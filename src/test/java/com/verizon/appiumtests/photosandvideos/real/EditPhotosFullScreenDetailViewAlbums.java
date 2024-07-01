@@ -17,10 +17,10 @@ public class EditPhotosFullScreenDetailViewAlbums extends BaseTestClass {
         photosAndVideosView.openAlbum();
         baseControlsHelper.waitForContent();
         gridView.tapItem(vz_strings.DataType.PHOTO);
-        baseControlsHelper.waitForShow(vz_strings.actionBar_EditPhoto);
-        baseControlsHelper.clickOn(vz_strings.actionBar_EditPhoto);
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.actionBar_EditPhoto);
         baseControlsHelper.waitForShowByPredicate("Edit Photo", "XCUIElementTypeNavigationBar");
         String pageTitle = baseControlsHelper.getNameByIndexfromClassName(0, "XCUIElementTypeNavigationBar");
-        TestCase.assertTrue("Edit Photo view is not open", pageTitle.equals("Edit Photo"));
+        TestCase.assertEquals("Edit Photo view is not open", "Edit Photo", pageTitle);
     }
 }

@@ -7,13 +7,15 @@ import org.testng.annotations.Test;
 
 public class WhatToBackup_ContactsOnly extends BaseTestClass {
 	@Test
-	public void testWhatToBackup_ContactsOnlyt() throws Exception {
+	public void testWhatToBackup_ContactsOnly() throws Exception {
 
 		homeScreenView.navigateTo(vz_strings.navi_settings);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.setting_uploadSettings);
 		Thread.sleep(3000);
 		settingsView.setWhatToBackUp(HelperUtilities.setArguments(vz_strings.settings_whatToBackUp_Contacts));
-		baseControlsHelper.clickOn(vz_strings.settings_BackButton);
-		settingsView.setWhatNotToBackUp(HelperUtilities.setArguments("", vz_strings.settings_whatToBackUp_Photos, vz_strings.settings_whatToBackUp_Videos));
+		baseControlsHelper.clickOnElementByXpath(vz_strings.settings_BackButton);
+		settingsView.setWhatNotToBackUp(HelperUtilities.setArguments("",
+				vz_strings.settings_whatToBackUp_Photos, vz_strings.settings_whatToBackUp_Videos));
 
 	}
 }

@@ -19,7 +19,6 @@ public class LocalyticsHMContactsCTA extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagScreen);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaTypeDocument + " exists",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_contacts + " " + vz_strings.logs_CTA) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaTypeDocument + " exists", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_contacts + " " + vz_strings.logs_CTA));
     }
 }

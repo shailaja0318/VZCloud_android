@@ -16,7 +16,7 @@ public class Contacts extends BaseTestClass {
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_contacts);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_contacts + " does not exist", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_contacts) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_contacts + " does not exist", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_contacts));
     }
 }
 

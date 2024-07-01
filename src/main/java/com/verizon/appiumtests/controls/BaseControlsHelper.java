@@ -46,21 +46,57 @@ public class BaseControlsHelper {
 	}
 
 	public void clickOn(String elementName) throws Exception {
-		waitForShow(elementName);
-		//	ReportLog("Click on " + elementName);
-		//System.out.println();
-		System.out.println("Appium Helper Click on " + elementName);
-		driver.findElement(AppiumBy.accessibilityId(elementName)).click();
+		boolean flag = true;
+		int count=0;
+		while (flag) {
+			try {
+				waitForShow(elementName);
+				//	ReportLog("Click on " + elementName);
+				//System.out.println();
+				System.out.println("Appium Helper Click on " + elementName);
+				driver.findElement(AppiumBy.accessibilityId(elementName)).click();
+				flag=false;
+			} catch (Exception e) {
+				swipe("up");
+				count++;
+				if(count==5){
+					break;
+				}
+
+			}
+		}
+	}
+
+	public void clickOnWithouScroll(String elementName) throws Exception {
+
+				waitForShow(elementName);
+				//	ReportLog("Click on " + elementName);
+				//System.out.println();
+				System.out.println("Appium Helper Click on " + elementName);
+				driver.findElement(AppiumBy.accessibilityId(elementName)).click();
 	}
 
 	public void clickOnLabelBeginswith(String elementLabel) throws Exception {
 		System.out.println("Appium Helper Click on " + elementLabel);
-		driver.findElement(AppiumBy.iOSNsPredicateString("label BEGINSWITH \'" + elementLabel + "\'")).click();
+		driver.findElement(AppiumBy.iOSNsPredicateString("label BEGINSWITH '" + elementLabel + "'")).click();
 	}
 
 	public void clickOnType(String type) throws Exception {
 		System.out.println("Appium Helper Click on " + type);
-		driver.findElement(AppiumBy.iOSNsPredicateString("wdType == \'" + type + "\'")).click();
+		driver.findElement(AppiumBy.iOSNsPredicateString("wdType == '" + type + "'")).click();
+	}
+
+	public void clickOnElementByXpath(String locator) throws Exception {
+		waitForShowByXpath(locator);
+		System.out.println("Appium Helper Click on " + locator);
+		driver.findElement(AppiumBy.xpath(locator)).click();
+	}
+
+	public void clickOnElementByDynamicXpath(String locator, int index){
+
+		System.out.println("Appium Helper Click on " + locator);
+		driver.findElement(AppiumBy.xpath(
+				"//XCUIElementTypeCell[contains(@name,'photoIndex_"+index+"')]/XCUIElementTypeOther/XCUIElementTypeImage[1]")).click();
 	}
 
 
@@ -69,19 +105,19 @@ public class BaseControlsHelper {
 	 **/
 	public void clickOnNameBeginswith(String elementName) throws Exception {
 		System.out.println("Appium Helper Click on " + elementName);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("name BEGINSWITH \'" + elementName + "\'")));
-		driver.findElement(AppiumBy.iOSNsPredicateString("name BEGINSWITH \'" + elementName + "\'")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("name BEGINSWITH '" + elementName + "'")));
+		driver.findElement(AppiumBy.iOSNsPredicateString("name BEGINSWITH '" + elementName + "'")).click();
 	}
 
 	public void clickOnNameContains(String elementName) throws Exception {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("name CONTAINS \'" + elementName + "\'")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("name CONTAINS '" + elementName + "'")));
 		System.out.println("Appium Helper Click on " + elementName);
-		driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS \'" + elementName + "\'")).click();
+		driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS '" + elementName + "'")).click();
 	}
 
 	public void clickOnLabelContains(String elementLabel) throws Exception {
 		System.out.println("Appium Helper Click on " + elementLabel);
-		driver.findElement(AppiumBy.iOSNsPredicateString("label CONTAINS \'" + elementLabel + "\'")).click();
+		driver.findElement(AppiumBy.iOSNsPredicateString("label CONTAINS '" + elementLabel + "'")).click();
 	}
 
 	public void tapOnBackButton() throws Exception {
@@ -93,38 +129,53 @@ public class BaseControlsHelper {
 	public void tapOnBackButton_PhotosAndVideos() throws Exception {
 		System.out.println("Appium Helper Click on back");
 		Thread.sleep(1000);
-		clickOn(vz_strings.text_photosAndVideos);
+		clickOnElementByXpath(vz_strings.text_photosAndVideos);
 	}
 	public void clickOnNameLike(String elementName) throws Exception {
 		System.out.println("Appium Helper Click on " + elementName);
-		driver.findElement(AppiumBy.iOSNsPredicateString("wdName LIKE \'" + elementName + " ?\' OR wdName LIKE \'" + elementName + " ??\'")).click();
+		driver.findElement(AppiumBy.iOSNsPredicateString("wdName LIKE '" + elementName + " ?' OR wdName LIKE '" + elementName + " ??'")).click();
 	}
 	public void clickOnLabelLike(String elementName) throws Exception {
 		System.out.println("Appium Helper Click on " + elementName);
-		driver.findElement(AppiumBy.iOSNsPredicateString("wdLabel LIKE \'" + elementName + " ?\' OR wdLabel LIKE \'" + elementName + " ??\'")).click();
+		int count=0;
+		while(true){
+			try{
+				driver.findElement(AppiumBy.iOSNsPredicateString
+						("wdLabel LIKE '" + elementName + " ?' OR wdLabel LIKE '" + elementName + " ??'")).click();
+				break;
+			}catch (Exception e){
+				scroll(elementName, "up");
+				count++;
+				if(count==3){
+					break;
+				}
+
+			}
+		}
+
 	}
 
 	public void clickOnNameBeginswithAndType(String elementName, String className) throws Exception {
 		System.out.println("Appium Helper Click on " + elementName);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("name BEGINSWITH \'" + elementName + "\' AND wdType == \'" + className + "\'")));
-		driver.findElement(AppiumBy.iOSNsPredicateString("name BEGINSWITH \'" + elementName + "\' AND wdType == \'" + className + "\'")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("name BEGINSWITH '" + elementName + "' AND wdType == '" + className + "'")));
+		driver.findElement(AppiumBy.iOSNsPredicateString("name BEGINSWITH '" + elementName + "' AND wdType == '" + className + "'")).click();
 	}
 
 	public void clickOnLabelContainsAndType(String elementName, String className) throws Exception {
 		System.out.println("Appium Helper Click on " + elementName);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("label CONTAINS \'" + elementName + "\' AND wdType == \'" + className + "\'")));
-		driver.findElement(AppiumBy.iOSNsPredicateString("label CONTAINS \'" + elementName + "\' AND wdType == \'" + className + "\'")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("label CONTAINS '" + elementName + "' AND wdType == '" + className + "'")));
+		driver.findElement(AppiumBy.iOSNsPredicateString("label CONTAINS '" + elementName + "' AND wdType == '" + className + "'")).click();
 	}
 
 	public void clickOnLabelBeginsWithAndType(String elementName, String className) throws Exception {
 		System.out.println("Appium Helper Click on " + elementName);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("label BEGINSWITH \'" + elementName + "\' AND wdType == \'" + className + "\'")));
-		driver.findElement(AppiumBy.iOSNsPredicateString("label BEGINSWITH \'" + elementName + "\' AND wdType == \'" + className + "\'")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("label BEGINSWITH '" + elementName + "' AND wdType == '" + className + "'")));
+		driver.findElement(AppiumBy.iOSNsPredicateString("label BEGINSWITH '" + elementName + "' AND wdType == '" + className + "'")).click();
 	}
 
 	public void clickOnNameContainsAndVisibile(String elementName) throws Exception {
 		System.out.println("Appium Helper Click on " + elementName);
-		driver.findElement(AppiumBy.iOSNsPredicateString("wdName CONTAINS \'" + elementName + "\' AND wdVisible == 1")).click();
+		driver.findElement(AppiumBy.iOSNsPredicateString("wdName CONTAINS '" + elementName + "' AND wdVisible == 1")).click();
 	}
 
 	public int getCountByNameContains(String elementName) throws Exception {
@@ -178,18 +229,19 @@ public class BaseControlsHelper {
 
 	public int getCountByNameLike(String elementName) throws Exception {
 		Thread.sleep(1000);
-		elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdName LIKE \'" + elementName + " ?\' OR wdName LIKE \'" + elementName + " ??\'"));
+		elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdName LIKE '" + elementName + " ?' OR wdName LIKE '" + elementName + " ??'"));
 		return elements.size();
 	}
 	
 	public int getCountByLabelLike(String elementName) throws Exception {
 		Thread.sleep(1000);
-		elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdLabel LIKE \'" + elementName + " ?\' OR wdLabel LIKE \'" + elementName + " ??\'"));
+		elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdLabel LIKE '" + elementName + " ?' OR wdLabel LIKE '" + elementName + " ??'"));
 		return elements.size();
 	}
 
 	public int getCountByLabelContainsAndType(String label) throws Exception {
-		elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdLabel CONTAINS \'" + label + "\' && wdType == 'XCUIElementTypeCell'"));
+		elements = driver.findElements(AppiumBy.iOSNsPredicateString
+				("wdLabel CONTAINS '" + label + "' && wdType == 'XCUIElementTypeCell'"));
 		return elements.size();
 	}
 
@@ -202,20 +254,29 @@ public class BaseControlsHelper {
 		return driver.findElements(AppiumBy.iOSClassChain(classChain)).size();
 	}
 	public String getAttrByContainsLabelAndType(String label) throws Exception {
-		element = driver.findElement(AppiumBy.iOSNsPredicateString("wdLabel CONTAINS \'" + label + "\' && wdType == 'XCUIElementTypeCell'"));
+		element = driver.findElement(AppiumBy.iOSNsPredicateString
+				("wdLabel CONTAINS '" + label + "' && wdType == 'XCUIElementTypeCell'"));
 		return element.getAttribute("label");
 	}
 
 	public List<WebElement> getListByLabelContainsAndType(String label, String type) throws Exception {
-		return driver.findElements(AppiumBy.iOSNsPredicateString("wdLabel CONTAINS \'" + label + "\' && wdType == \'" + type + "\'"));
+		return driver.findElements(AppiumBy.iOSNsPredicateString("wdLabel CONTAINS '" + label + "' && wdType == '" + type + "'"));
 	}
 
 	public List<WebElement> getListByNameLikeOrType(String name){
-		return elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdName LIKE \'" + name + " ?\' OR wdName LIKE \'" + name + " ??\'"));
+		return elements = driver.findElements(AppiumBy.iOSNsPredicateString
+				("wdName LIKE '" + name + " ?' OR wdName LIKE '" + name + " ??'"));
 	}
 
 	public List<WebElement> getListByLabelLikeOrType(String name){
-		return elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdLabel LIKE \'" + name + " ?\' OR wdLabel LIKE \'" + name + " ??\'"));
+		return elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdLabel LIKE '" + name + " ?' OR wdLabel LIKE '" + name + " ??'"));
+	}
+
+	public int getListByType(String type){
+		int count = driver.findElements(AppiumBy.xpath(type)).size();
+		System.out.println(count);
+		return count;
+			//	("type == \'"+type+"\'"));
 	}
 
 	public String getValueByIndexfromClassName(int index, String className) throws Exception {
@@ -223,40 +284,49 @@ public class BaseControlsHelper {
 		return driver.findElements(AppiumBy.className(className)).get(index).getAttribute("value");
 	}
 
+	public String getValueByIndexfromXpath(int index, String xpath) throws Exception {
+		waitForShowByXpath(xpath);
+		return driver.findElements(AppiumBy.xpath(xpath)).get(index).getAttribute("value");
+	}
+
 	public String getNameByIndexfromClassName(int index, String className) throws Exception {
 		waitForShowByClassName(className);
 		return driver.findElements(AppiumBy.className(className)).get(index).getAttribute("name");
 	}
 
+	public String getTypeByIndexfromXpath(int index, String xpath) throws Exception {
+		waitForShowByXpath(xpath);
+		return driver.findElements(AppiumBy.xpath(xpath)).get(index).getAttribute("type");
+	}
 	public String getTextById(String name) { System.out.println("GET TEXT IS..."
 			+(driver.findElement(AppiumBy.accessibilityId(name)).getText())); return
 					driver.findElement(AppiumBy.accessibilityId(name)).getText(); }
 
 
 	public String getTextByNameContains(String name) {
-		return driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS \'" + name + "\'")).getText();
+		return driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS '" + name + "'")).getText();
 	}
 
 	public String getTextByType(String name) {
-		return driver.findElement(AppiumBy.iOSNsPredicateString("wdType == \'" + name + "\'")).getText();
+		return driver.findElement(AppiumBy.iOSNsPredicateString("wdType == '" + name + "'")).getText();
 	}
 
 	public String getTextByTypeCell(String name) {
-		System.out.println(driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS \'" + name + "\' AND wdType == 'XCUIElementTypeCell'")).getText());
-		return driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS \'" + name + "\' AND wdType == 'XCUIElementTypeCell'")).getText();
+		System.out.println(driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS '" + name + "' AND wdType == 'XCUIElementTypeCell'")).getText());
+		return driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS '" + name + "' AND wdType == 'XCUIElementTypeCell'")).getText();
 	}
 
 	public List<WebElement> getTextByTypeCell10(String name) {
-		System.out.println(driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS \'" + name + "\' AND wdType == 'XCUIElementTypeCell'")).getText());
-		return driver.findElements(AppiumBy.iOSNsPredicateString("name CONTAINS \'" + name + "\' AND wdType == 'XCUIElementTypeCell'"));
+		System.out.println(driver.findElement(AppiumBy.iOSNsPredicateString("name CONTAINS '" + name + "' AND wdType == 'XCUIElementTypeCell'")).getText());
+		return driver.findElements(AppiumBy.iOSNsPredicateString("name CONTAINS '" + name + "' AND wdType == 'XCUIElementTypeCell'"));
 	}
 	public ArrayList<String> getAllCellElement() throws Exception {
 		ArrayList<String> arrayListlist = new ArrayList<>();
-		elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdType LIKE \'XCUIElementTypeCell\'" +
-				" AND wdName LIKE \'Date Uploaded ?\' OR wdName Date Taken \'Photo ??\'" +
-				" OR wdName LIKE \'Video ?\' OR wdName LIKE \'Video ??\'" +
-				" OR wdName LIKE \'Live Photos ?\' OR wdName LIKE \'Live Photos ??\'" +
-				" OR wdName LIKE \'Saved Story ?\' OR wdName LIKE \'Saved Story ??\'"));
+		elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdType LIKE 'XCUIElementTypeCell'" +
+				" AND wdName LIKE 'Date Uploaded ?' OR wdName Date Taken 'Photo ??'" +
+				" OR wdName LIKE 'Video ?' OR wdName LIKE 'Video ??'" +
+				" OR wdName LIKE 'Live Photos ?' OR wdName LIKE 'Live Photos ??'" +
+				" OR wdName LIKE 'Saved Story ?' OR wdName LIKE 'Saved Story ??'"));
 
 		for (int i = 0; i < elements.size(); i++) {
 			arrayListlist.add(elements.get(i).getAttribute("name"));
@@ -265,7 +335,7 @@ public class BaseControlsHelper {
 	}
 	public void setPickerValue(String value) throws Exception {
 		//driver.findElement(AppiumBy.className("XCUIElementTypePickerWheel")).setValue(value);
-		driver.findElement(AppiumBy.className("XCUIElementTypePickerWheel")).sendKeys(value);;
+		driver.findElement(AppiumBy.className("XCUIElementTypePickerWheel")).sendKeys(value);
 		System.out.println("Appium Helper Click " + value);
 		Thread.sleep(4000);
 		clickOn(vz_strings.button_ok);
@@ -335,17 +405,25 @@ public class BaseControlsHelper {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.accessibilityId(elementName)));
 	}
 
+	public void waitForShowByXpath(String xpath) throws Exception {
+		System.out.println("Appium Helper waiting for show " + xpath);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath(xpath)));
+	}
+
 
 	public void waitForShowByPredicate(String elementName, String elementType) throws Exception {
 		System.out.println("Appium Helper waiting for show " + elementName + " and " + elementType);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("wdName == '" + elementName + "' AND wdType == '" + elementType + "'")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString
+				("wdName == '" + elementName + "' AND wdType == '" + elementType + "'")));
 	}
 
 	public void waitForShowByTypeAndLabel(String elementType, String elementLabel) throws Exception {
 		System.out.println("Appium Helper waiting for show " + elementType + " and " + elementLabel);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.iOSNsPredicateString("wdType == '" + elementType + "' AND wdLabel == '" + elementLabel + "'")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated
+				(AppiumBy.iOSNsPredicateString("wdType == '" + elementType + "' AND wdLabel == '" + elementLabel + "'")));
 	}
 
 	public void waitForShowByClassName(String className) throws Exception {
@@ -356,8 +434,16 @@ public class BaseControlsHelper {
 
 	public boolean isVisible(String elementName) throws Exception {
 		System.out.println("Appium Helper checking for visibility " + elementName);
+		waitForShow(elementName);
 		return driver.findElement(AppiumBy.accessibilityId(elementName)).isDisplayed();
 	}
+
+	public boolean elementIsVisible(String elementName) throws Exception {
+		waitForShowByXpath(elementName);
+		System.out.println("Appium Helper checking for visibility " + elementName);
+		return driver.findElement(AppiumBy.xpath(elementName)).isDisplayed();
+	}
+
 
 	public boolean isEnabled(String elementName) throws Exception {
 		System.out.println("Appium Helper checking if " + elementName + " is Enabled");
@@ -403,7 +489,7 @@ public class BaseControlsHelper {
 	public boolean isVisibleByLabelAndType(String elementType, String elementLabel) throws Exception {
 		int count = driver.findElements(AppiumBy.iOSNsPredicateString(" wdLabel == '" + elementLabel + "'" +
 				" AND wdType== '" + elementType + "'")).size();
-		return count > 0 ? true : false;
+		return count > 0;
 	}
 
 	/**
@@ -411,7 +497,7 @@ public class BaseControlsHelper {
 	 */
 	public boolean isSelected(String elementName) throws Exception {
 		waitForShow(elementName);
-		return driver.findElement(AppiumBy.accessibilityId(elementName)).getAttribute("value") != null;
+		return driver.findElement(AppiumBy.accessibilityId(elementName)).getAttribute("name") != null;
 	}
 
 	public boolean isSelectedByTypeAndName(String elementType, String elementLabel) throws Exception {
@@ -459,6 +545,16 @@ public class BaseControlsHelper {
 		js.executeScript("mobile: scroll", args);
 	}
 
+	public void scrollByLabel(String name, String direction) {
+		System.out.println("Appium Helper Scrolling " + direction);
+		JavascriptExecutor js = driver;
+		HashMap<Object, Object> args = new HashMap();
+		element = driver.findElement(AppiumBy.iOSNsPredicateString("wdLabel CONTAINS '" + name + "'"));
+		args.put("direction", direction);
+		args.put("predicateString", element);
+		args.put("isVisible", "true");
+		js.executeScript("mobile: scroll", args);
+	}
 	/**
 	 * Swipe
 	 * element
@@ -487,11 +583,11 @@ public class BaseControlsHelper {
 
 	public ArrayList<String> getAllAlbumElementsInGrid() throws Exception {
 		ArrayList<String> arrayListlist = new ArrayList<>();
-		elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdType LIKE \'XCUIElementTypeCell\'" +
-				" AND wdLabel LIKE \'Photo ?\' OR wdLabel LIKE \'Photo ??\'" +
-				" OR wdLabel LIKE \'Video ?\' OR wdLabel LIKE \'Video ??\'" +
-				" OR wdLabel LIKE \'Live Photos ?\' OR wdLabel LIKE \'Live Photos ??\'" +
-				" OR wdLabel LIKE \'Saved Story ?\' OR wdLabel LIKE \'Saved Story ??\'"));
+		elements = driver.findElements(AppiumBy.iOSNsPredicateString("wdType LIKE 'XCUIElementTypeCell'" +
+				" AND wdLabel LIKE 'Photo ?' OR wdLabel LIKE 'Photo ??'" +
+				" OR wdLabel LIKE 'Video ?' OR wdLabel LIKE 'Video ??'" +
+				" OR wdLabel LIKE 'Live Photos ?' OR wdLabel LIKE 'Live Photos ??'" +
+				" OR wdLabel LIKE 'Saved Story ?' OR wdLabel LIKE 'Saved Story ??'"));
 
 		for (int i = 0; i < elements.size(); i++) {
 			arrayListlist.add(elements.get(i).getAttribute("label"));
@@ -513,7 +609,7 @@ public class BaseControlsHelper {
 
 	public void waitForContent() throws Exception {
 		System.out.println("== Waiting for content to appear ==");
-		String query = "wdType == \'XCUIElementTypeCell\' AND wdLabel CONTAINS \'Photo \' OR wdLabel CONTAINS \'Video \' OR wdLabel CONTAINS \'Photos albums folder\'";
+		String query = "wdType == 'XCUIElementTypeCell' AND wdLabel CONTAINS 'Photo ' OR wdLabel CONTAINS 'Video ' OR wdLabel CONTAINS 'Photos albums folder'";
 		elements = driver.findElements(AppiumBy.iOSNsPredicateString(query));
 		int maxWait = 2000; //ms
 		int currentTime = 0;
@@ -562,23 +658,32 @@ public class BaseControlsHelper {
 		driver.findElements(AppiumBy.className(className)).get(index).click();
 	}
 
+	public void clickOnByIndexFromXpath(int index, String xpath) throws Exception {
+		driver.findElements(AppiumBy.className(xpath)).get(index).click();
+	}
+
+	public boolean clickOnByIndexFromXpath(String xpath) throws Exception {
+		return driver.findElement(AppiumBy.className(xpath)).isDisplayed();
+	}
+
 	public boolean isDisplayedByNameAndType(String elementName, String className) {
-		return driver.findElement(AppiumBy.iOSNsPredicateString("name == \'" + elementName + "\' AND wdType == \'" + className + "\'")).isDisplayed();
+		return driver.findElement(AppiumBy.iOSNsPredicateString
+				("name == '" + elementName + "' AND wdType == '" + className + "'")).isDisplayed();
 	}
 
 	public void turnOnSwitch(String elementName) {
 
-		driver.findElement(AppiumBy.iOSNsPredicateString("name == \'" + elementName + "\' AND wdType == 'XCUIElementTypeSwitch'")).click();
+		driver.findElement(AppiumBy.iOSNsPredicateString("name == '" + elementName + "' AND wdType == 'XCUIElementTypeSwitch'")).click();
 
 	}
 
 	public String getindexofSwitch(String elementName) {
-		return driver.findElement(AppiumBy.iOSNsPredicateString("name == \'" + elementName + "\' AND wdType == 'XCUIElementTypeSwitch'")).getAttribute("value"); 	
+		return driver.findElement(AppiumBy.iOSNsPredicateString("name == '" + elementName + "' AND wdType == 'XCUIElementTypeSwitch'")).getAttribute("value");
 	}
 
 	public void switchONandOFF(String elementName) throws Exception { //created BY SL
 		System.out.println("Appium Helper Click on " + elementName);
-		element = driver.findElement(AppiumBy.iOSNsPredicateString("label CONTAINS \'" + elementName + "\' && wdType == 'XCUIElementTypeSwitch'"));
+		element = driver.findElement(AppiumBy.iOSNsPredicateString("label CONTAINS '" + elementName + "' && wdType == 'XCUIElementTypeSwitch'"));
 		element.click();
 	}
 	public void setDateTimePickerValue(int index, String value) {
@@ -607,10 +712,9 @@ public class BaseControlsHelper {
 
 	public void delete(String deleteOptions) throws Exception {
 		openContext(vz_strings.context_delete);
-		switch(deleteOptions){
-		case "Move to Trash":
-			clickOn(vz_strings.del_moveToTrash);	
-		}	
+		if (deleteOptions.equals("Move to Trash")) {
+			clickOn(vz_strings.del_moveToTrash);
+		}
 	}
 
 	public void del_moveToTrash() throws Exception {

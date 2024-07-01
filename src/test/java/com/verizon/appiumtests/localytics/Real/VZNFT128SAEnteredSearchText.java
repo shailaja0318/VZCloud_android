@@ -17,7 +17,7 @@ public class VZNFT128SAEnteredSearchText extends BaseTestClass {
 
         String logs = localyticsHelper.getLogs();
         TestCase.assertTrue("Localytics of " + vz_strings.logs_storiesSearch + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_storiesSearch));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_storiesSearch + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_storiesSearch) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_storiesSearch + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_storiesSearch));
         TestCase.assertTrue(vz_strings.logs_step + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_step + " = " + "\"" + vz_strings.logs_enteredSearchText));
 
         localyticsHelper.print(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_storiesSearch);

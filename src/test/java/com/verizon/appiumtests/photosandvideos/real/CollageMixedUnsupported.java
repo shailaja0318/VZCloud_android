@@ -14,13 +14,9 @@ public class CollageMixedUnsupported extends BaseTestClass {
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
 		gridView.tapItemsInSelectMode();
-		baseControlsHelper.clickOn(vz_strings.actionBar_Collage);
+		baseControlsHelper.openContext(vz_strings.context_createcollage);
 		TestCase.assertTrue("Title missing",
 				baseControlsHelper.getCountById(vz_strings.text_unsupportedMediaTitle) != 0);
-		/*
-		 * TestCase.assertTrue("Description is missing",
-		 * baseControlsHelper.getCountById(vz_strings.text_unsupportedMediaBody) != 0);
-		 */ //unable to detect the element
 		Thread.sleep(2000);
 		baseControlsHelper.clickOn(vz_strings.button_ok);
 	}

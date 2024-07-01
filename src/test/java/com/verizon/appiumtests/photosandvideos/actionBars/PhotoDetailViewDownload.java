@@ -11,14 +11,14 @@ import org.testng.annotations.Test;
 public class PhotoDetailViewDownload extends BaseTestClass {
 	
 	@Test
-	public void testDownloadVideosFromAllDetailView() throws Exception {;
-		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
+	public void testDownloadVideosFromAllDetailView() throws Exception {
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnLabelLike(vz_strings.name_photo);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
 		baseControlsHelper.clickOn(vz_strings.actionBar_download);
 		photosAndVideosView.checkDownload();
 		Thread.sleep(1000);
-		TestCase.assertTrue("Download still in progress", baseControlsHelper.getCountById(vz_strings.progressbar)==0);
+        TestCase.assertEquals("Download still in progress", 0, baseControlsHelper.getCountById(vz_strings.progressbar));
 		}
 	}
 

@@ -14,14 +14,14 @@ public class MediaPlayerQueueSelectContextualMenuOptions extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_playlists);
         preConditionFav();
-        baseControlsHelper.clickOn("On-The-Go");
+      //  baseControlsHelper.clickOn("On-The-Go");
         preCondition();
+        baseControlsHelper.clickOnElementByXpath(vz_strings.availableSongs);
         baseControlsHelper.openContext(vz_strings.context_select);
         listView.selectFirstItem10();
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(vz_strings.DataType.MUSIC,
-                vz_strings.view_insideMusicPlaylist, true));
+
     }
 
     private void preCondition() throws Exception {

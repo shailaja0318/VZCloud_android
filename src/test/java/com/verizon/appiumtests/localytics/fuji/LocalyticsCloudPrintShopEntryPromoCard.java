@@ -14,8 +14,8 @@ public class LocalyticsCloudPrintShopEntryPromoCard extends BaseTestClass {
         homeScreenView.navigateToFuji();
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketEntry + " is not 1 in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_photoBucketEntry) == 1);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketNumber + " does not exist", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_photoBucketNumber + "\" = 0") == 1);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketEntryPoint + " does not exist", localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_photoBucketEntryPoint + "\"" + " = " + vz_strings.logs_PromoCard) == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_photoBucketEntry + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_photoBucketEntry));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_photoBucketNumber + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_photoBucketNumber + "\" = 0"));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_photoBucketEntryPoint + " does not exist", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_photoBucketEntryPoint + "\"" + " = " + vz_strings.logs_PromoCard));
     }
 }

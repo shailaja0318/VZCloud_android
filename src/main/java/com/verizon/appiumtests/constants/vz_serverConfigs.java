@@ -6,8 +6,9 @@ package com.verizon.appiumtests.constants;
  */
 public class vz_serverConfigs {
 
-	public enum SanitizeType{ HOST, LCID, TOKEN};
-	public final static String token_filter = "Authorization = \"NWB token=";
+	public enum SanitizeType{ HOST, LCID, TOKEN}
+
+    public final static String token_filter = "Authorization = \"NWB token=";
 	public final static String auth_version = "\" authVersion=\"1.0\"";
 	public final static String vzRepo = "TestREPO";
     public final static String dvHeader_Accept1_15 = "application/vnd.newbay.dv-1.15+xml";

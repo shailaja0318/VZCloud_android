@@ -21,7 +21,7 @@ public class LocalyticsPhotosVideosPrintShopExit extends BaseTestClass {
       localyticsHelper.print(logs, vz_strings.logs_photoBucketExit);
       
       TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketExit + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_photoBucketExit));
-      TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketExit + " is not 1 in logs", localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_photoBucketExit) == 1);
+      TestCase.assertEquals("Localytics of " + vz_strings.logs_photoBucketExit + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_photoBucketExit));
       TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketEntryPoint + " does not exist", localyticsHelper.isExisted(logs, "\"" + vz_strings.logs_photoBucketEntryPoint + "\" = \"" + vz_strings.logs_photosVideosAll + "\""));
       TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketExitMethod + " does not exist", localyticsHelper.isExisted(logs, "\"" + vz_strings.logs_photoBucketExitMethod + "\" = \"" + vz_strings.logs_photoBucketCancelButton + "\""));
       TestCase.assertTrue("Localytics of " + vz_strings.logs_photoBucketItemsPurchased + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_photoBucketItemsPurchased));

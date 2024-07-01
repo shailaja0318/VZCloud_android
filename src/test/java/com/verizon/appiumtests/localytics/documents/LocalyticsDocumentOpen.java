@@ -18,11 +18,8 @@ public class LocalyticsDocumentOpen extends BaseTestClass {
         System.out.println(logs);
         localyticsHelper.print(logs, vz_strings.logs_mediaOpen);
 
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaOpen + " is not in logs",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaOpen) == 1);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaType + " is not in logs",
-                localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypeDocument) == 1);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_page + " is not in logs",
-                localyticsHelper.getPatternMatch(logs, vz_strings.logs_page + " = " + "\"" + vz_strings.logs_allDocuments + "\"") == 1);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaOpen + " is not in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaOpen));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaType + " is not in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + vz_strings.logs_mediaTypeDocument));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_page + " is not in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_page + " = " + "\"" + vz_strings.logs_allDocuments + "\""));
     }
 }

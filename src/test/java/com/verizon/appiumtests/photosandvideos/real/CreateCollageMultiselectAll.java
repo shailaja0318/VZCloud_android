@@ -14,9 +14,9 @@ public class CreateCollageMultiselectAll extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
         gridView.tapItemsInMultiSelectModeUniversal(3, vz_strings.DataType.PHOTO);
-        baseControlsHelper.clickOn(vz_strings.actionBar_Collage);
+        baseControlsHelper.openContext(vz_strings.context_createcollage);
         baseControlsHelper.waitForShowByPredicate("Collage", "XCUIElementTypeNavigationBar");
         String pageTitle = baseControlsHelper.getNameByIndexfromClassName(0, "XCUIElementTypeNavigationBar");
-        TestCase.assertTrue("Create Collage view is not open", pageTitle.equals("Collage"));
+        TestCase.assertEquals("Create Collage view is not open", "Collage", pageTitle);
     }
 }

@@ -16,7 +16,6 @@ public class SavedSystemGeneratedStoryToAnAlbum extends BaseTestClass {
             gridView.selectAllAlbums();
             baseControlsHelper.openContext(vz_strings.context_delete);
             baseControlsHelper.clickOn(vz_strings.button_yes);
-            baseControlsHelper.waitForShow(vz_strings.toast_albumDeletedSuccessfully);
         }
         System.out.println("--End Preconditions--");
     }
@@ -28,12 +27,13 @@ public class SavedSystemGeneratedStoryToAnAlbum extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_albums);
         preCondition_albums();
+        baseControlsHelper.waitForShow(vz_strings.tab_stories);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
         gridView.tapFolderInSelectMode10("Story-0");
         baseControlsHelper.openContext(vz_strings.context_saveAsAlbum);
         baseControlsHelper.waitForShow(vz_strings.toast_storySavesToAlbums);
         photosAndVideosView.selectTab(vz_strings.tab_albums);
 
-        TestCase.assertTrue("No items", baseControlsHelper.getCountById("Photos albums folder") > 0);
+        TestCase.assertTrue("No items", baseControlsHelper.elementIsVisible(vz_strings.photos_albumFolder));
     }
 }

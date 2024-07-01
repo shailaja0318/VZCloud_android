@@ -10,12 +10,19 @@ public class HMButton extends BaseTestClass {
 
     @Test
     public void testHMButton() throws Exception {
-        homeScreenView.navigateTo(vz_strings.navi_printshop);
-        baseControlsHelper.waitForDismiss(vz_strings.spinner);
-        baseControlsHelper.clickOn(vz_strings.button_exit);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
+        photosAndVideosView.selectTab(vz_strings.tab_albums);
+        baseControlsHelper.waitForShow(vz_strings.context_menu);
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        baseControlsHelper.waitForShow(vz_strings.context_printAndGifts);
+        baseControlsHelper.clickOn(vz_strings.context_printAndGifts);
+        Thread.sleep(3000);
+        //baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit_1);
         baseControlsHelper.clickOn(vz_strings.button_yes);
-        baseControlsHelper.waitForShow(vz_strings.navi_icon);
-        homeScreenView.navigateTo(vz_strings.navi_home);
-        TestCase.assertTrue("We not back to HM ", baseControlsHelper.isVisible(vz_strings.name_homeScreen));
+        baseControlsHelper.clickOn(vz_strings.navi_back);
+        baseControlsHelper.clickOn(vz_strings.navi_home);
+        TestCase.assertTrue("We not back to HM ",
+                baseControlsHelper.isVisible(vz_strings.navi_home));
     }
 }

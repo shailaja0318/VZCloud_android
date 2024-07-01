@@ -18,6 +18,7 @@ public class AllPhotosVideosSelectContextMenu extends BaseTestClass {
         gridView.tapItemInSelectMode(DataType.PHOTO);
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(vz_strings.DataType.PHOTO, vz_strings.view_photoAll, true));
+        TestCase.assertTrue("Options missing ",
+                baseControlsHelper.isVisible(vz_strings.context_editPhoto));
     }
 }

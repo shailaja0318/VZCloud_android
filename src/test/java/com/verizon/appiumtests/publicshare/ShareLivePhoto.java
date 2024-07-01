@@ -13,7 +13,7 @@ public class ShareLivePhoto extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        baseControlsHelper.clickOnNameLike("Live Photos");
+        baseControlsHelper.clickOnLabelLike("Photo");
         baseControlsHelper.clickOn(vz_strings.actionBar_share);
 
         TestCase.assertTrue("OK to Share Location? , not present", baseControlsHelper.getCountById(vz_strings.text_OkToShareLocation) != 0);

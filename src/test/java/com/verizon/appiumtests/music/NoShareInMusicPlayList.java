@@ -16,6 +16,6 @@ public class NoShareInMusicPlayList extends BaseTestClass {
         listView.selectItemInSelectMode10("section - 0, row - 0");
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Share present in context menu", baseControlsHelper.getCountById(vz_strings.context_share) == 0);
+        TestCase.assertEquals("Share present in context menu", 0, baseControlsHelper.getCountById(vz_strings.context_share));
     }
 }

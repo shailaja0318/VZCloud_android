@@ -21,14 +21,14 @@ public class StorageUpgradeCompleteCancelDowngrade extends BaseTestClass {
         baseControlsHelper.clickOn(vz_strings.button_cancel);
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_Storage_Upgrade);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_Upgrade + " does not exist", localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_Upgrade) == 2);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_Storage_Upgrade + " does not exist", 2, localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_Upgrade));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_No_Change + " does not exist",
                 localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_No_Change) >= 1 && localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_No_Change) <= 2);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_Promotion + " does not exist", localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_Promotion) == 2);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_Storage_Promotion + " does not exist", 2, localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_Promotion));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_Cancel_Status + " does not exist",
                 localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_Cancel_Status) >= 1 && localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_Cancel_Status) <= 2);
         TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_Downgrade_Type + " does not exist",
                 localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_Downgrade_Type) >= 1 && localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_Downgrade_Type) <= 2);
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_Storage_Source + " does not exist", localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_Source) == 2);
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_Storage_Source + " does not exist", 2, localyticsHelper.getPatternMatch(logs, vz_strings.logs_Storage_Source));
     }
 }

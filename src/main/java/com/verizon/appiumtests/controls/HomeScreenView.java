@@ -192,7 +192,7 @@ public class HomeScreenView {
             Thread.sleep(2000);
             signIn(mdn, mdnpass);
             secretQuestion("intertek");  
-            Thread.sleep(5000);;
+            Thread.sleep(5000);
             baseControlsHelper.waitForShow(vz_strings.verizon_cloud);
         }
     }

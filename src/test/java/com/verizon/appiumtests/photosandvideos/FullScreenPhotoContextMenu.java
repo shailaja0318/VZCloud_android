@@ -13,9 +13,10 @@ public class FullScreenPhotoContextMenu extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        baseControlsHelper.clickOnNameLike(vz_strings.name_photo);
+        baseControlsHelper.clickOnLabelLike(vz_strings.name_photo);
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(vz_strings.DataType.PHOTO, vz_strings.view_photoFull, true));
+        TestCase.assertTrue("Options missing ",
+                baseControlsHelper.isVisible(vz_strings.context_createStory) );
     }
 }

@@ -16,6 +16,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 
 import static com.verizon.appiumtests.constants.vz_strings.Vz_configs.*;
@@ -202,9 +203,7 @@ public class HelperUtilities {
 
     public static ArrayList<String> setArguments(String... args) {
         ArrayList<String> parameters = new ArrayList<>();
-        for (int i = 0; i < args.length; i++) {
-            parameters.add(args[i]);
-        }
+        Collections.addAll(parameters, args);
         return parameters;
     }
 }
