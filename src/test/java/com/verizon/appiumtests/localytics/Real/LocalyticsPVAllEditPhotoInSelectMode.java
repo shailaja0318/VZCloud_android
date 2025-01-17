@@ -14,7 +14,7 @@ public class LocalyticsPVAllEditPhotoInMultiSelectMode extends BaseTestClass{
 	  homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 	  photosAndVideosView.selectTab(vz_strings.tab_all);
 	  baseControlsHelper.openContext(vz_strings.context_select);
-	  baseControlsHelper.clickOnNameLike(vz_strings.name_photo);
+	  gridView.tapMultiplePhotoItems(3);
 	  baseControlsHelper.openContext(vz_strings.context_editPhoto);
 	  
 	  String logs = localyticsHelper.getLogs();

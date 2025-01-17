@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class PhotosAndVideosStryTab extends BaseTestClass {
     @Test
     public void PhotosAndVideosStoryTab() throws Exception {
-        homeScreenView.fromHomeClickAt(vz_strings.navi_Photosandvideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagScreen);
