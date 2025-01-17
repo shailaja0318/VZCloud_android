@@ -12,7 +12,7 @@ public class VZNFT128SAClickedSearchItem extends BaseTestClass {
 
     @Test
     public void testVZNFT128SAClickedSearchItem() throws Exception {
-
+        //unable to find date time ...Failing
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
         baseControlsHelper.clickOn(vz_strings.view_searchStoriesBar);

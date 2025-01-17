@@ -11,11 +11,11 @@ public class PhotosVideosMediaGalleryOpenFavorites extends BaseTestClass {
     @Test
     public void testPhotosVideosMediaGalleryOpenFavorites() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
-       // precondition.removeFavoritesAlbum();
+        precondition.removeFavoritesAlbum();
         photosAndVideosView.selectTab(vz_strings.tab_all);
         gridView.tapItemInSelectMode(vz_strings.DataType.PHOTO);
         baseControlsHelper.openContext(vz_strings.actionBar_selectView_addToFavorite);
-       //baseControlsHelper.waitForDismiss(vz_strings.toast_addtoFavorite);
+        baseControlsHelper.waitForDismiss(vz_strings.toast_addtoFavorite);
         photosAndVideosView.selectFavoriteAlbum();
 
         String logs = localyticsHelper.getLogs();

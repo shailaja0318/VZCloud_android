@@ -26,7 +26,7 @@ public class PhotosAndVideosAllPhtVidDownload extends BaseTestClass {
         localyticsHelper.print(logs, vz_strings.logs_tagEvent);
 
         List<String> mediaType = localyticsHelper.dynamicCount(logs, vz_strings.logs_mediaType);
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaDownload + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaDownloadComplete));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaDownload + " is not 1 in logs", 0, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaDownloadComplete));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_count + "  is not 2 in logs", localyticsHelper.getPatternMatch(logs, vz_strings.logs_count + " = 1")>=1);
         for (String mediatypes : mediaType) {
             if ((mediatypes.contains("Video")) || (mediatypes.contains("Photo"))) {

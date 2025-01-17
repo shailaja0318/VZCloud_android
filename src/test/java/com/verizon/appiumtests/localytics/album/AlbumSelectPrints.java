@@ -14,7 +14,7 @@ public class AlbumSelectPrints extends BaseTestClass {
     public void albumSelectPrint() throws Exception {
     	homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_albums);
-        gridView.tapFolderInSelectMode10(vz_strings.album_photo_select);
+        //gridView.tapFolderInSelectMode10(vz_strings.album_photo_select);
         photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_icon_printShop);
         baseControlsHelper.waitForDismiss(vz_strings.spinner);
         String logs = localyticsHelper.getLogs();

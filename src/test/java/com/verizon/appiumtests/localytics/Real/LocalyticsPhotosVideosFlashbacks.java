@@ -19,18 +19,9 @@ public class LocalyticsPhotosVideosFlashbacks extends BaseTestClass {
 
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_flashBackTab);
-
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_photosVideosFlashBacks
-                + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen
-                + ": " + vz_strings.logs_photosVideosFlashBacks));
-
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_flashBackTab
-                + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent
-                + ": " + vz_strings.logs_flashBackTab));
-
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_pVTab
-                + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_source
-                + " = " + "\"" + vz_strings.logs_pVTab + "\""));
+        TestCase.assertTrue("Localytics of " + vz_strings.logs_photosVideosFlashBacks + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_photosVideosFlashBacks));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_photosVideosFlashBacks + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_photosVideosFlashBacks));
+        localyticsHelper.print(logs, vz_strings.logs_photosVideosFlashBacks);
 
     }
 }

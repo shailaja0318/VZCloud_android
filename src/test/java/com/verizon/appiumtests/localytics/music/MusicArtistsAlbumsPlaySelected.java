@@ -18,7 +18,8 @@ public class MusicArtistsAlbumsPlaySelected extends BaseTestClass {
         baseControlsHelper.waitForShow("pauseButton");
 
         String logs = localyticsHelper.getLogs();
-        localyticsHelper.print(logs, vz_strings.logs_musicArtistAlbums);
+        localyticsHelper.print(logs, vz_strings.logs_tagScreen);
+        localyticsHelper.print(logs, vz_strings.logs_tagEvent);
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaPlay + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_mediaPlay));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_tagEvent + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_mediaPlay));
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaType + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_mediaTypeSong));

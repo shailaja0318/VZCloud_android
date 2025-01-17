@@ -12,7 +12,9 @@ public class MusicOpenFile extends BaseTestClass {
     public void testMusicOpenFile() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_allFiles);
-        allFilesView.search(".mp3");
+        baseControlsHelper.clickOnNameContains("Mobile");
+        listView.selectFirstItem10();
+        baseControlsHelper.scrollUtillAnElement("mp3", "up");
         listView.selectFirstItem10();
         baseControlsHelper.waitForShow("pauseButton");
 

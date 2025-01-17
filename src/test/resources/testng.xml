@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Full" parallel="false">
-    <parameter name="udid" value="ec297e6bf48845a9df87c9700a587c3a97f216d3"/>
+    <!--<parameter name="udid" value="00008030-000E095E0ED1402E"/>-->
 	<test name="Provisioning">
 		<classes>
             <class name="com.verizon.appiumtests.provisioning.LoginWithSim"/>

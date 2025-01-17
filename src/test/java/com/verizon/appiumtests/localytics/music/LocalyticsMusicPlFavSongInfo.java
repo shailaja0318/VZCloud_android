@@ -22,9 +22,11 @@ public class LocalyticsMusicPlFavSongInfo extends BaseTestClass {
         baseControlsHelper.openContext(vz_strings.context_info);
 
         String logs = localyticsHelper.getLogs();
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_musicInfo + " does not exist",
-                localyticsHelper.isExisted(logs, vz_strings.logs_musicInfo));
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_musicInfo + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicInfo));
-        localyticsHelper.print(logs, vz_strings.logs_musicInfo);
+        localyticsHelper.print(logs, vz_strings.logs_tagScreen);
+        TestCase.assertTrue("Localytics of " + vz_strings.logs_musicNowPlaying + " does not exist",
+                localyticsHelper.isExisted(logs, vz_strings.logs_musicNowPlaying));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_musicFavorites + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicFavorites));
+
+        localyticsHelper.print(logs, vz_strings.logs_musicFavorites);
     }
 }

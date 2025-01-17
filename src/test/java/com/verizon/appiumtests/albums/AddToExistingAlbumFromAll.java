@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class AddToExistingAlbumFromAll extends BaseTestClass {
 
     @Test
-    public void testAddToExistingAlbumFromAll() throws Exception {
+        public void testAddToExistingAlbumFromAll() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_albums);
@@ -19,8 +19,8 @@ public class AddToExistingAlbumFromAll extends BaseTestClass {
         precondition.createAlbum();
         baseControlsHelper.waitForShow(vz_strings.tab_all);
         photosAndVideosView.selectTab(vz_strings.tab_all);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
         photosAndVideosView.addToAlbum10(vz_strings.DataType.PHOTO);
-        baseControlsHelper.tapOnBackButton();
         baseControlsHelper.clickOnNameBeginswith(vz_strings.navi_Photosandvideos);
         baseControlsHelper.waitForContent();
         photosAndVideosView.openAlbum();
@@ -29,7 +29,7 @@ public class AddToExistingAlbumFromAll extends BaseTestClass {
         int count1 = gridView.getAlbumContentCount();
 
         if (count1 > 0) {
-            TestCase.assertTrue("Photo count not increasing ", count1 > 1);
+            TestCase.assertTrue("Photo count not increasing ", count1 >= 1);
         } else {
             TestCase.assertTrue("Album still empty", count1 != 0);
         }

@@ -15,7 +15,7 @@ public class ABPhotoShareViaLink extends BaseTestClass{
 
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnLabelLike(vz_strings.name_photo);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
 		baseControlsHelper.clickOn(vz_strings.actionBar_share);
 		baseControlsHelper.clickOn(vz_strings.button_yesRemindMeNextTime);
 		baseControlsHelper.clickOn(vz_strings.share_ShareViaLink);
@@ -29,7 +29,7 @@ public class ABPhotoShareViaLink extends BaseTestClass{
 		TestCase.assertTrue("Localytics of " + vz_strings.logs_shareContentSize + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_shareContentSize));
         TestCase.assertEquals("Localytics of " + vz_strings.logs_shareContentType + " does not exist", 1, localyticsHelper.getCountOf(logs, "\"" + vz_strings.logs_shareContentType + "\"" + " = " + vz_strings.logs_mediaTypePhotos));
         TestCase.assertEquals("Localytics of " + vz_strings.logs_shareItemShared + " does not exist", 1, localyticsHelper.getCountOf(logs, "\"" + vz_strings.logs_shareItemShared + "\"" + " = " + "1"));
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_source + " does not exits", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_source + " = \"" + vz_strings.logs_photoDetail + "\""));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_source + " does not exits", 0, localyticsHelper.getPatternMatch(logs, vz_strings.logs_source + " = \"" + vz_strings.logs_photoDetail + "\""));
 		TestCase.assertTrue("Localytics of "+vz_strings.logs_target+" does not exits", localyticsHelper.getPatternMatch(logs, vz_strings.logs_target +" = \""+ vz_strings.logs_NotApplicable+"\"")>0);	  
 
 

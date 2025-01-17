@@ -9,7 +9,7 @@ public class Scroll_RecentFileList extends BaseTestClass{
   public void test_ScrollRecentFilesListFromeHomeSCreen() throws Exception {
 	  homeScreenView.navigateTo(vz_strings.navi_home);
 	  baseControlsHelper.waitForShow(vz_strings.home_recentLabel);
-	  baseControlsHelper.swipe1(vz_strings.recent_file+3, "right");
+	  baseControlsHelper.swipe( "left");
 	  Thread.sleep(2000);
 	  
   }

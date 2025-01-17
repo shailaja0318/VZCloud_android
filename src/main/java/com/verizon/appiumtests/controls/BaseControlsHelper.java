@@ -438,6 +438,13 @@ public class BaseControlsHelper {
 		return driver.findElement(AppiumBy.accessibilityId(elementName)).isDisplayed();
 	}
 
+	public boolean isVisible1(String element) throws Exception {
+		System.out.println("Appium Helper checking for visibility " + element);
+		waitForShow(element);
+		return driver.findElement(AppiumBy.xpath(element)).isDisplayed();
+	}
+
+
 	public boolean elementIsVisible(String elementName) throws Exception {
 		waitForShowByXpath(elementName);
 		System.out.println("Appium Helper checking for visibility " + elementName);
@@ -450,7 +457,7 @@ public class BaseControlsHelper {
 		return driver.findElement(AppiumBy.accessibilityId(elementName)).isEnabled();
 	}
 
-	public void openContext(String option) throws Exception {
+	public void  openContext(String option) throws Exception {
 		dismissCampaign();
 		clickOn(vz_strings.context_menu);
 		dismissCampaign();
@@ -535,14 +542,37 @@ public class BaseControlsHelper {
 	 * */
 
 	public void scroll(String name, String direction) {
-		System.out.println("Appium Helper Scrolling " + direction);
-		JavascriptExecutor js = driver;
-		HashMap<Object, Object> args = new HashMap();
-		element = driver.findElement(AppiumBy.iOSNsPredicateString("wdLabel CONTAINS '" + name + "'"));
-		args.put("direction", direction);
-		args.put("predicateString", element);
-		args.put("isVisible", "true");
-		js.executeScript("mobile: scroll", args);
+		try {
+			System.out.println("Appium Helper Scrolling " + direction);
+			JavascriptExecutor js = driver;
+			HashMap<Object, Object> args = new HashMap();
+			element = driver.findElement(AppiumBy.iOSNsPredicateString("wdLabel CONTAINS '" + name + "'"));
+			args.put("direction", direction);
+			args.put("predicateString", element);
+			args.put("isVisible", "true");
+			js.executeScript("mobile: scroll", args);
+		}catch (Exception e){
+			System.out.println("Scrolling");
+		}
+	}
+
+	public void scrollUtillAnElement(String elementName, String direction) throws Exception {
+		System.out.println("Appium Helper scrolling on " + elementName);
+		int count=0;
+		while(true){
+			try{
+				element = driver.findElement(AppiumBy.iOSNsPredicateString("wdLabel CONTAINS '" + elementName + "'"));
+				break;
+			}catch (Exception e){
+				scroll(elementName, direction);
+				count++;
+				if(count==15){
+					break;
+				}
+
+			}
+		}
+
 	}
 
 	public void scrollByLabel(String name, String direction) {

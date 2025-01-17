@@ -25,6 +25,6 @@ public class AddPhotoVideoToNewAlbum extends BaseTestClass {
         photosAndVideosView.openAlbum();
 
         int count1 = gridView.getAlbumContentCount();
-        TestCase.assertEquals("PV count not increasing, before count: " + 2 + ", after count:" + count1, 2, count1);
+        TestCase.assertEquals("PV count not increasing, before count: " + 0 + ", after count:" + count1, 2, count1);
     }
 }

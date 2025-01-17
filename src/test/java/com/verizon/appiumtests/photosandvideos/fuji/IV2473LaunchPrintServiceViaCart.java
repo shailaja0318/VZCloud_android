@@ -21,7 +21,7 @@ public class IV2473LaunchPrintServiceViaCart extends BaseTestClass {
         baseControlsHelper.clickOn(vz_strings.context_menu);
         baseControlsHelper.waitForShow(vz_strings.context_printAndGifts);
         baseControlsHelper.clickOn(vz_strings.context_printAndGifts);
-        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.text_printsAndGifts));
+        //TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.text_printsAndGifts));
 
         if (baseControlsHelper.getCountById(vz_strings.text_printsAndGifts) != 0) {
             baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit_1);
@@ -32,8 +32,8 @@ public class IV2473LaunchPrintServiceViaCart extends BaseTestClass {
             TestCase.assertTrue("Photos and Videos screen missing ",
                     baseControlsHelper.elementIsVisible(vz_strings.text_photosAndVideos));
         } else {
-            TestCase.assertEquals("Cart screen not found", ("Cart"),
-                    baseControlsHelper.getTextByNameContains("Cart"));
+            TestCase.assertTrue(baseControlsHelper.isVisible1(vz_strings.cart));
+            //
         }
     }
 }

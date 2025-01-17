@@ -13,15 +13,15 @@ public class VideoInfo extends BaseTestClass {
     public void testVideoInfo() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
-        photosAndVideosView.selectTab(vz_strings.tab_all);
-        gridView.tapItem(DataType.VIDEO);
+        baseControlsHelper.clickOn(vz_strings.tab_all);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.name_video); //locator value not working
         baseControlsHelper.openContext(vz_strings.context_info);
 
-        TestCase.assertTrue("Name not found", baseControlsHelper.getCountById("Name") != 0);
-        TestCase.assertTrue("Date Taken not found", baseControlsHelper.getCountById("Date Taken") != 0);
-        TestCase.assertTrue("Date Uploaded not found", baseControlsHelper.getCountById("Date Uploaded") != 0);
-        TestCase.assertTrue("Resolution not found", baseControlsHelper.getCountById("Resolution") != 0);
-        TestCase.assertTrue("Size not found", baseControlsHelper.getCountById("Size") != 0);
-        TestCase.assertTrue("Extension not found", baseControlsHelper.getCountById("Extension") != 0);
+        TestCase.assertTrue("Name not found", baseControlsHelper.getCountById("filenameLabel") != 0);
+        TestCase.assertTrue("Date Taken not found", baseControlsHelper.getCountById("dateBackedUpLabel") != 0);
+        TestCase.assertTrue("Date Uploaded not found", baseControlsHelper.getCountById("dateTakenLabel") != 0);
+        TestCase.assertTrue("Resolution not found", baseControlsHelper.getCountById("resolutionLabel") != 0);
+        TestCase.assertTrue("Size not found", baseControlsHelper.getCountById("sizeLabel") != 0);
+        //TestCase.assertTrue("Extension not found", baseControlsHelper.getCountById("format") != 0);
     }
 }

@@ -10,13 +10,14 @@ import java.util.List;
 
 public class AlbumSelectAllShare extends BaseTestClass {
     @Test
-    public void albumSelectAllSahre() throws Exception {
+    public void albumSelectAllShare() throws Exception {
     	homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_albums);
         precondition.createAlbum();
         gridView.selectAllAlbums();
-        photosAndVideosView.clickOnShareAndCopyShare(vz_strings.context_share);
-        baseControlsHelper.clickOn(vz_strings.share_ShareTo);
+        baseControlsHelper.clickOn(vz_strings.context_share);
+        baseControlsHelper.clickOn(vz_strings.button_yesRemindMeNextTime);
+        baseControlsHelper.clickOn(vz_strings.share_ShareViaLink);
 
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent);

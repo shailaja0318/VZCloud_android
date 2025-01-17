@@ -29,7 +29,7 @@ public class LocalyticsAllFilesCopyShareLink extends BaseTestClass {
 	        }
 
 			listView.selectNumberOfItems(3);
-            baseControlsHelper.openContext(vz_strings.context_copyShareLink);
+            baseControlsHelper.openContext(vz_strings.context_share);
 	        baseControlsHelper.clickOn(vz_strings.button_yesRemindMeNextTime);
 	        baseControlsHelper.waitForDismiss(vz_strings.toast_shareLinkCopied);
 

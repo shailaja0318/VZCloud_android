@@ -11,7 +11,8 @@ public class AllFilesSearchContextMenu extends BaseTestClass {
     public void testAllFilesSearchContextMenu() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_allFiles);
-        allFilesView.search(".");
+        baseControlsHelper.clickOnNameContains("Mobile");
+        listView.selectFirstItem10();
         baseControlsHelper.openContext(null);
 
         TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(null, vz_strings.view_allFiles, false));

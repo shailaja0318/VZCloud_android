@@ -14,7 +14,8 @@ public class LocalyticsMusicAlbumsPlaySelectAll extends BaseTestClass {
     	homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_albums);
         listView.selectFirstItem10();
-        listView.clickOnAllElementsInMusicList(vz_strings.MusicView.Album);
+        baseControlsHelper.openContext(vz_strings.context_select);
+        listView.selectItem10("section - 1, row - 0");
         baseControlsHelper.openContext(vz_strings.context_playSelected);
 
         String logs = localyticsHelper.getLogs();

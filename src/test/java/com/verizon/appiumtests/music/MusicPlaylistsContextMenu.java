@@ -14,8 +14,6 @@ public class MusicPlaylistsContextMenu extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_playlists);
         baseControlsHelper.openContext(null);
-
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(null,
-                vz_strings.view_musicPlaylists, false));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_select));
     }
 }

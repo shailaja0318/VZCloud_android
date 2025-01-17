@@ -13,7 +13,7 @@ public class LocalyticsPVStoriesDetailsHome extends BaseTestClass {
     @Test
     public void testLocalyticsPVStoriesDetailsHome() throws Exception {
 
-        homeScreenView.clickOnStory(vz_strings.carousel_story);
+        homeScreenView.navigateTo(vz_strings.navi_home);
         baseControlsHelper.waitForShow(vz_strings.tab_storiesSavedStories);
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_storyDetail);

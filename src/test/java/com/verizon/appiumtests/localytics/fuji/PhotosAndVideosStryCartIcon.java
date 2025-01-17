@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class PhotosAndVideosStryCartIcon extends BaseTestClass {
     @Test
     public void photosAndVideosStoryCartIcon() throws Exception {
-        homeScreenView.fromHomeClickAt(vz_strings.navi_Photosandvideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
         photosAndVideosView.openStory10();
         photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_icon_printShop);

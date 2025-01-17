@@ -15,7 +15,7 @@ public class MediaPlayAllPhoto extends BaseTestClass{
 
     	 homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
          photosAndVideosView.selectTab(vz_strings.tab_all);
-         baseControlsHelper.clickOnLabelLike(vz_strings.name_photo);
+         baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
 
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent);

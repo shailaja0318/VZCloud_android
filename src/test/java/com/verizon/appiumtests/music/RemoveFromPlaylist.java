@@ -16,7 +16,7 @@ public class RemoveFromPlaylist extends BaseTestClass {
         preConditionPl();
         baseControlsHelper.clickOn(vz_strings.view_musicPlaylists);
         preCondition();
-        removeSongFromPlaylist(vz_strings.view_musicPlaylists);
+        removeSongFromPlaylist();
         Thread.sleep(5000);
         TestCase.assertTrue("Remove song(s)? ", baseControlsHelper.getCountById(vz_strings.view_emptyPlaylist) > 0);
     }
@@ -30,7 +30,7 @@ public class RemoveFromPlaylist extends BaseTestClass {
         System.out.println("--End Preconditions--");
     }
 
-    public void removeSongFromPlaylist(String playlistName) throws Exception {
+    public void removeSongFromPlaylist() throws Exception {
 
         System.out.println("--Start Postconditions R--");
         if (baseControlsHelper.getCountById(vz_strings.view_emptyPlaylist) < 1) {

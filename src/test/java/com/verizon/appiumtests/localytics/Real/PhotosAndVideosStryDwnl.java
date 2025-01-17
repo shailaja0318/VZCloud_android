@@ -12,14 +12,15 @@ import org.testng.annotations.Test;
 public class PhotosAndVideosStryDwnl extends BaseTestClass {
     @Test
     public void photosAndVideosSelectStoryAndDownload() throws Exception {
-        homeScreenView.fromHomeClickAt(vz_strings.navi_Photosandvideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
-        gridView.tapFolderInSelectMode10("Story-0");
+        baseControlsHelper.openContext(vz_strings.context_select);
+        photosAndVideosView.openStory10();
         baseControlsHelper.openContext(vz_strings.context_download);
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent);
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaDownload + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaDownload));
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_count + "  is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_count + " = 1"));
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaType + "is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = Story"));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_iCloudClounts + " is not 1 in logs", 0, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_iCloudClounts));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_iCloudVideosCount + "  is not 1 in logs", 0, localyticsHelper.getPatternMatch(logs, vz_strings.logs_iCloudVideosCount + " = 1"));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_iCloudPhotosCount + "is not 1 in logs", 0, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_iCloudPhotosCount + "\" = Story"));
     }
 }

@@ -13,6 +13,7 @@ public class LocalyticsMusicArtistsPlaySelected extends BaseTestClass {
 
     	homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_artists);
+        Thread.sleep(3000);
         listView.selectFirstItem10();
         listView.selectFirstItemInSelectMode10();
         baseControlsHelper.openContext(vz_strings.context_playSelected);
@@ -23,7 +24,7 @@ public class LocalyticsMusicArtistsPlaySelected extends BaseTestClass {
 
         TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaPlay + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaPlay));
 
-        TestCase.assertEquals(vz_strings.logs_musicArtistAlbums + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicArtistAlbums));
+        TestCase.assertEquals(vz_strings.logs_musicArtistAlbums + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicNowPlaying));
 
         TestCase.assertEquals(vz_strings.logs_mediaTypeSong + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_mediaTypeSong));
     }

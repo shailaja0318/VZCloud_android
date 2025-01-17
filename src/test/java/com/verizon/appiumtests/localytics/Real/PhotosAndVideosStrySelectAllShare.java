@@ -15,11 +15,10 @@ import java.util.List;
 public class PhotosAndVideosStrySelectAllShare extends BaseTestClass {
     @Test
     public void photosAndVideosStrySelectAllShare() throws Exception {
-        homeScreenView.fromHomeClickAt(vz_strings.navi_Photosandvideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
+        baseControlsHelper.openContext(vz_strings.context_select);
         photosAndVideosView.openStory10();
-        baseControlsHelper.waitForShow(vz_strings.story_HeroImage);
-        gridView.longPressAndDrag();
         photosAndVideosView.clickOnShareAndCopyShare(vz_strings.context_share);
         baseControlsHelper.waitForDismiss(vz_strings.toast_creatingSocialShareLink);
 

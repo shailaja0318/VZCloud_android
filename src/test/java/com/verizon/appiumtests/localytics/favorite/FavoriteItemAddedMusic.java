@@ -15,6 +15,8 @@ public class FavoriteItemAddedMusic extends BaseTestClass {
         musicView.selectTab(vz_strings.tab_playlists);
         musicView.removeSongFromFavorites();
         musicView.addSongToFavoritesFromSongs();
+        listView.selectFirstItemInSelectMode10();
+        baseControlsHelper.openContext(vz_strings.context_addFavorite);
 
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_favItemAdded);

@@ -14,16 +14,18 @@ public class MediaPlayPlayStoryAll extends BaseTestClass {
     @Test
     public void testMediaPlayPlayStoryAll() throws Exception {
 
-        homeScreenView.fromHomeClickAt(vz_strings.home_photsAndVideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        gridView.tapItem(vz_strings.DataType.STORY);
-        photosAndVideosView.playVideo();
+        photosAndVideosView.selectTab(vz_strings.tab_stories);
+        photosAndVideosView.openStory10();
+        baseControlsHelper.waitForShow(vz_strings.story_HeroImage);
+        baseControlsHelper.clickOn(vz_strings.button_smartAlbumPlay);
 
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent);
 
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaPlay + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaPlay));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_realtimesLaunched + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_realtimesLaunched));
 
-        TestCase.assertEquals(vz_strings.logs_mediaType + " more than 2", 2, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_mediaTypeStory));
+        TestCase.assertEquals(vz_strings.logs_mediaType + " more than 2", 2, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_mediaTypeStoryOpen));
     }
 }

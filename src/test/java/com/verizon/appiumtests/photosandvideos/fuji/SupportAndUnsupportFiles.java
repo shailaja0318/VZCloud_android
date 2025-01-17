@@ -19,7 +19,7 @@ public class SupportAndUnsupportFiles extends BaseTestClass {
         photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_icon_printShop);
         baseControlsHelper.clickOn(vz_strings.button_continue);
         baseControlsHelper.waitForDismiss(vz_strings.spinner);
-        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit_1);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit);
         baseControlsHelper.clickOn(vz_strings.button_yes);
         baseControlsHelper.clickOn(vz_strings.button_cancel);
         TestCase.assertTrue("Photos and Videos screen missing ", baseControlsHelper.getCountByClassName("XCUIElementTypeCell") > 0);

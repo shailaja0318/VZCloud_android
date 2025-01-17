@@ -14,7 +14,10 @@ public class AllFilesSortByExtension extends BaseTestClass {
     @Test
     public void FileSortExtension() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_allFiles);
-        allFilesView.searchFile(".mp3",".jpg",".doc");
+        baseControlsHelper.clickOn(vz_strings.navi_allFiles);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.mobile_file);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.allFiles_phone);
+      //  allFilesView.searchFile(".mp3",".jpg",".doc");
         allFilesView.sortBy(vz_strings.sort_extension);
         TestCase.assertTrue("Extension is not in order", allFilesView.sortValidation(vz_strings.sort_extension));
     }

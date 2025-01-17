@@ -13,7 +13,8 @@ public class CreateCollageMultiselectAll extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        gridView.tapItemsInMultiSelectModeUniversal(3, vz_strings.DataType.PHOTO);
+        baseControlsHelper.openContext(vz_strings.context_select);
+        gridView.tapMultiplePhotoItems(3);
         baseControlsHelper.openContext(vz_strings.context_createcollage);
         baseControlsHelper.waitForShowByPredicate("Collage", "XCUIElementTypeNavigationBar");
         String pageTitle = baseControlsHelper.getNameByIndexfromClassName(0, "XCUIElementTypeNavigationBar");

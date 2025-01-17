@@ -25,4 +25,3 @@ public class HMButton extends BaseTestClass {
         TestCase.assertTrue("We not back to HM ",
                 baseControlsHelper.isVisible(vz_strings.navi_home));
     }
-}

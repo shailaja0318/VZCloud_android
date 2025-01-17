@@ -12,12 +12,11 @@ import org.testng.annotations.Test;
  */
 public class PhotosAndVideosStrySltAllCrtStry extends BaseTestClass {
     @Test
-    public void PhotosAndVideosStySelectAllCrtStry() throws Exception {
-        homeScreenView.fromHomeClickAt(vz_strings.navi_Photosandvideos);
+    public void PhotosAndVideosStorySelectAllCreateStory() throws Exception {
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
+        baseControlsHelper.openContext(vz_strings.context_select);
         photosAndVideosView.openStory10();
-        baseControlsHelper.waitForShow(vz_strings.story_HeroImage);
-        gridView.longPressAndDrag();
         baseControlsHelper.openContext(vz_strings.context_createStory);
 
         String logs = localyticsHelper.getLogs();

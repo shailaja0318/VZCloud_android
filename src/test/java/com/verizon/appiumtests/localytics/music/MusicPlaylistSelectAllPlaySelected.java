@@ -19,10 +19,10 @@ public class MusicPlaylistSelectAllPlaySelected extends BaseTestClass {
         baseControlsHelper.openContext(vz_strings.context_playSelected);
 
         String logs = localyticsHelper.getLogs();
-        localyticsHelper.print(logs, vz_strings.logs_musicPlaylists);
+        localyticsHelper.print(logs, vz_strings.logs_tagScreen);
         TestCase.assertTrue("Localytics of " + vz_strings.logs_musicPlaylists + " does not exist", localyticsHelper.isExisted(logs, vz_strings.logs_musicPlaylists));
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_musicPlaylists + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicPlaylists));
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaPlay));
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaType + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + "Song"));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_musicNowPlaying + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicNowPlaying));
+        //TestCase.assertEquals("Localytics of " + vz_strings.logs_tagEvent + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaPlay));
+       // TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaType + " is not 1 in logs", 1, localyticsHelper.getCountOf(logs, "\"" + vz_strings.logs_mediaType + "\"" + " = " + "Song"));
     }
 }

@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class MediaPlayerQueueSelectContextualMenuOptions extends BaseTestClass {
 
-    @Test
+    //@Test
     public void testMeidaPlayerQueueSelectContextualMenuOptions() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_music);

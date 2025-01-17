@@ -16,9 +16,10 @@ public class DownloadVideoFromMultiSelectView extends BaseTestClass {
     public void testDownloadPhotoFromMultiSelectView() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        gridView.tapItemInSelectMode(vz_strings.DataType.VIDEO);
-        baseControlsHelper.clickOn(vz_strings.actionBar_selectView_download);
-
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        baseControlsHelper.clickOn(vz_strings.context_select);
+        baseControlsHelper.waitForContent();
+        baseControlsHelper.clickOnLabelLike(vz_strings.name_video);
         softAssert.assertEquals("Downloading 1 of 1","Downloading 1 of 1");
 
         photosAndVideosView.checkDownload();

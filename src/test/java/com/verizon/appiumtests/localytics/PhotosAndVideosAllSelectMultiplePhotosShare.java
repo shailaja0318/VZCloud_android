@@ -16,7 +16,7 @@ public class PhotosAndVideosAllSelectMultiplePhotosShare extends BaseTestClass {
     public void photosAndVideosSelectMultiplePhotos() throws Exception {
     	homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         baseControlsHelper.clickOn(vz_strings.tab_all);
-        gridView.tapItemsInMultiSelectModeUniversal(2, vz_strings.DataType.PHOTO);
+        gridView.selectItemsInMultiSelectMode(3, vz_strings.name_photo);
         baseControlsHelper.clickOn(vz_strings.actionBar_selectView_share);
 		baseControlsHelper.clickOn(vz_strings.button_yesRemindMeNextTime);
 		baseControlsHelper.clickOn(vz_strings.share_ShareViaLink);

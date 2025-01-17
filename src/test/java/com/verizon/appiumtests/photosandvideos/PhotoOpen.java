@@ -10,10 +10,9 @@ public class PhotoOpen extends BaseTestClass {
     @Test
     public void testOpenPhoto() throws Exception {
 
-
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        baseControlsHelper.clickOnLabelLike(vz_strings.name_photo);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
 
         TestCase.assertTrue("ImageView is not open", baseControlsHelper.getCountByClassName("XCUIElementTypeScrollView") != 0);
     }

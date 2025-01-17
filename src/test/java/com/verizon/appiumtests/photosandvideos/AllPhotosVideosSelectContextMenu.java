@@ -15,10 +15,13 @@ public class AllPhotosVideosSelectContextMenu extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        gridView.tapItemInSelectMode(DataType.PHOTO);
+        gridView.tapItemInSelectMode(vz_strings.DataType.PHOTO);
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Options missing ",
-                baseControlsHelper.isVisible(vz_strings.context_editPhoto));
+        TestCase.assertTrue("Options missing ", baseControlsHelper.isVisible(vz_strings.context_editPhoto));
+        TestCase.assertTrue("Options missing ", baseControlsHelper.isVisible(vz_strings.context_printAndGifts));
+        TestCase.assertTrue("Options missing ", baseControlsHelper.isVisible(vz_strings.context_createStory));
+        TestCase.assertTrue("Options missing ", baseControlsHelper.isVisible(vz_strings.context_addToPrintAlbum));
+        TestCase.assertTrue("Options missing ", baseControlsHelper.isVisible(vz_strings.context_makePrivate));
     }
 }

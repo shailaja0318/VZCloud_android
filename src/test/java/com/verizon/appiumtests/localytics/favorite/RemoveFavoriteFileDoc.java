@@ -13,7 +13,9 @@ public class RemoveFavoriteFileDoc extends BaseTestClass {
     @Test
     public void removeFavoriteFileDoc() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_allFiles);
-        allFilesView.searchFile(".doc", ".xls", ".xlsx");
+        baseControlsHelper.clickOnNameContains("Mobile");
+        listView.selectFirstItem10();
+        //allFilesView.searchFile(".doc", ".xls", ".xlsx");
         listView.removeFavorites();
         listView.multiFavorite(2);
         listView.SelectMultiItem(2);

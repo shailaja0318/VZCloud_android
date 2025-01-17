@@ -182,10 +182,14 @@ public class DocumentsView {
 		final int CONVERT_VALUE = 1024;
 		WebElement elementName = getChildElement(cell, 1);
 		String data = elementName.getAttribute("name");
+		System.out.println(data);
 		//split the string
 		String[] tokens = data.split(" ");
 		//[value] [size,] [mm/dd/yy,] [hh:mm] [AM/PM]
-		int value = Integer.parseInt(tokens[0]);
+
+		double doubleValue = Double.parseDouble(tokens[0]);
+		int value = (int) Math.round(doubleValue);
+
 		String size_label = tokens[1].replace(",", "");
 		
 		System.out.println("Converting " + value + " " + size_label + " To bytes... " );

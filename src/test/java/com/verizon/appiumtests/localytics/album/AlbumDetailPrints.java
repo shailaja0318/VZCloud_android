@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class AlbumDetailPrints extends BaseTestClass {
     @Test
     public void albumDetailPrints() throws Exception {
-        homeScreenView.fromHomeClickAt(vz_strings.home_photsAndVideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_albums);
         precondition.createAlbum();
         photosAndVideosView.openAlbum();

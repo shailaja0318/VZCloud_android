@@ -13,7 +13,7 @@ public class LocalyticsMusicSongs extends BaseTestClass{
   @Test
   public void testLocalyticsMusicSongs() throws Exception {
 
-      precondition.clickMusicHeadFromHome();
+      homeScreenView.navigateTo(vz_strings.navi_music);
       musicView.selectTab(vz_strings.tab_songs);
       
       String logs = localyticsHelper.getLogs();

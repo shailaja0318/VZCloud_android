@@ -13,8 +13,15 @@ public class CreateStoryFromFullVideo extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        gridView.tapItem(vz_strings.DataType.VIDEO);
-        baseControlsHelper.openContext(vz_strings.context_createStory);
+        baseControlsHelper.waitForShow(vz_strings.context_menu);
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        baseControlsHelper.waitForShow(vz_strings.context_select);
+        baseControlsHelper.clickOn(vz_strings.context_select);
+        baseControlsHelper.clickOnLabelLike(vz_strings.name_video);
+        baseControlsHelper.waitForShow(vz_strings.context_menu);
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        baseControlsHelper.waitForShow(vz_strings.context_createStory);
+        baseControlsHelper.clickOn(vz_strings.context_createStory);
         baseControlsHelper.waitForShow("Edit scenes");
 
         for (int i = 0; i < vz_strings.realPlayerSave.length; i++) {

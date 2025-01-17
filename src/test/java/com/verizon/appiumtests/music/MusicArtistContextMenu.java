@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class MusicArtistContextMenu extends BaseTestClass {
 
     @Test
-    public void testMusicArtistContextMenu() throws Exception {
+        public void testMusicArtistContextMenu() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_artists);

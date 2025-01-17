@@ -10,8 +10,11 @@ public class Tools_contentRestore extends BaseTestClass {
 	public void test_Tools_contentRestore() throws Exception {
 		SoftAssert softAssert = new SoftAssert();
 
-		homeScreenView.navigateTo(vz_strings.navi_settings);
-		baseControlsHelper.clickOn(vz_strings.navi_tools);
+		homeScreenView.navigateTo(vz_strings.navi__more);
+		baseControlsHelper.waitForShow(vz_strings.more_accountContentTools);
+		baseControlsHelper.clickOn(vz_strings.more_accountContentTools);
+		baseControlsHelper.waitForShow(vz_strings.navi_contentTransfer);
+		baseControlsHelper.clickOn(vz_strings.navi_contentTransfer);
 		softAssert.assertTrue(baseControlsHelper.getCountById(vz_strings.tools_restore) != 0,
 				" Content Restore option is not seen");
 

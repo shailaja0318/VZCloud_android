@@ -15,7 +15,7 @@ public class ABLivePhotoFavorite extends BaseTestClass{
 		photosAndVideosView.selectTab(vz_strings.tab_albums);
 		precondition.removeFavoritesAlbum();
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnLabelLike(vz_strings.name_livePhoto);
+		baseControlsHelper.clickOnLabelLike(vz_strings.name_livePhoto_index);
 		baseControlsHelper.clickOn(vz_strings.actionBar_addToFavorite);
 
 		String logs = localyticsHelper.getLogs();

@@ -17,7 +17,12 @@ public class MusicSongsSelectModeContextMenu extends BaseTestClass {
         listView.selectFirstItem10();
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(vz_strings.DataType.MUSIC,
-                vz_strings.view_musicSongs, true));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_info));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_delete));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_share));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_addToPlaylist));
+
+
+
     }
 }

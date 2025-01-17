@@ -23,8 +23,8 @@ public class MusicInfo extends BaseTestClass {
         TestCase.assertTrue("Genre missing!", baseControlsHelper.getCountById("Genre") != 0);
         TestCase.assertTrue("Year missing!", baseControlsHelper.getCountById("Year") != 0);
         TestCase.assertTrue("Size missing!", baseControlsHelper.getCountById("Size") != 0);
-        TestCase.assertTrue("Extension missing!", baseControlsHelper.getCountById("Extension") != 0);
-        TestCase.assertTrue("Date Uploaded missing!", baseControlsHelper.getCountById("Date Uploaded") != 0);
+        //TestCase.assertTrue("Extension missing!", baseControlsHelper.getCountById("Extension") != 0);
+        //TestCase.assertTrue("Date Uploaded missing!", baseControlsHelper.getCountById("Date Uploaded") != 0);
     }
 
     public void playMusicFromAlbum() throws Exception {

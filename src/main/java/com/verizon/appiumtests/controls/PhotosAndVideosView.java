@@ -1,6 +1,7 @@
 package com.verizon.appiumtests.controls;
 
 import com.verizon.appiumtests.constants.vz_strings;
+
 import com.verizon.appiumtests.driver.BaseDriver;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
@@ -19,6 +20,7 @@ import java.util.regex.Pattern;
 public class PhotosAndVideosView {
 
     AppiumDriver driver = BaseDriver.getDriver();
+
     BaseControlsHelper baseControlsHelper = new BaseControlsHelper(driver);
     GridView gridView = new GridView(driver);
 
@@ -78,7 +80,21 @@ public class PhotosAndVideosView {
         baseControlsHelper.clickOn(vz_strings.button_addItems);
         baseControlsHelper.waitForShow("Save Album");
         Thread.sleep(2000);
-        gridView.tapItem(vz_strings.DataType.PHOTO);
+        gridView.tapMultipleItems(1, vz_strings.DataType.PHOTO);
+        baseControlsHelper.clickOn(vz_strings.button_done);
+        baseControlsHelper.waitForDismiss(vz_strings.toast_photoAddtoAlbum);
+    }
+
+    public void createAlbumWithPhotos(String albumName) throws Exception {
+        if (baseControlsHelper.getCountById(vz_strings.button_newAlbum) > 0)
+            baseControlsHelper.clickOn(vz_strings.button_newAlbum);
+        else
+            baseControlsHelper.openContext(vz_strings.context_newAlbum);
+        baseControlsHelper.setValuetoTextFieldByName(albumName, vz_strings.alertTextField);
+        baseControlsHelper.clickOn(vz_strings.button_addItems);
+        baseControlsHelper.waitForShow("Save Album");
+        Thread.sleep(2000);
+        gridView.tapMultiplePhotoItems(5 );
         baseControlsHelper.clickOn(vz_strings.button_done);
         baseControlsHelper.waitForDismiss(vz_strings.toast_photoAddtoAlbum);
     }
@@ -170,9 +186,9 @@ public class PhotosAndVideosView {
     }
 
     public void addToAlbum10(vz_strings.DataType DataType) throws Exception {
-       baseControlsHelper.swipe("up");
+       //baseControlsHelper.swipe("up");
         gridView.tapItemInSelectMode(DataType);
-        baseControlsHelper.clickOnElementByXpath(vz_strings.actionBar_AddToAlbum);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.actionBar_AddToAlbum_xpath);
         baseControlsHelper.clickOn(vz_strings.button_addToAlbumPickerOk);
         baseControlsHelper.waitForDismiss(vz_strings.toast_photoAddtoAlbum);
     }
@@ -332,7 +348,10 @@ public class PhotosAndVideosView {
 	 */
 
     public void accessPrintShopFromIcon() throws Exception {
-        baseControlsHelper.clickOn(vz_strings.context_icon_printShop);
+        baseControlsHelper.openContext(vz_strings.context_select);
+        Thread.sleep(3000);
+        gridView.tapItemInSelectMode(vz_strings.DataType.PHOTO);//failing at this step
+        baseControlsHelper.openContext(vz_strings.context_printAndGifts);
         baseControlsHelper.waitForDismiss(vz_strings.spinner);
         if (baseControlsHelper.getCountById(vz_strings.button_acceptContinue) != 0)
             baseControlsHelper.clickOn(vz_strings.button_acceptContinue);
@@ -340,7 +359,7 @@ public class PhotosAndVideosView {
 
     public void setPickWheelFilter(String value) throws Exception {
         System.out.println("Appium Helper Select filter for " + value);
-        baseControlsHelper.openContext(vz_strings.context_filter);
+        baseControlsHelper.openContext(vz_strings.context_select);
         baseControlsHelper.setPickerValue(value);
     }
     
@@ -352,32 +371,59 @@ public class PhotosAndVideosView {
   
     public void filterBy(String filterOption) throws Exception{
 		baseControlsHelper.openContext(vz_strings.context_sortAndFilter);
-		if(filterOption.equals(vz_strings.filterByPhotos)){
-			System.out.println("Filter By Photos");
-			baseControlsHelper.clickOn(vz_strings.filterByVideos);
-			baseControlsHelper.clickOn(vz_strings.filterBySavedStories);
+        System.out.println(baseControlsHelper.getCountByXpath(vz_strings.filter_unselectedRadioButton));
+		if(filterOption.equals(vz_strings.filterByPhotos)) {
+            if(baseControlsHelper.getCountByXpath(vz_strings.filter_unselectedRadioButton) ==0) {
+                System.out.println("Filter By Photos");
+                baseControlsHelper.clickOnElementByXpath(vz_strings.filterByVideos);
+                baseControlsHelper.clickOnElementByXpath(vz_strings.filterBySavedStories);
+            }else {
+                baseControlsHelper.clickOnLabelBeginsWithAndType
+                        (vz_strings.filter_selectAll,"XCUIElementTypeButton");
+                baseControlsHelper.clickOnElementByXpath(vz_strings.filterByVideos);
+                baseControlsHelper.clickOnElementByXpath(vz_strings.filterBySavedStories);
+            }
 		}
-		else if(filterOption.equals(vz_strings.filterByVideos)){
-			System.out.println("Filter By Videos");
-			baseControlsHelper.clickOn(vz_strings.filterByPhotos);
-			baseControlsHelper.clickOn(vz_strings.filterBySavedStories);
+		else if(filterOption.equals(vz_strings.filterByVideos )){
+                if(baseControlsHelper.getCountByXpath(vz_strings.filter_unselectedRadioButton) ==0) {
+                 //   baseControlsHelper.clickOnElementByXpath(vz_strings.selectAll_filter);
+                    System.out.println("Filter By Videos");
+                    baseControlsHelper.clickOnElementByXpath(vz_strings.filterByPhotos);
+                    baseControlsHelper.clickOnElementByXpath(vz_strings.filterBySavedStories);
+                }else {
+                    baseControlsHelper.clickOnLabelBeginsWithAndType
+                            (vz_strings.filter_selectAll,"XCUIElementTypeButton");
+                    System.out.println("Filter By Videos");
+                    baseControlsHelper.clickOnElementByXpath(vz_strings.filterByPhotos);
+                    baseControlsHelper.clickOnElementByXpath(vz_strings.filterBySavedStories);
+                }
 		}
-		else if(filterOption.equals(vz_strings.filterBySavedStories)){
-			System.out.println("Filter By Saved Stories");
-			baseControlsHelper.clickOn(vz_strings.filterByPhotos);
-			baseControlsHelper.clickOn(vz_strings.filterByVideos);
-		}
+		else if(filterOption.equals(vz_strings.filterBySavedStories)) {
+            if (baseControlsHelper.getCountByXpath(vz_strings.filter_unselectedRadioButton) == 0) {
+                System.out.println("Filter By Saved Stories");
+                // baseControlsHelper.clickOnElementByXpath(vz_strings.selectAll_filter);
+                baseControlsHelper.clickOnElementByXpath(vz_strings.filterByPhotos);
+                baseControlsHelper.clickOnElementByXpath(vz_strings.filterByVideos);
+            } else {
+                baseControlsHelper.clickOnLabelBeginsWithAndType
+                        (vz_strings.filter_selectAll,"XCUIElementTypeButton");
+                baseControlsHelper.clickOnElementByXpath(vz_strings.filterByPhotos);
+                baseControlsHelper.clickOnElementByXpath(vz_strings.filterByVideos);
+            }
+        }
 		else if(filterOption.equals(vz_strings.filter_Everything)){
 			System.out.println("Filter By Everything");
-			baseControlsHelper.clickOnLabelBeginsWithAndType(vz_strings.filter_selectAll,"XCUIElementTypeButton");
+			baseControlsHelper.clickOnLabelBeginsWithAndType
+                    (vz_strings.filter_selectAll,"XCUIElementTypeButton");
 			Thread.sleep(7000);
 		}
+
 		baseControlsHelper.clickOn(vz_strings.button_save);	
 	}
 
     public void sortBy10(String sortOption) throws Exception{
 		baseControlsHelper.openContext(vz_strings.context_sortAndFilter);
-		baseControlsHelper.clickOn(sortOption);
+		baseControlsHelper.clickOnElementByXpath(sortOption);
 		baseControlsHelper.clickOn(vz_strings.button_save);	
 	}
 
@@ -386,7 +432,7 @@ public class PhotosAndVideosView {
             baseControlsHelper.clickOnLabelBeginswith("Story");
         }
         baseControlsHelper.waitForContent();
-        gridView.tapItemInSelectMode(vz_strings.DataType.PHOTO);
+        gridView.tapItemsInSelectMode();
         baseControlsHelper.openContext(vz_strings.context_addFavorite);
         baseControlsHelper.waitForDismiss(vz_strings.toast_addtoFavorite);
     }
@@ -727,7 +773,7 @@ public class PhotosAndVideosView {
         Preconditions preconditions=new Preconditions(driver);
         boolean flag=false;
         filterByPhotosSortByUpload();
-        if (baseControlsHelper.getCountByNameLike(vz_strings.name_livePhoto) < 1) {
+        if (baseControlsHelper.getCountByNameLike(vz_strings.name_livePhoto_index) < 1) {
             HomeScreenView homeScreenView=new HomeScreenView(driver);
             preconditions.uploadLivePhotos(count);
             homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
@@ -752,19 +798,19 @@ public class PhotosAndVideosView {
     }
 
     public void addLivePhotoToFavoritesAndPlay() throws Exception {
-        baseControlsHelper.clickOnLabelLike(vz_strings.name_livePhoto);
+        baseControlsHelper.clickOnLabelLike(vz_strings.name_livePhoto_index);
         baseControlsHelper.clickOn(vz_strings.actionBar_addToFavorite);
         baseControlsHelper.waitForDismiss(vz_strings.toast_addtoFavorite);
         baseControlsHelper.tapOnBackButton();
         selectFavoriteAlbum();
-        baseControlsHelper.clickOnLabelLike(vz_strings.name_livePhoto);
+        baseControlsHelper.clickOnLabelLike(vz_strings.name_livePhoto_index);
         Thread.sleep(1000);
         baseControlsHelper.touchAndHoldOnElement(baseControlsHelper.getLivePhotoElement());
     }
 
     public void EditAndSavePhotosInPrintsAndGifts(int count) throws Exception {
         HomeScreenView homeScreenView=new HomeScreenView(driver);
-        homeScreenView.fromHomeClickAt(vz_strings.navi_Photosandvideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         selectTab(vz_strings.tab_all);
         setPickWheelFilter(vz_strings.filter_PhotosOnly);
         removeAllProductFromCart();
@@ -800,6 +846,6 @@ public class PhotosAndVideosView {
 		int count = Integer.parseInt(pvCount.replaceAll(",", ""));
 		System.out.println("******** Total Photos and Videos count ********* " +count);
 		return count;
-    	
+
     }
 }

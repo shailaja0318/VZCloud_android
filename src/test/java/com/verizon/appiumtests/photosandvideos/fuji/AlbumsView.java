@@ -12,7 +12,7 @@ public class AlbumsView extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_albums);
         preCondition();
-        gridView.tapFolderInSelectMode10("Photos albums folder");
+        gridView.tapFolderInSelectMode10("test");
         photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_createStory);
         baseControlsHelper.waitForDismiss(vz_strings.spinner);
         //baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit);

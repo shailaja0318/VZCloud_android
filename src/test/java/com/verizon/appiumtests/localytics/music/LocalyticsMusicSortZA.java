@@ -17,7 +17,7 @@ public class LocalyticsMusicSortZA extends BaseTestClass{
   @Test
   public void testLocalyticsMusicSortZA() throws Exception {
 
-      precondition.clickMusicHeadFromHome();
+      homeScreenView.navigateTo(vz_strings.navi_music);
       musicView.selectTab(vz_strings.tab_songs);
       baseControlsHelper.openContext(vz_strings.context_sort);
       baseControlsHelper.setPickerValue(vz_strings.sort_ZtoA);

@@ -15,7 +15,7 @@ public class ABEditPhoto extends BaseTestClass{
 
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnLabelLike(vz_strings.name_photo);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
 		baseControlsHelper.openContext(vz_strings.context_editPhoto);
 
 		String logs = localyticsHelper.getLogs();
