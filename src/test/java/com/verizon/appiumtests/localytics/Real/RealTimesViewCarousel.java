@@ -13,7 +13,9 @@ public class RealTimesViewCarousel extends BaseTestClass{
     @Test
     public void testRealTimesViewCarousel() throws Exception {
 
-        homeScreenView.clickOnStory(vz_strings.carousel_story);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
+        photosAndVideosView.selectTab(vz_strings.tab_stories);
+        photosAndVideosView.openStory10();
         baseControlsHelper.waitForShow(vz_strings.button_smartAlbumPlay);
         baseControlsHelper.clickOn(vz_strings.button_smartAlbumPlay);
 

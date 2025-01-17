@@ -19,7 +19,7 @@ public class PhotosDetailView extends BaseTestClass {
         baseControlsHelper.clickOn(vz_strings.context_printAndGifts);
         Thread.sleep(3000);
         //baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit);
-        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit_1);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit);
         baseControlsHelper.clickOn(vz_strings.button_yes);
         baseControlsHelper.tapOnBackButton();
         baseControlsHelper.waitForShow(vz_strings.tab_all);

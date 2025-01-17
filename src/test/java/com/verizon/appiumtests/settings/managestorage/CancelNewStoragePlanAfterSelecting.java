@@ -21,7 +21,7 @@ public class CancelNewStoragePlanAfterSelecting extends BaseTestClass {
         baseControlsHelper.clickOnNameContainsAndVisibile(vz_strings.settings_manageStorage);
         currentPlan = settingsView.getCurrentStoragePlan();
         softAssert.assertTrue(settingsView.cancelStoragePlanChange(), "Unable to cancel and options not displayed");
-        baseControlsHelper.waitForPresent(vz_strings.settings_about);
+        baseControlsHelper.waitForPresent(vz_strings.settings_aboutCloud);
         baseControlsHelper.clickOnNameContainsAndVisibile(vz_strings.settings_manageStorage);
         softAssert.assertTrue(settingsView.getCurrentStoragePlan().equalsIgnoreCase(currentPlan), "Storage plan changed");
         softAssert.assertAll();

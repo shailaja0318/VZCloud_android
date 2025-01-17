@@ -20,9 +20,20 @@ public class MediaPlayerContextMenuFav extends BaseTestClass {
         baseControlsHelper.waitForShow(vz_strings.context_menu);
         baseControlsHelper.openContext(vz_strings.context_select);
         listView.selectFirstItem10();
-        baseControlsHelper.openContext(null);
-        TestCase.assertTrue("Options missing ", contextualMenu.verifyOptions(null,
-                vz_strings.view_musicPlayerFav, false));
+        baseControlsHelper.waitForShow(vz_strings.context_menu);
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_share));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_addToPlaylist));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_delete));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_info));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_removeFromPlaylist));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_removeFavorite));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_playSelected));
+
+
+
+
+
 
     }
 }

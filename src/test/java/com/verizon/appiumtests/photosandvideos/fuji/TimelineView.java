@@ -5,9 +5,11 @@ package com.verizon.appiumtests.photosandvideos.fuji;
 import com.verizon.appiumtests.constants.vz_strings;
 import com.verizon.appiumtests.controls.BaseTestClass;
 import junit.framework.TestCase;
+import org.testng.annotations.Test;
 
 public class TimelineView extends BaseTestClass {
 
+    //@Test
     public void testTimelineView() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.openMonth10("Timeline");

@@ -14,7 +14,7 @@ public class CloudPrintAlbumDetailedView extends BaseTestClass {
     public void cloudPrintAlbumDetail() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_albums);
-        baseControlsHelper.clickOnLabelBeginswith(vz_strings.album_photo_select);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.album_photo_select);
         photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_icon_printShop);
         baseControlsHelper.waitForDismiss(vz_strings.spinner);
         String logs = localyticsHelper.getLogs();

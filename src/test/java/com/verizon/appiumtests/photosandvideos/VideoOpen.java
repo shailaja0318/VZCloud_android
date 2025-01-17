@@ -16,7 +16,7 @@ public class VideoOpen extends BaseTestClass {
     public void testOpenVideo() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        baseControlsHelper.clickOnLabelLike(vz_strings.name_video);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.name_video);
         TestCase.assertTrue("video" ,baseControlsHelper.isVisible(vz_strings.button_videoPlay));
         photosAndVideosView.playVideo();
     }

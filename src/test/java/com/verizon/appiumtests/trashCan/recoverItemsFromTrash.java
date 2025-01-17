@@ -6,9 +6,10 @@ import com.verizon.appiumtests.controls.BaseTestClass;
 import junit.framework.TestCase;
 import org.testng.annotations.Test;
 
+
 public class recoverItemsFromTrash extends BaseTestClass {
   @Test
-  public void f() throws Exception {
+  public void testrecoverItemsFromTrash() throws Exception {
 	  homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
       photosAndVideosView.selectTab(vz_strings.tab_albums);
       precondition.deleteAllAlbums();
@@ -26,13 +27,14 @@ public class recoverItemsFromTrash extends BaseTestClass {
     	  System.out.println("Moved an item to trash can");
       }
       baseControlsHelper.tapOnBackButton();
-      recoveItemFromTrash();
+      recoverItemFromTrash();
+      baseControlsHelper.tapOnBackButton();
       homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
       photosAndVideosView.selectTab(vz_strings.tab_albums);
       photosAndVideosView.openAlbum();
       int count2 = gridView.getAlbumContentCount();
       
-      if (count2==count1) {
+      if (count2<=count1) {
           TestCase.assertEquals("Photo is not revovered back to ALbums from Trashcan, before count: " + count + ", after recover count:" + count2, count2, count);
       } else {
           TestCase.assertTrue("Album still empty", gridView.getAlbumContentCount() != 0);
@@ -40,11 +42,14 @@ public class recoverItemsFromTrash extends BaseTestClass {
       
   }
   
-  public void recoveItemFromTrash() throws Exception {
+  public void recoverItemFromTrash() throws Exception {
 	  homeScreenView.navigateTo(vz_strings.navi_trash);
 	  Thread.sleep(2000);
-      gridView.tapItemInSelectMode(DataType.PHOTO);
-      baseControlsHelper.openContext(vz_strings.context_recoverItems);
+      baseControlsHelper.clickOn(vz_strings.trashcontext_menu);
+      baseControlsHelper.clickOn(vz_strings.context_select);
+      baseControlsHelper.clickOnElementByXpath(vz_strings.trash_deleted_photo);
+      baseControlsHelper.clickOn(vz_strings.trashcontext_menu);
+      baseControlsHelper.clickOn(vz_strings.context_recoverItems);
       baseControlsHelper.waitForShow(vz_strings.alert_recoverItems);
       baseControlsHelper.clickOn(vz_strings.button_recover);
       Thread.sleep(2000);

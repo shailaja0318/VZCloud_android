@@ -13,11 +13,10 @@ public class ShareSendContentInMultiSelectMode extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        gridView.tapItemsInMultiSelectModeUniversal(2, vz_strings.DataType.PHOTO);
-
-        baseControlsHelper.clickOn(vz_strings.actionBar_selectView_share);
-		baseControlsHelper.clickOn(vz_strings.button_yesRemindMeNextTime);
-		baseControlsHelper.clickOn(vz_strings.share_ShareTo);
+        gridView.selectItemsInMultiSelectMode(3, vz_strings.name_photo);
+        baseControlsHelper.clickOn(vz_strings.actionBar_share);
+        baseControlsHelper.clickOn(vz_strings.button_yesRemindMeNextTime);
+        baseControlsHelper.clickOn(vz_strings.share_ShareViaLink);
 
 
 		String logs = localyticsHelper.getLogs();

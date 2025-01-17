@@ -13,7 +13,7 @@ public class RealTimeViewHome extends BaseTestClass{
     @Test
     public void testRealTimeViewHome() throws Exception {
 
-        homeScreenView.fromHomeClickAt(vz_strings.navi_Photosandvideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
         photosAndVideosView.openStory10();
         baseControlsHelper.waitForShow(vz_strings.story_HeroImage);

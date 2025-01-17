@@ -13,7 +13,8 @@ public class LocalyticsPVAllCreateCollage extends BaseTestClass {
   public void testLocalyticsPVAllCreateCollage() throws Exception {
 	  homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 	  photosAndVideosView.selectTab(vz_strings.tab_all);
-	  gridView.tapItemsInMultiSelectModeUniversal(2, vz_strings.DataType.PHOTO);
+      baseControlsHelper.openContext(vz_strings.context_select);
+	  gridView.tapMultiplePhotoItems(3);
 	  baseControlsHelper.openContext(vz_strings.context_createcollage);
 	  
 	  String logs = localyticsHelper.getLogs();

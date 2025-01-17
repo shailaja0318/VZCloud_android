@@ -12,7 +12,7 @@ public class MediaGalleryDetailVideo extends BaseTestClass {
 
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnLabelLike(vz_strings.name_video);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.name_video);
 
 		String logs = localyticsHelper.getLogs();
 		localyticsHelper.print(logs, vz_strings.logs_galleryDetail);

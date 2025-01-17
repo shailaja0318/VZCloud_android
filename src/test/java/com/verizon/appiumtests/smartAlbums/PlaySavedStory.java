@@ -12,12 +12,14 @@ public class PlaySavedStory extends BaseTestClass {
     public void testPlaySavedStory() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         baseControlsHelper.clickOn(vz_strings.tab_all);
+        baseControlsHelper.clickOn(vz_strings.tab_stories);
         if (baseControlsHelper.getCountByNameLike("Saved Story") < 1) {
             preCond();
             homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
             baseControlsHelper.clickOn(vz_strings.tab_all);
         }
-        baseControlsHelper.clickOnNameLike(vz_strings.name_savedStory);
+
+        baseControlsHelper.clickOnLabelLike(vz_strings.name_savedStory);
         baseControlsHelper.waitForShowByTypeAndLabel("XCUIElementTypeButton", "Play");
         photosAndVideosView.playVideo();
     }
@@ -28,7 +30,7 @@ public class PlaySavedStory extends BaseTestClass {
     }
 
     public void createStory() throws Exception {
-        baseControlsHelper.openContext(vz_strings.context_select);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.name_story_xpath);
         gridView.tapItem(vz_strings.DataType.PHOTO);
         baseControlsHelper.openContext(vz_strings.context_createStory);
         baseControlsHelper.waitForShow("Edit scenes");
@@ -38,6 +40,7 @@ public class PlaySavedStory extends BaseTestClass {
         baseControlsHelper.clickOn(vz_strings.button_save);
         baseControlsHelper.waitForContent();
         baseControlsHelper.waitForDismiss(vz_strings.progressbar);
+        baseControlsHelper.clickOn(vz_strings.navi_back);
         baseControlsHelper.clickOn(vz_strings.navi_back);
     }
 

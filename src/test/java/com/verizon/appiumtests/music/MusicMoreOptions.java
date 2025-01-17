@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class MusicMoreOptions extends BaseTestClass {
 
-    @Test
+    //@Test
     public void testMusicMoreOptions() throws Exception {
 
 

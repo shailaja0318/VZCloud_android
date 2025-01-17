@@ -6,14 +6,13 @@ import com.verizon.appiumtests.controls.BaseTestClass;
 import junit.framework.TestCase;
 import org.testng.annotations.Test;
 
-public class AllPhotosVideosContextMenu extends BaseTestClass {
+public class RecentsContextMenu extends BaseTestClass {
 
     @Test
-    public void testAllPhotosVideosContextMenu() throws Exception {
+    public void testRecentsContextMenu() throws Exception {
 
-        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
-        photosAndVideosView.selectTab(vz_strings.tab_all);
-        baseControlsHelper.openContext(null);
+        homeScreenView.navigateTo(vz_strings.navi_Recents);
+        baseControlsHelper.clickOnElementByXpath(null);
 
         TestCase.assertTrue("Options missing ", baseControlsHelper.isVisible
                 (vz_strings.context_printAndGifts));

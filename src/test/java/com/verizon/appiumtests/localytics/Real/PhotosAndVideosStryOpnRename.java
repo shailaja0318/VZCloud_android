@@ -13,10 +13,10 @@ import org.testng.annotations.Test;
 public class PhotosAndVideosStryOpnRename extends BaseTestClass {
     @Test
     public void photosAndVideosStoryOpenRename() throws Exception {
-        homeScreenView.fromHomeClickAt(vz_strings.navi_Photosandvideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
+        baseControlsHelper.openContext(vz_strings.context_select);
         photosAndVideosView.openStory10();
-        baseControlsHelper.waitForShow(vz_strings.story_HeroImage);
         baseControlsHelper.openContext(vz_strings.context_renameStory);
         baseControlsHelper.setValuetoTextFieldByName("Renamed Story", vz_strings.alertTextField);
         baseControlsHelper.clickOn(vz_strings.button_ok);

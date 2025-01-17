@@ -17,7 +17,9 @@ public class AllFilesSortOrder extends BaseTestClass {
     @Test
     public void FileSort() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_allFiles);
-        allFilesView.searchFile(".mp3",".jpg",".doc");
+        baseControlsHelper.clickOn(vz_strings.navi_allFiles);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.mobile_file);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.allFiles_phone);
         baseControlsHelper.openContext(vz_strings.context_sort);
         List<String> actual = allFilesView.getSortOptions();
         List<String> current = allFilesView.SortView();

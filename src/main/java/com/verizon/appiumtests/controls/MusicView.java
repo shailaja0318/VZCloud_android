@@ -61,7 +61,7 @@ public class MusicView {
             listView.selectFirstItemInSelectMode10();
             baseControlsHelper.openContext(vz_strings.context_addFavorite);
             baseControlsHelper.waitForDismiss(vz_strings.toast_addtoFavorite);
-            baseControlsHelper.waitForShow(vz_strings.tab_more);
+            //baseControlsHelper.waitForShow(vz_strings.tab_more);
             selectTab(vz_strings.tab_playlists);
         }
     }

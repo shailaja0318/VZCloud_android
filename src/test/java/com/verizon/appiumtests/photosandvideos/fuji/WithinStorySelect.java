@@ -17,7 +17,7 @@ public class WithinStorySelect extends BaseTestClass {
         gridView.tapItemInSelectModeByXpath(vz_strings.DataType.PHOTO);
         photosAndVideosView.clickPrintsAndGift(vz_strings.context_printAndGifts, vz_strings.context_icon_printShop);
         baseControlsHelper.waitForDismiss(vz_strings.spinner);
-        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit_1);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.button_exit);
         baseControlsHelper.clickOn(vz_strings.button_yes);
         baseControlsHelper.clickOn(vz_strings.button_cancel);
         baseControlsHelper.waitForShow(vz_strings.tab_storiesScenes);

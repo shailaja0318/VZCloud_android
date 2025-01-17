@@ -5,6 +5,7 @@ import com.verizon.appiumtests.constants.vz_strings;
 import com.verizon.appiumtests.driver.BaseDriver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
 
@@ -38,6 +39,49 @@ public class GridView {
         
     }
 
+    public void tapMultipleItems(int index, vz_strings.DataType DataType) throws Exception {
+        // baseControlsHelper.clickOnNameLike(selectDataTypeSwitch(DataType));
+        try {
+            for (int i = 0; i <= index; i++) {
+                baseControlsHelper.clickOnElementByXpath(selectDataTypeSwitch(DataType));
+            }
+        }catch (Exception e){
+            System.out.println(index + "Not available");
+        }
+       // baseControlsHelper.clickOnElementByXpath(selectDataTypeSwitch(DataType));
+
+    }
+    public void tapMultipleItemsContext(int index, String name) throws Exception {
+        baseControlsHelper.waitForShow(vz_strings.context_menu);
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        baseControlsHelper.waitForShow(vz_strings.context_select);
+        baseControlsHelper.clickOn(vz_strings.context_select);
+        try {
+            for (int i = 0; i <= index; i++) {
+                baseControlsHelper.clickOnElementByXpath(name);
+            }
+        }catch (Exception e){
+            System.out.println(index + "Not available");
+        }
+
+
+    }
+
+    public void tapMultiplePhotoItems(int index) throws Exception {
+        // baseControlsHelper.clickOnNameLike(selectDataTypeSwitch(DataType));
+        for (int i = 0; i <= index; i++) {
+            try {
+                driver.findElement(By.xpath(
+                        "//XCUIElementTypeCell[contains(@name,'photoIndex_" + i + "')]")).click();
+            } catch (Exception e) {
+                System.out.println(i + " Index Not available");
+            }
+        }
+    }
+        // baseControlsHelper.clickOnElementByXpath(selectDataTypeSwitch(DataType));
+
+
+
     public void tapItemInSelectMode(vz_strings.DataType DataType) throws Exception {
         baseControlsHelper.clickOn(vz_strings.context_menu);
         baseControlsHelper.clickOn(vz_strings.context_select);
@@ -57,13 +101,13 @@ public class GridView {
 
         switch (DataType) {
             case PHOTO:
-                type = vz_strings.name_photo;
+                type = vz_strings.name_photo_index;
                 break;
             case VIDEO:
                 type = vz_strings.name_video;
                 break;
             case LIVEPHOTO:
-                type = vz_strings.name_livePhoto;
+                type = vz_strings.name_livePhoto_index;
                 break;
             case STORY:
                 type = vz_strings.name_savedStory;
@@ -91,7 +135,15 @@ public class GridView {
         baseControlsHelper.clickOn(vz_strings.context_menu);
         baseControlsHelper.clickOn(vz_strings.context_select);
         for (int i = 1; i <= index; i++) {
-            baseControlsHelper.clickOnLabelContains(type + " " + i);
+            baseControlsHelper.clickOnElementByXpath(type );
+        }
+    }
+    public void selectItemsInMultiSelectMode(int index, String name) throws Exception {
+
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        baseControlsHelper.clickOn(vz_strings.context_select);
+        for (int i = 1; i <= index; i++) {
+            baseControlsHelper.clickOnElementByXpath(name );
         }
     }
 
@@ -105,15 +157,15 @@ public class GridView {
 
         ArrayList<String> list = baseControlsHelper.getListOfAttrLabel(index, type);
         
-        for (int i = 0; i < index; i++) {
-            baseControlsHelper.clickOnElementByDynamicXpath(list.get(i), i);
+        for (int i = 0; i <= index; i++) {
+            baseControlsHelper.clickOnElementByXpath(list.get(i));
         }
     }
 
     public void tapFolderInSelectMode10(String folderName) throws Exception {
         baseControlsHelper.clickOn(vz_strings.context_menu);
         baseControlsHelper.clickOn(vz_strings.context_select);
-        baseControlsHelper.clickOnLabelBeginswith(folderName);
+        baseControlsHelper.clickOn(folderName);
     }
 
     /**

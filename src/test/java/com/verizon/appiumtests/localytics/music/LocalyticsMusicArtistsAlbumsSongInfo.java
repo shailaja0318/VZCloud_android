@@ -13,18 +13,17 @@ public class LocalyticsMusicArtistsAlbumsSongInfo extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_artists);
-        //Select First Artist
-        listView.selectFirstItem10();
-        //Select First Album of Above Artist
-        listView.selectFirstItem10();
-        //Select First Song of Above Album
-        listView.selectItemInSelectMode10("section - 1, row - 0");
+        Thread.sleep(3000);
+        listView.selectItem10("section - 1, row - 0");
+        musicView.selectTab(vz_strings.tab_songs);
+        listView.selectFirstItemInSelectMode10();
         baseControlsHelper.openContext(vz_strings.context_info);
 
         String logs = localyticsHelper.getLogs();
+        localyticsHelper.print(logs, vz_strings.logs_tagEvent);
         TestCase.assertTrue("Localytics of " + vz_strings.logs_musicInfo + " does not exist",
                 localyticsHelper.isExisted(logs, vz_strings.logs_musicInfo));
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_musicInfo + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagScreen + ": " + vz_strings.logs_musicInfo));
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_musicInfo + " is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_musicInfo));
         localyticsHelper.print(logs, vz_strings.logs_musicInfo);
     }
 }

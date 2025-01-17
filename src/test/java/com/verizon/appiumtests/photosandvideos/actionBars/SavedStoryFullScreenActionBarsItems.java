@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
  */
 public class SavedStoryFullScreenActionBarsItems extends BaseTestClass {
   @Test
-  public void testSavedStoryFullScreenActionBarsItems() throws Exception {
+      public void testSavedStoryFullScreenActionBarsItems() throws Exception {
       int count=0;
 	  homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
       photosAndVideosView.selectTab(vz_strings.tab_all);

@@ -9,11 +9,11 @@ import org.testng.annotations.Test;
 public class LivePhotoInfo extends BaseTestClass {
 
     @Test
-    public void testLivePhotoInfo() throws Exception {
+    public void testDocumentInfo() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        gridView.tapItem(vz_strings.DataType.LIVEPHOTO);
+        baseControlsHelper.clickOn(vz_strings.name_livePhoto_index);
         baseControlsHelper.openContext(vz_strings.context_info);
 
         TestCase.assertTrue("Name not found", baseControlsHelper.getCountById("Name") != 0);

@@ -16,11 +16,12 @@ public class CreateCollageMultiselectAlbum extends BaseTestClass {
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_albums);
 		precondition.deleteAllAlbums();
-		createAlbum();
+		photosAndVideosView.createAlbumWithPhotos("nature");
 		baseControlsHelper.waitForShow(vz_strings.tab_albums);
-		photosAndVideosView.openAlbum();
-		baseControlsHelper.waitForContent();
-		gridView.tapItemsInMultiSelectMode(2, vz_strings.DataType.PHOTO);
+		//photosAndVideosView.openAlbum();
+		baseControlsHelper.openContext(vz_strings.context_select);
+		baseControlsHelper.clickOn(vz_strings.photo_video_album + " 0");
+		//gridView.tapItemsInMultiSelectMode(1, vz_strings.DataType.PHOTO);
 		baseControlsHelper.openContext(vz_strings.context_createcollage);
 		baseControlsHelper.waitForShowByPredicate("Collage", "XCUIElementTypeNavigationBar");
 		String pageTitle = baseControlsHelper.getNameByIndexfromClassName(0, "XCUIElementTypeNavigationBar");

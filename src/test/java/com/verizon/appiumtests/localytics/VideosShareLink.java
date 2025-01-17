@@ -14,7 +14,7 @@ public class VideosShareLink extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        baseControlsHelper.clickOnLabelLike(vz_strings.name_video);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.name_video);
         baseControlsHelper.clickOn(vz_strings.actionBar_share);
 		baseControlsHelper.clickOn(vz_strings.button_yesRemindMeNextTime);
 		baseControlsHelper.clickOn(vz_strings.share_ShareViaLink);

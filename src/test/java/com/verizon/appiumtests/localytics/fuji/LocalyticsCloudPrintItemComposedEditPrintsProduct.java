@@ -12,10 +12,11 @@ import org.testng.annotations.Test;
 public class LocalyticsCloudPrintItemComposedEditPrintsProduct extends BaseTestClass {
     @Test
     public void testLocalyticsCloudPrintItemComposedEditPrintsProduct() throws Exception {
-        homeScreenView.fromHomeClickAt(vz_strings.navi_Photosandvideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        photosAndVideosView.setPickWheelFilter(vz_strings.filter_PhotosOnly);
-        photosAndVideosView.removeAllProductFromCart();
+        baseControlsHelper.openContext(vz_strings.context_select);
+        baseControlsHelper.clickOn(vz_strings.name_photo);
+        baseControlsHelper.openContext(vz_strings.context_printAndGifts);
         Thread.sleep(3000);
         gridView.tapItemsInMultiSelectMode(1, vz_strings.DataType.PHOTO);
         photosAndVideosView.selectAllAddToCartAndEdit();

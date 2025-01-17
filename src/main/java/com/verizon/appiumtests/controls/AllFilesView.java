@@ -120,6 +120,8 @@ public class AllFilesView {
 
     public void search(String content) throws Exception {
         if (content != null) {
+            baseControlsHelper.clickOn(vz_strings.toolbar_Search);
+            baseControlsHelper.clickOn(vz_strings.searchIcon);
             baseControlsHelper.clickOn(vz_strings.searchIcon);
             baseControlsHelper.setValuetoTextFieldByName(content, vz_strings.searchIcon);
         }

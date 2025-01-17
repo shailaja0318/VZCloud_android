@@ -14,7 +14,7 @@ public class ABLivePhotoAddToAlbum extends BaseTestClass{
 
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnLabelLike(vz_strings.name_livePhoto);
+		baseControlsHelper.clickOnLabelLike(vz_strings.name_livePhoto_index);
 		baseControlsHelper.clickOn(vz_strings.actionBar_AddToAlbum);
 
 		String logs = localyticsHelper.getLogs();

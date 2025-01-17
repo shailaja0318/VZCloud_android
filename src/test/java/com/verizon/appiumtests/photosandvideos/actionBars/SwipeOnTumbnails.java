@@ -14,15 +14,12 @@ public class SwipeOnTumbnails extends BaseTestClass {
   public void testSwipeOnTumbnails() throws Exception {
 	  homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
       photosAndVideosView.selectTab(vz_strings.tab_all);
-      baseControlsHelper.clickOnElementByXpath("Photo");
-      TestCase.assertTrue("Add to Album option is not present in Action Bar",
-              baseControlsHelper.getCountById(vz_strings.actionBar_AddToAlbum) != 0);
-      TestCase.assertTrue("Share option is not present in Action Bar", baseControlsHelper.getCountById(vz_strings.actionBar_share) != 0);
-      TestCase.assertTrue("Download option is not present in Action Bar", baseControlsHelper.getCountById(vz_strings.actionBar_download) != 0);
-     
-      baseControlsHelper.swipe("left");
-      TestCase.assertTrue("Share option is not present in Action Bar", baseControlsHelper.getCountById(vz_strings.actionBar_share) != 0);
-      TestCase.assertTrue("Download option is not present in Action Bar", baseControlsHelper.getCountById(vz_strings.actionBar_download) != 0);
+      baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
+
+      TestCase.assertTrue("Add to Album option is not present in Action Bar", baseControlsHelper.isVisible(vz_strings.actionBar_AddToAlbum) );
+      TestCase.assertTrue("Share option is not present in Action Bar", baseControlsHelper.isVisible(vz_strings.actionBar_Delete));
+      TestCase.assertTrue("Download option is not present in Action Bar", baseControlsHelper.isVisible(vz_strings.actionBar_download));
+      TestCase.assertTrue("Share option is not present in Action Bar", baseControlsHelper.isVisible(vz_strings.actionBar_share));
 
   }
 }

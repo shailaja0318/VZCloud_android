@@ -53,7 +53,7 @@ public class ListView {
     public void clickOnAllElementsInMusicList(vz_strings.MusicView mType) throws Exception {
         baseControlsHelper.openContext(vz_strings.context_select);
         String thisMusicType = selectMusicView(mType);
-        list = (List) driver.findElement(AppiumBy.iOSNsPredicateString("wdType LIKE 'XCUIElementTypeCell' AND wdName CONTAINS '" + thisMusicType + "'"));
+        list = driver.findElements(AppiumBy.name("section - 0, row - 0"));
         ArrayList<String> newlist = new ArrayList<>();
 
         for (int i = 0; i < list.size(); i++) {

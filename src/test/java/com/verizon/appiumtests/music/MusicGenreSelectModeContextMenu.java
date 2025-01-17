@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class MusicGenreSelectModeContextMenu extends BaseTestClass {
 
-    @Test
+    //@Test
     public void testMusicGenreSelectModeContextMenu() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_music);

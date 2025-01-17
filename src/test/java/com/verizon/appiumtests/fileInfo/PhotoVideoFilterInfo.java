@@ -14,7 +14,9 @@ public class PhotoVideoFilterInfo extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        gridView.tapItemsInMultiSelectMode(1, vz_strings.DataType.PHOTO);
+        baseControlsHelper.clickOn(vz_strings.context_menu);
+        baseControlsHelper.clickOn(vz_strings.context_select);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
         baseControlsHelper.openContext(null);
 
         TestCase.assertTrue("File info is displayed", baseControlsHelper.getCountById("Info") < 1);

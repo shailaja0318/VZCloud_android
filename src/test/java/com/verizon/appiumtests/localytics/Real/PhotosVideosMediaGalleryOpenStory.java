@@ -10,8 +10,6 @@ public class PhotosVideosMediaGalleryOpenStory extends BaseTestClass {
 
     @Test
     public void testPhotosVideosMediaGalleryOpenStory() throws Exception {
-
-
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
         photosAndVideosView.openStory10();

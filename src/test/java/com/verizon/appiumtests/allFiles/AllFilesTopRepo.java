@@ -11,7 +11,8 @@ public class AllFilesTopRepo extends BaseTestClass {
     public void testAllFilesTopRepo() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_allFiles);
+        baseControlsHelper.clickOnNameContains("Mobile");
 
-        TestCase.assertTrue("All Files not found", baseControlsHelper.getCountById(vz_strings.allFiles) > 0);
+        TestCase.assertTrue(baseControlsHelper.isVisible("Mobile"));
     }
 }

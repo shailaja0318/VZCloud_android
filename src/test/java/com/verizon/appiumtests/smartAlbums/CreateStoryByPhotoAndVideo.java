@@ -18,6 +18,7 @@ public class CreateStoryByPhotoAndVideo extends BaseTestClass {
         photosAndVideosView.selectTab(vz_strings.tab_all);
         gridView.tapItemsInSelectMode();
         baseControlsHelper.openContext(vz_strings.context_createStory);
+        //baseControlsHelper.clickOn(vz_strings.button_gotIt);
         baseControlsHelper.waitForShow("Edit scenes");
 
         for (int i = 0; i < vz_strings.realPlayerSave.length; i++) {

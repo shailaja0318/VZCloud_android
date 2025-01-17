@@ -14,8 +14,11 @@ public class FilterByPhotos extends BaseTestClass {
         photosAndVideosView.selectTab(vz_strings.tab_all);
         photosAndVideosView.filterBy(vz_strings.filterByPhotos);
 
-        TestCase.assertTrue("Didn't find Filter header", baseControlsHelper.getCountById(vz_strings.filter_FilteredByPhotos)>0);
-        TestCase.assertEquals("Clear filter is not available", 1, baseControlsHelper.getCountById(vz_strings.filter_clear));
+
+        TestCase.assertTrue("Didn't find Filter header",
+                baseControlsHelper.getCountByXpath(vz_strings.filter_FilteredByPhotos)>0);
+        TestCase.assertEquals("Clear filter is not available", 1,
+                baseControlsHelper.getCountByXpath(vz_strings.filter_clear));
         TestCase.assertTrue("Video inside album ? ", baseControlsHelper.getCountByNameLike("Video") < 1);
     }
 }

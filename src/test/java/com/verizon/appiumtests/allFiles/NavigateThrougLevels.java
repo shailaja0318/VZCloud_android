@@ -15,8 +15,9 @@ public class NavigateThrougLevels extends BaseTestClass {
         listView.selectFirstItem10();
         baseControlsHelper.tapOnBackButton();
         baseControlsHelper.tapOnBackButton();
+        baseControlsHelper.tapOnBackButton();
 
-        TestCase.assertTrue("All Files not found", baseControlsHelper.getCountById(vz_strings.allFiles) > 0);
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.allFiles));
     }
 
 }

@@ -15,7 +15,7 @@ public class PhotoOrientation extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
         Thread.sleep(2000);
-        baseControlsHelper.clickOnLabelLike(vz_strings.name_photo);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
         Thread.sleep(2000);
         baseControlsHelper.setOrientation(ScreenOrientation.LANDSCAPE);
         Thread.sleep(2000);

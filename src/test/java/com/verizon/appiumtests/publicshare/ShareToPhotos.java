@@ -5,7 +5,7 @@ import com.verizon.appiumtests.controls.BaseTestClass;
 import junit.framework.TestCase;
 import org.testng.annotations.Test;
 
-public class ShareToPhotos extends BaseTestClass {
+	public class ShareToPhotos extends BaseTestClass {
 
     @Test
     public void testShareToPhotos() throws Exception {

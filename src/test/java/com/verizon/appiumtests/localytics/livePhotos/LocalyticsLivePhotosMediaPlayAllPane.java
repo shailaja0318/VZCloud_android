@@ -16,7 +16,7 @@ public class LocalyticsLivePhotosMediaPlayAllPane extends BaseTestClass {
     public void testLocalyticsLivePhotosMediaPlayAllPane() throws Exception {
         try {
            // flag = photosAndVideosView.uploadAndFilterLivePhotos(1);
-            baseControlsHelper.clickOnLabelLike(vz_strings.name_livePhoto);
+            baseControlsHelper.clickOnLabelLike(vz_strings.name_livePhoto_index);
             Thread.sleep(1000);
             baseControlsHelper.touchAndHoldOnElement(baseControlsHelper.getLivePhotoElement());
             String logs = localyticsHelper.getLogs();

@@ -12,10 +12,10 @@ import org.testng.annotations.Test;
 public class PhotosAndVideosAllCreateStory extends BaseTestClass {
     @Test
     public void photosAndVideosCreateStory() throws Exception{
-        homeScreenView.fromHomeClickAt(vz_strings.navi_Photosandvideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
         baseControlsHelper.waitForContent();
-        gridView.tapItemsInMultiSelectModeUniversal(3, vz_strings.DataType.PHOTO);
+        gridView.tapMultipleItemsContext(3, vz_strings.name_photo);
         baseControlsHelper.openContext(vz_strings.context_createStory);
         baseControlsHelper.waitForShow("Edit scenes");
 

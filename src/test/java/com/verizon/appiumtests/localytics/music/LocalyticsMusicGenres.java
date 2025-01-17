@@ -14,7 +14,8 @@ public class LocalyticsMusicGenres extends BaseTestClass{
         public void testLocalyticsMusicGenres() throws Exception {
 
         	homeScreenView.navigateTo(vz_strings.navi_music);
-        	 baseControlsHelper.clickOn(vz_strings.tab_genres);
+            baseControlsHelper.scrollUtillAnElement(vz_strings.tab_genres, "left");
+            baseControlsHelper.clickOn(vz_strings.tab_genres);
 
             String logs = localyticsHelper.getLogs();
             localyticsHelper.print(logs, vz_strings.logs_tagScreen);

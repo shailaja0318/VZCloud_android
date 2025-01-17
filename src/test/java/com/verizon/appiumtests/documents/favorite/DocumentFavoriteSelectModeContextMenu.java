@@ -32,7 +32,7 @@ public class DocumentFavoriteSelectModeContextMenu extends BaseTestClass {
         listView.selectFirstItem10();
         baseControlsHelper.openContext(null);
 
-        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_makePrivate));
+        TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_removeFavorite));
         TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_info));
         TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_delete));
         TestCase.assertTrue(baseControlsHelper.isVisible(vz_strings.context_share));

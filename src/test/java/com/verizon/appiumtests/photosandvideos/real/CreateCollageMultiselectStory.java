@@ -15,7 +15,8 @@ public class CreateCollageMultiselectStory extends BaseTestClass {
         photosAndVideosView.selectTab(vz_strings.tab_stories);
         photosAndVideosView.openStory10();
         baseControlsHelper.waitForContent();
-        gridView.tapItemsInMultiSelectMode(2, vz_strings.DataType.PHOTO);
+        baseControlsHelper.openContext(vz_strings.context_select);
+        gridView.tapMultiplePhotoItems(2);
         baseControlsHelper.openContext(vz_strings.context_createcollage);
         baseControlsHelper.waitForShowByPredicate("Collage", "XCUIElementTypeNavigationBar");
         String pageTitle = baseControlsHelper.getNameByIndexfromClassName(0, "XCUIElementTypeNavigationBar");

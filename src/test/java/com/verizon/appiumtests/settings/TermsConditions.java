@@ -11,7 +11,7 @@ public class TermsConditions extends BaseTestClass {
     public void testTermsConditions() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_settings);
-        baseControlsHelper.clickOn(vz_strings.settings_about);
+        baseControlsHelper.clickOn(vz_strings.settings_aboutCloud);
         baseControlsHelper.clickOn(vz_strings.about_tc);
         TestCase.assertTrue("Terms & Conditions headings not found", baseControlsHelper.getCountById(vz_strings.about_tc) != 0);
 

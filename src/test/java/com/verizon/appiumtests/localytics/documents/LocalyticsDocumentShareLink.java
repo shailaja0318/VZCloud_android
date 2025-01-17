@@ -11,7 +11,8 @@ public class LocalyticsDocumentShareLink extends BaseTestClass {
     public void testLocalyticsDocumentShareLink() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_documents);
         listView.selectFirstItemInSelectMode10();
-        baseControlsHelper.openContext(vz_strings.context_share);      
+        baseControlsHelper.openContext(vz_strings.context_share);
+        baseControlsHelper.waitForShow(vz_strings.share_ShareTo);
 		baseControlsHelper.clickOn(vz_strings.share_ShareTo);
 		
         String logs = localyticsHelper.getLogs();

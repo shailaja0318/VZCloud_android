@@ -13,8 +13,10 @@ public class LocalyticsMusicAlbumsPlaySong extends BaseTestClass {
 
     	homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_albums);
-        listView.selectFirstItem10();
+        Thread.sleep(3000);
         listView.selectItem10("section - 1, row - 0");
+        listView.selectItem10("section - 1, row - 0");
+
 
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_mediaPlay);

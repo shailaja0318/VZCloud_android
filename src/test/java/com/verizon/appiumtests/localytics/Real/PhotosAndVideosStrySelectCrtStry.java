@@ -13,10 +13,10 @@ import org.testng.annotations.Test;
 public class PhotosAndVideosStrySelectCrtStry extends BaseTestClass{
     @Test
     public void photosAndVideosStorySelectCreateStory() throws Exception{
-        homeScreenView.fromHomeClickAt(vz_strings.navi_Photosandvideos);
+        homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);
-        baseControlsHelper.waitForContent();
-        gridView.tapFolderInSelectMode10("Story-0");
+        baseControlsHelper.openContext(vz_strings.context_select);
+        photosAndVideosView.openStory10();
         baseControlsHelper.openContext(vz_strings.context_createStory);
 
         String logs = localyticsHelper.getLogs();

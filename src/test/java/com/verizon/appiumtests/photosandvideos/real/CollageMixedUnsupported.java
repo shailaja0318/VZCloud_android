@@ -18,6 +18,6 @@ public class CollageMixedUnsupported extends BaseTestClass {
 		TestCase.assertTrue("Title missing",
 				baseControlsHelper.getCountById(vz_strings.text_unsupportedMediaTitle) != 0);
 		Thread.sleep(2000);
-		baseControlsHelper.clickOn(vz_strings.button_ok);
+		baseControlsHelper.clickOn(vz_strings.button_continue);
 	}
 }

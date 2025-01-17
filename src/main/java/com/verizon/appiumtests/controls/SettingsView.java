@@ -104,7 +104,7 @@ public class SettingsView {
             vz_strings.my_Account,
             vz_strings.settings_manageStorage,
             vz_strings.logs_tools,
-            vz_strings.settings_about);
+            vz_strings.settings_aboutCloud);
 
 
     public boolean elementVisibleSettings(String settingType) throws Exception {

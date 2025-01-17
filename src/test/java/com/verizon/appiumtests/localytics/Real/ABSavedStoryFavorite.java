@@ -15,7 +15,8 @@ public class ABSavedStoryFavorite extends BaseTestClass{
 		photosAndVideosView.selectTab(vz_strings.tab_albums);
 		precondition.removeFavoritesAlbum();
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnNameLike(vz_strings.name_savedStory);
+		baseControlsHelper.openContext(vz_strings.context_select);
+		gridView.tapItem(vz_strings.DataType.STORY);
 		baseControlsHelper.clickOn(vz_strings.actionBar_addToFavorite);
 
 		String logs = localyticsHelper.getLogs();

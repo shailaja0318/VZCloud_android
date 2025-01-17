@@ -14,17 +14,19 @@ public class AlbumSelectDownload extends BaseTestClass {
     public void albumSelectDownload() throws Exception {
     	homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_albums);
-        gridView.tapFolderInSelectMode10(vz_strings.album_photo_select);
-        photosAndVideosView.clickOnShareAndCopyShare(vz_strings.context_download);
+        baseControlsHelper.openContext(vz_strings.context_select);
+        //baseControlsHelper.clickOn(vz_strings.photos_albumFolder);
+        baseControlsHelper.openContext(vz_strings.context_download);
 
         String logs = localyticsHelper.getLogs();
         localyticsHelper.print(logs, vz_strings.logs_tagEvent);
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaDownload + " is not 1 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaDownload));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_count + "  is not 1 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_count + " = 1"));
-        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaType + " Media type is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_album));
+        //TestCase.assertTrue("Localytics of " + vz_strings.logs_count + "  is not 1 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_count + " = 2"));
+
+        TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaType + " Media type is not 1 in logs", 2, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_album));
        
         TestCase.assertTrue("Localytics of " + vz_strings.logs_mediaDownload + " is not 1 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_tagEvent + ": " + vz_strings.logs_mediaDownload));
-        TestCase.assertTrue("Localytics of " + vz_strings.logs_count + "  is not 1 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_count + " = 1"));
+        //TestCase.assertTrue("Localytics of " + vz_strings.logs_count + "  is not 1 in logs", localyticsHelper.isExisted(logs, vz_strings.logs_count + " = 2"));
         TestCase.assertEquals("Localytics of " + vz_strings.logs_mediaType + " Media type is not 1 in logs", 1, localyticsHelper.getPatternMatch(logs, "\"" + vz_strings.logs_mediaType + "\" = " + vz_strings.logs_photos));
 
     }

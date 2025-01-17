@@ -14,9 +14,9 @@ public class DocumentInfo extends BaseTestClass {
         listView.selectItemInSelectMode10("section - 0, row - 0");
         baseControlsHelper.openContext(vz_strings.context_info);
 
-        TestCase.assertTrue("Name not found", baseControlsHelper.getCountById("Name") != 0);
-        TestCase.assertTrue("Date Uploaded not found", baseControlsHelper.getCountById("Date Uploaded") != 0);
-        TestCase.assertTrue("Size not found", baseControlsHelper.getCountById("Size") != 0);
-        TestCase.assertTrue("Extension not found", baseControlsHelper.getCountById("Extension") != 0);
+        TestCase.assertTrue("Name not found", baseControlsHelper.getCountById("filenameLabel") != 0);
+        TestCase.assertTrue("Date Uploaded not found", baseControlsHelper.getCountById("dateUploadedLabel") != 0);
+        TestCase.assertTrue("Size not found", baseControlsHelper.getCountById("sizeLabel") != 0);
+        TestCase.assertTrue("Extension not found", baseControlsHelper.getCountById("typeLabel") != 0);
     }
 }

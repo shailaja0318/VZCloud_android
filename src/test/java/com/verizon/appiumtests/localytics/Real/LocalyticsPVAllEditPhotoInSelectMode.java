@@ -8,13 +8,13 @@ import org.testng.annotations.Test;
  * VZNFT-481: Edit Photos: Add Stickers/step 4: In Multi-Select Mode
  * @author leletsn
  */
-public class LocalyticsPVAllEditPhotoInMultiSelectMode extends BaseTestClass{
+public class LocalyticsPVAllEditPhotoInSelectMode extends BaseTestClass{
   @Test
-  public void testLocalyticsPVAllEditPhotoInMultiSelectMode() throws Exception {
+  public void testLocalyticsPVAllEditPhotoInSelectMode() throws Exception {
 	  homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 	  photosAndVideosView.selectTab(vz_strings.tab_all);
 	  baseControlsHelper.openContext(vz_strings.context_select);
-	  gridView.tapMultiplePhotoItems(3);
+	  gridView.tapMultiplePhotoItems(1);
 	  baseControlsHelper.openContext(vz_strings.context_editPhoto);
 	  
 	  String logs = localyticsHelper.getLogs();

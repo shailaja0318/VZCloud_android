@@ -11,11 +11,21 @@ import org.testng.annotations.Test;
 public class ABSavedStoryAddToAlbum extends BaseTestClass{
     @Test
   public void testABSavedStoryAddToAlbum() throws Exception {
-
+		String albumName = "new album";
 		homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnNameLike(vz_strings.name_savedStory);
-		baseControlsHelper.clickOn(vz_strings.actionBar_AddToAlbum);
+		photosAndVideosView.selectTab(vz_strings.tab_stories);
+		photosAndVideosView.openStory10();
+		baseControlsHelper.openContext(vz_strings.context_select);
+
+		baseControlsHelper.openContext(vz_strings.context_addToAlbum);
+		baseControlsHelper.clickOn(vz_strings.button_newAlbum);
+		//baseControlsHelper.clickOn(vz_strings.create_newAlbumName);
+		//baseControlsHelper.openContext(vz_strings.context_newAlbum);
+		baseControlsHelper.setValuetoTextFieldByName(albumName, vz_strings.alertTextField);
+		//baseControlsHelper.clickOn(vz_strings.button_addItems);
+		//baseControlsHelper.waitForShow("Save Album");
+		baseControlsHelper.clickOn(vz_strings.button_save);
 
 		String logs = localyticsHelper.getLogs();
 		localyticsHelper.print(logs, vz_strings.logs_albumItemAdded );

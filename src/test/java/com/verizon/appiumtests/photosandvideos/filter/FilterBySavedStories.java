@@ -13,9 +13,10 @@ public class FilterBySavedStories extends BaseTestClass {
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
         photosAndVideosView.filterBy(vz_strings.filterBySavedStories);
-
-        TestCase.assertTrue("Didn't find Filter header", baseControlsHelper.getCountById(vz_strings.filter_FilteredBySavedStories)>0);
-        TestCase.assertEquals("Clear filter is not available", 1, baseControlsHelper.getCountById(vz_strings.filter_clear));
+        Thread.sleep(10000);
+        TestCase.assertTrue("Didn't find Filter header",
+                baseControlsHelper.getCountByXpath(vz_strings.filter_FilteredBySavedStories)>0);
+        TestCase.assertEquals("Clear filter is not available", 1, baseControlsHelper.getCountByXpath(vz_strings.filter_clear));
         TestCase.assertTrue("Photo inside album ? ", baseControlsHelper.getCountByNameLike("Photo") < 1);
         TestCase.assertTrue("Video inside album ? ", baseControlsHelper.getCountByNameLike("Video") < 1);
  

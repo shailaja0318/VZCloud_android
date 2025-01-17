@@ -13,7 +13,8 @@ public class RemoveFavoriteFile extends BaseTestClass {
     @Test
     public void removeFavoriteFile() throws Exception {
         homeScreenView.navigateTo(vz_strings.navi_allFiles);
-        allFilesView.searchFile(".HEIC", ".jpg", ".doc");
+        baseControlsHelper.clickOnNameContains("Mobile");
+        listView.selectFirstItem10();
         listView.removeFavorites();
         listView.multiFavorite(2);
         listView.SelectMultiItem(2);

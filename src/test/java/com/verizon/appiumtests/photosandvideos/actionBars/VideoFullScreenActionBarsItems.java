@@ -14,11 +14,9 @@ public class VideoFullScreenActionBarsItems extends BaseTestClass {
   public void testVideoFullScreenActionBarsItems() throws Exception {
 	  homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
       photosAndVideosView.selectTab(vz_strings.tab_all);
-      baseControlsHelper.clickOnLabelLike(vz_strings.name_video);
-      
-      TestCase.assertTrue("Add to Album option is not present in Action Bar",
-              baseControlsHelper.getCountById(vz_strings.actionBar_AddToAlbum) != 0);
-      TestCase.assertTrue("Share option is not present in Action Bar", baseControlsHelper.getCountById(vz_strings.actionBar_share) != 0);
-      TestCase.assertTrue("Download option is not present in Action Bar", baseControlsHelper.getCountById(vz_strings.actionBar_download) != 0);
+      baseControlsHelper.clickOnElementByXpath(vz_strings.name_video);
+      TestCase.assertTrue("Add to Album option is not present in Action Bar", baseControlsHelper.isVisible(vz_strings.actionBar_AddToAlbum) );
+      TestCase.assertTrue("Share option is not present in Action Bar", baseControlsHelper.isVisible(vz_strings.actionBar_Delete));
+      TestCase.assertTrue("Download option is not present in Action Bar", baseControlsHelper.isVisible(vz_strings.actionBar_download));
   }
 }

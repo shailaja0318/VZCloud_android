@@ -5,9 +5,9 @@ import com.verizon.appiumtests.controls.BaseTestClass;
 import junit.framework.TestCase;
 import org.testng.annotations.Test;
 
-public class testCreateStoryFromStory extends  BaseTestClass {
+public class testCreateStoryFromStoryContextMenu extends  BaseTestClass {
     @Test
-    public void testShareVideoSceneFromStory() throws Exception {
+    public void testCreateStoryFromStoryContextMenu () throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_stories);

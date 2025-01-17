@@ -17,7 +17,7 @@ public class ABPhotoUnFavorite extends BaseTestClass{
 		precondition.AddToFavoriteAlbum();
 		Thread.sleep(2000);
 		photosAndVideosView.selectTab(vz_strings.tab_all);
-		baseControlsHelper.clickOnLabelLike(vz_strings.name_photo);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.name_photo);
 		baseControlsHelper.clickOn(vz_strings.actionBar_RemoveFromFavorite);
 
 		String logs = localyticsHelper.getLogs();

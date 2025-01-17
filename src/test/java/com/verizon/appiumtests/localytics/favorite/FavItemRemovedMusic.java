@@ -17,7 +17,7 @@ public class FavItemRemovedMusic extends BaseTestClass {
         musicView.selectTab(vz_strings.tab_playlists);
         precondition.addSongToFavoriteFromSongs();
         baseControlsHelper.clickOn("Favorites");
-        listView.clickOnAllElementsInMusicList(vz_strings.MusicView.Favorites);
+        listView.selectFirstItemInSelectMode10();
         baseControlsHelper.openContext(vz_strings.context_removeFavorite);
 
         String logs = localyticsHelper.getLogs();

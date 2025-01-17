@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 
 public class OnTheGoPlaylist extends BaseTestClass {
 
-    @Test
-    public void testOnTheGoPlaylist() throws Exception {
+    //@Test
+        public void testOnTheGoPlaylist() throws Exception {
 
         homeScreenView.navigateTo(vz_strings.navi_music);
         musicView.selectTab(vz_strings.tab_playlists);

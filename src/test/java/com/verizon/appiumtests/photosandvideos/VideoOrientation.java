@@ -14,13 +14,13 @@ public class VideoOrientation extends BaseTestClass {
 
         homeScreenView.navigateTo(vz_strings.navi_Photosandvideos);
         photosAndVideosView.selectTab(vz_strings.tab_all);
-        baseControlsHelper.clickOnLabelLike(vz_strings.name_video);
+        baseControlsHelper.clickOnElementByXpath(vz_strings.name_video);
         photosAndVideosView.playVideo();
         Thread.sleep(2000);
         baseControlsHelper.setOrientation(ScreenOrientation.LANDSCAPE);
         Thread.sleep(2000);
         baseControlsHelper.setOrientation(ScreenOrientation.PORTRAIT);
 
-        TestCase.assertTrue("Video is not open", baseControlsHelper.getCountById(vz_strings.name_video) != 0);
+        TestCase.assertTrue("Video is not open", baseControlsHelper.getCountByXpath(vz_strings.name_video) != 0);
     }
 }

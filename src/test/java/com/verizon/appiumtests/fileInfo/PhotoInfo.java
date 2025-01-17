@@ -18,11 +18,11 @@ public class PhotoInfo extends BaseTestClass {
        // baseControlsHelper.waitForShow(vz_strings.context_info);
         baseControlsHelper.openContext(vz_strings.context_info);
 
-        TestCase.assertTrue("Name not found", baseControlsHelper.getCountById("Name") != 0);
-        TestCase.assertTrue("Date Taken not found", baseControlsHelper.getCountById("Date Taken") != 0);
-        TestCase.assertTrue("Date Uploaded not found", baseControlsHelper.getCountById("Date Uploaded") != 0);
-        TestCase.assertTrue("Resolution not found", baseControlsHelper.getCountById("Resolution") != 0);
-        TestCase.assertTrue("Size not found", baseControlsHelper.getCountById("Size") != 0);
-        TestCase.assertTrue("Extension not found", baseControlsHelper.getCountById("Extension") != 0);
+        TestCase.assertTrue("Name not found", baseControlsHelper.getCountById("filenameLabel") != 0);
+        TestCase.assertTrue("Date Taken not found", baseControlsHelper.getCountById("dateBackedUpLabel") != 0);
+        TestCase.assertTrue("Date Uploaded not found", baseControlsHelper.getCountById("dateTakenLabel") != 0);
+        TestCase.assertTrue("Resolution not found", baseControlsHelper.getCountById("resolutionLabel") != 0);
+        TestCase.assertTrue("Size not found", baseControlsHelper.getCountById("sizeLabel") != 0);
+        TestCase.assertTrue("Extension not found", baseControlsHelper.getCountById("formatLabel") != 0);
     }
 }

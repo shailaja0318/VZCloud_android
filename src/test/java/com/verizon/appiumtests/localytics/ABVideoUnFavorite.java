@@ -18,7 +18,7 @@ public class ABVideoUnFavorite extends BaseTestClass{
 		AddVideoToFavoriteAlbum();
 		photosAndVideosView.selectTab(vz_strings.tab_all);
 		Thread.sleep(2000);
-		baseControlsHelper.clickOnLabelLike(vz_strings.name_video);
+		baseControlsHelper.clickOnElementByXpath(vz_strings.name_video);
 		baseControlsHelper.clickOn(vz_strings.actionBar_RemoveFromFavorite);
 
 		String logs = localyticsHelper.getLogs();

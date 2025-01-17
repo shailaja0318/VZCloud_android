@@ -7,17 +7,22 @@ public final class vz_strings {
 	public final static String prov_AnEmailAddress = "An Email Address is required to send you important information about your account.";
 
 	public final static String name_backingup = "Backing Up...";
-	public final static String name_video = "Video";
+	public final static String name_video = "//XCUIElementTypeCell[contains(@name,'video')]";
 	public final static String name_video_open = "//XCUIElementTypeCell[contains(@name,'videoIndex_')]";
 	public final static String name_photo = "//XCUIElementTypeCell[contains(@name,'photo')]";
-	public final static String name_photo_index ="//XCUIElementTypeCell[contains(@name,'photoIndex')]/XCUIElementTypeOther/XCUIElementTypeImage[1]";
-	public final static String name_livePhoto = "Live Photos";
+	public final static String name_photo_index ="//XCUIElementTypeCell[contains(@name,'photoIndex_')]";
+	public final static String name_livePhoto_index = "//XCUIElementTypeCell[contains(@name,'livePhotoIndex_')]";
 	public final static String name_livePhotoGrid = "LPGridCell";
 	public final static String name_homeScreen = "Home Screen";
-	public final static String name_savedStory = "//XCUIElementTypeImage[contains(@name,'Saved Story')]";
+
+	public final static String trash_deleted_photo = "(//XCUIElementTypeStaticText[@name='30 days left'])[1]";
+			//"//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeOther[4]/XCUIElementTypeImage";
+
+	public final static String name_savedStory = "//XCUIElementTypeImage[contains(@name,'Saved Stories')]";
 
 	public final static String allTab_savedStory = "//XCUIElementTypeCell[contains(@name,'videoIndex_')]";
 	public final static String name_story = "Story";
+	public final static String name_story_xpath = "(//XCUIElementTypeCell[contains(@name,'Story')/XCUIElementTypeOther[1]/XCUIElementTypeImage[2])[1]";
 	public final static String home_music = "Music";
 	public final static String album_music = "Music";
 	public final static String home_contact = "Contacts";
@@ -46,6 +51,7 @@ public final class vz_strings {
 	public final static String carousel_flashbacks = "Carousel-Flashbacks";
 
 	public final static String context_menu = "icon nav off contextual";
+	public final static String trashcontext_menu = "icon nav on contextual";
 	public final static String context_select = "Select";
 
 	public final static String availableSongs = "//XCUIElementTypeStaticText[contains(@name,'.mp3')]";
@@ -53,7 +59,9 @@ public final class vz_strings {
 
 	public final static String context_sort = "Sort";
 
-	public final static String searchIcon= "searchImageIcon";
+	public final static String searchIcon= "search_icon";
+
+	public final static String toolbar_Search= "searchLabelButton";
 	public final static String context_filter = "Filter";
 	public final static String context_sortAndFilter = "Sort & Filter";
 	public final static String context_download = "Download";
@@ -100,7 +108,7 @@ public final class vz_strings {
 	public final static String context_removeFromQueue = "Remove From Queue";
 	public final static String context_recoverItems = "Recover Item(s)";
 	public final static String context_addToSharedFolder = "Add to Shared Folder";
-	public final static String context_makePrivate = "Make Private";
+	public final static String context_makePrivate = "Move to Locked Folder";
 	public final static String context_rename = "Rename";
 
 	public final static String alert_recoverItems = "Recover Item(s)";
@@ -111,16 +119,20 @@ public final class vz_strings {
 	public final static String filter_PhotosOnly = "Photos only";
 	public final static String filter_VideosOnly = "Videos only";
 	public final static String filter_SavedStoriesOnly = "Saved Stories only";
-	public final static String filter_FilteredByPhotos = "Photos";
-	public final static String filter_FilteredByVideos = "Videos";
-	public final static String filter_FilteredBySavedStories = "Saved Stories";
-	public final static String filterByPhotos = "Photos";
-	public final static String filterByVideos = "Videos";
-	public final static String filterBySavedStories = "Saved Stories";
+	public final static String filter_FilteredByPhotos = "//XCUIElementTypeStaticText[@name='filterTypePhotosLabel']";
+	public final static String filter_FilteredByVideos = "//XCUIElementTypeStaticText[@name='filterTypeVideosLabel']";
+	public final static String filter_FilteredBySavedStories = "//XCUIElementTypeStaticText[@name='filterTypeSaved StoriesLabel']";
+	public final static String filterByPhotos = "//XCUIElementTypeImage[@name='photosCheckbox']";
+	public final static String filterByVideos = "//XCUIElementTypeImage[@name='videosCheckbox']";
+	public final static String filterBySavedStories = "//XCUIElementTypeImage[@name='savedStoriesCheckbox']";
 	public final static String filter_selectAll = "Select All";
-	public final static String filter_selectAllText = "(//XCUIElementTypeStaticText[@name='Select All'])";
+	public final static String selectAll_filter= "(//XCUIElementTypeStaticText[@name='Select All'])[2]";
+	public final static String filter_selectAllText = "(//XCUIElementTypeStaticText[@value='Select All'])[2]";
 	public final static String filter_selectedRadioButton = "//XCUIElementTypeImage[contains(@name,'Checkbox')]";
-	public final static String filter_clear = "clear filter";
+	public final static String filter_clear = "//XCUIElementTypeButton[contains(@name,'CloseButton')]";
+
+	public final static String filter_unselectedRadioButton =
+			"//XCUIElementTypeImage[contains(@name,'sCheckbox') and @value='false']";
 	public final static String filter_singleSelction = "single_selection";
 	public final static String recent_file= "recentFilesIndex_";
 
@@ -138,7 +150,7 @@ public final class vz_strings {
 	public final static String view_insideAlbum = "Albums album";
 	public final static String view_storyScenes = "Photos stories scenes";
 	public final static String view_storySavedStories = "Photos stories saved stories";
-	public final static String view_searchStoriesBar ="Search by Year, Month and Title";
+	public final static String view_searchStoriesBar ="Search by Month, Days and Year";
 	public final static String view_musicAlbums = "Music Albums";
 	public final static String view_insideMusicAlbum = "Inside Music Album";
 	public final static String view_musicArtists = "Music Artists";
@@ -189,7 +201,7 @@ public final class vz_strings {
 	public final static String text_are_you_sure = "Are you sure you would like to exit?";
 	public final static String text_printsAndGifts = "Prints & Gifts";
 	public final static String text_photosAndVideos = "//XCUIElementTypeStaticText[@name='Photos & videos']";
-	public final static String text_unsupportedMediaTitle = "Unsupported Media";
+	public final static String text_unsupportedMediaTitle = "Collages are unable to include some of the selected files.";
 	public final static String text_unsupportedMediaBody = "The following photo file types are supported: HEIC, JPEG, BMP, PNG, GIF, TIFF. 1 videos in your selection will be skipped.";
 
 	public final static String[] GridViews = {view_photoAll, view_photoTimeline, view_photoAlbum,
@@ -201,9 +213,10 @@ public final class vz_strings {
 	public final static String navi_home = "homeLabelButton";
 	public final static String navi_printshop = "printAndGiftsLabelButton";
 	public final static String navi_Photosandvideos = "Photos & videos";
+	public final static String navi_Recents = "Recents";
 	public final static String navi_music = "Audio";
 	public final static String navi_documents = "Documents";
-	public final static String navi_contacts = "contactsLabelButton";
+	public final static String navi_contacts = "Contacts";
 	public final static String navi_allFiles = "All files";
 	public final static String navi_tools = "Tools";
 	public final static String navi_messageCenter = "notificationBellButton";
@@ -212,8 +225,8 @@ public final class vz_strings {
 	public final static String navi_recommendedApps = "Recommended Apps";
 	public final static String navi_settings = "settingsButton";
 	public final static String navi_helpAndFeedback = "helpFeedbackLabelButton";
-	public final static String navi_trash = "trashButton";
-	public final static String navi_contentTransfer ="contentTransferLabelButton";
+	public final static String navi_trash = "Trash";
+	public final static String navi_contentTransfer ="Content transfer";
 	public final static String navi_backUpNow = "Back up now";
 	public final static String navi_backupStatus = "Backup status";
 	public final static String navi_selectedItem = "side_menu_active_indicator.png";
@@ -223,7 +236,7 @@ public final class vz_strings {
 	public final static String navi_Library = "Library";
 	public final static String navi_verizonCLoud = "Verizon Cloud";
 
-
+	public final static String navi_Settings_ChatWithUs = "Chat with us";
 	public final static String navi_ClassChain_library = "**/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeImage[3]";
 	public final static String navi_ClassChain_home ="**/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeImage[1]";
 	public final static String navi_ClassChain_search ="**/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeImage[2]";
@@ -302,6 +315,7 @@ public final class vz_strings {
 	public final static String button_share = "Share";
 	public final static String button_copy = "Copy";
 	public final static String button_exit = "//XCUIElementTypeNavigationBar[@name='Cart']/XCUIElementTypeButton[2]";
+	public final static String cart ="//XCUIElementTypeOther[@name='Cart']";
 	public final static String button_exit_1 ="//XCUIElementTypeNavigationBar[@name='Prints & Gifts']/XCUIElementTypeButton[2]";
 	public final static String button_copyShareLink = "Copy Share Link";
 	public final static String button_shareAndDontWarnMeAgain = "Yes, Don't Remind Me Again";
@@ -323,7 +337,7 @@ public final class vz_strings {
 	public final static String button_close = "Close";
 
 	public final static String sort_dateUploaded = "Date Uploaded";
-	public final static String sort_dateTaken = "Date Taken";
+	public final static String sort_dateTaken = "//XCUIElementTypeImage[@name='dateTakenCheckbox']";
 	public final static String sort_fileName = "File Name";
 	public final static String sort_extension = "Extension";
 	public final static String sort_size = "Size";
@@ -332,8 +346,8 @@ public final class vz_strings {
 	public final static String story_HeroImage = "bt stories white";
 	public final static String sort_dateCreateNewtoOld = "Date Created (New to Oldest)";
 	public final static String sort_dateCreateOldtoNew = "Date Created (Oldest to New)";
-	public final static String share_ShareTo = "optionNameAccessibilityID-1"; //"Share to...";
-	public final static String share_ShareViaLink = "optionNameAccessibilityID-2"; //Share via link";
+	public final static String share_ShareTo = "optionNameAccessibilityID-1"; //Share to..."
+	public final static String share_ShareViaLink = "optionNameAccessibilityID-2"; //Share via link"
 	public final static String share_ShareViaLinkActivityList =
 			"See what was shared with Verizon Cloud";
 	public final static String share_activityListView = "ActivityListView";
@@ -353,7 +367,10 @@ public final class vz_strings {
 	public final static String allFile_repos = "All files repos";
 	public final static String allFile_folders = "All files folders";
 	public final static String allFile_searchBar = "Search";
-	public final static String allFiles = "All Files";
+	public final static String allFiles = "All files";
+	public final static String allFiles_xpath ="//XCUIElementTypeButton[contains(@name,'All files')]";
+
+	public final static String allFiles_phone = "//XCUIElementTypeStaticText[@name='iPhone']";
 
 	public final static String tools_restore = "Content Restore";
 	public final static String tools_transfer = "Content Transfer";
@@ -394,7 +411,7 @@ public final class vz_strings {
 	public final static String settings_Wifi_Mobile = "Wi-Fi + Mobile Network";
 	public final static String settings_email = "Email Address";
 	public final static String settings_emailField = "Email";
-	public final static String settings_about = "About";
+	public final static String settings_aboutCloud = "About Cloud";
 	public final static String settings_manageStorage= "Manage Storage";
 	public final static String settings_NM_FlashBacks= "flashbackLabel";
 	public final static String settings_NM_printsANdGifts= "printAndGiftsLabel";
@@ -469,17 +486,17 @@ public final class vz_strings {
 
 
 
-	public final static String actionBar_selectView_AddToAlbum = "toolbar-addToAlbum-icon";
-	public final static String actionBar_selectView_addToFavorite = "toolbar-favorite-icon";
-	public final static String actionBar_selectView_unFavorite = "toolbar-unfavorite-icon";
-	public final static String actionBar_selectView_share = "toolbar-share-icon";
-	public final static String actionBar_selectView_download = "toolbar-download-icon"; 
+	public final static String actionBar_selectView_AddToAlbum = "addToAlbumLabelButton";
+	public final static String actionBar_selectView_addToFavorite = "favoriteLabelButton";
+	public final static String actionBar_selectView_unFavorite = "unfavoriteLabelButton";
+	public final static String actionBar_selectView_share = "shareLabelButton";
+	public final static String actionBar_selectView_download = "downloadLabelButton";
 	public final static String actionBar_selectView_RemoveFromFavorite = "toolbar-unfavorite-icon";
-	public final static String actionBar_selectView_Favorite = "toolbar-favorite-icon";
-	public final static String actionBar_selectView_Delete = "toolbar-delete-icon";
+	public final static String actionBar_selectView_Favorite = "favoriteLabelButton";
+	public final static String actionBar_selectView_Delete = "deleteLabelButton";
 
 	public final static String actionBar_AddToAlbum = "actionBarPlusButton";
-	public final static String actionBar_AddToAlbum_xpath = "//XCUIElementTypeButton[@name=\"actionBarPlusButton\"]";
+	public final static String actionBar_AddToAlbum_xpath = "//XCUIElementTypeButton[@name='actionBarPlusButton']";
 	public final static String actionBar_addToFavorite = "actionBarUnFavoriteItemButton";
 	public final static String actionBar_unFavorite = "actionBarFavoriteItemButton";
 	public final static String actionBar_share = "actionBarShareItemButton"; 
@@ -514,6 +531,8 @@ public final class vz_strings {
 
 	public final static String logs_localytics = "localytics";
 	public final static String logs_count = "Count";
+	public final static String logs_iCloudPhotosCount = " iCloudPhotosCount";
+	public final static String logs_iCloudVideosCount = " iCloudVideosCount";
 	public final static String logs_cloudContextualMenu = "Cloud Contextual Menu";
 	public final static String logs_tagEvent = "Tagged event";
 	public final static String logs_tagScreen = "Tagged screen";
@@ -528,6 +547,7 @@ public final class vz_strings {
 	public final static String logs_mediaOpen = "Media Open";
 	public final static String logs_mediaGalleryOpen = "Media Gallery Open";
 	public final static String logs_mediaDownload = "Media Download";
+	public final static String logs_iCloudClounts = "iCloud Counts";
 	public final static String logs_mediaDownloadComplete = "Media Download Complete";
 	public final static String logs_mediaType = "Media Type";
 	public final static String logs_restoreMediaView = "Restore Media View";
@@ -539,7 +559,7 @@ public final class vz_strings {
 	public final static String logs_favItemRemoved = "Favorite Item Removed";
 	public final static String logs_timeline = "Timeline";
 	public final static String logs_page = "Page";
-	public final static String logs_album = "Album";
+	public final static String logs_album = "Album;";
 	public final static String logs_invalidAlbumName = "Title : Album name is required and must consist of at least one alphanumeric character. It cannot contain: * ? | : ; , ! @ # $ ( ) < > \\";
 	public final static String logs_contacts = "Contacts";
 	public final static String logs_realtimeView = "Real Times View";
@@ -550,7 +570,7 @@ public final class vz_strings {
 	public final static String logs_realtimesDecisionDeclined = "Declined";
 	public final static String logs_realtimesSourceofPrompt = "Source of Prompt";
 	public final static String logs_realtimessourceofPromptButton = "Play Button";
-	public final static String LOGS_SHARE_SEND_CONTENT = "Share Send Content";
+	public final static String LOGS_SHARE_SEND_CONTENT = "Share Send Content,";
 	public final static String LOGS_SHARE_SEND = "Share Send";
 	public final static String LOGS_STATUS = "Status";
 	public final static String LOGS_SUCCESSFUL = "Successful";
@@ -562,15 +582,18 @@ public final class vz_strings {
 	public final static String logs_musicAlbums = "Music Albums";
 	public final static String logs_musicAlbum = "Music Album";
 	public final static String logs_musicArtists = "Music Artists";
+	public final static String logs_musicNowPlaying = "Music Now Playing";
+	public final static String logs_libraryIndexScreen = "Library Index Screen";
 	public final static String logs_musicArtistAlbums = "Music Artists Albums";
 	public final static String logs_musicArtistSongs = "Music Artists Songs";
 	public final static String logs_musicFavorites = "Music Favorites";
 	public final static String logs_musicGenres = "Music Genres";
 	public final static String logs_musicPlaylists = "Music Playlists";
 	public final static String logs_musicSongs = "Music Songs";
-	public final static String logs_musicInfo = "Music Info";
+	public final static String logs_musicInfo = "Info Menu Option Clicked";
 	public final static String logs_mediaPlay = "Media Play";
-	public final static String logs_musicNowPlaying = "Music Now Playing";
+	//public final static String logs_musicNowPlaying = "Music Now Playing";
+	public final static String logs_libraryMenuOptionClicked ="Library Menu Option Clicked";
 	public final static String logs_musicQueue = "Music Queue";
 	public final static String logs_photoBucketEntry = "Cloud Print Shop Entry";
 	public final static String logs_photoBucketExit = "Cloud Print Shop Exit";
@@ -592,11 +615,11 @@ public final class vz_strings {
 	public final static String logs_photosVideosTimelineMonth= "Photos And Videos Timeline Month";
 	public final static String logs_photosVideosTimeline = "Photos And Videos Timeline";
 	public final static String logs_photosVideosAlbums = "Photos And Videos Albums";
-	public final static String logs_photosVideosStories = "Photos And Videos Stories";
+	public final static String logs_photosVideosStories = "Photos And Videos All";
 	public final static String logs_photosVideosFavorite = "Photos And Videos Favorite";
 	public final static String logs_photosVideosFlashBacksNavigationBar= "Flashbacks Tab - Navigation bar";
 	public final static String logs_photo_video_detail="Photos And Videos Album Detail";
-	public final static String logs_photos="Photos";
+	public final static String logs_photos="Photos;";
 	public final static String logs_menu_view="Menu View";
 	public final static String logs_storyRename = "Story Renamed";
 	public final static String logs_ManageStorage="Storage Upgrade Step";
@@ -612,6 +635,7 @@ public final class vz_strings {
 	public final static String logs_mediaTypePhoto = "Photo";
 	public final static String logs_mediaTypeVideo = "Video";
 	public final static String logs_mediaTypeStory = "Story";
+	public final static String logs_mediaTypeStoryOpen = "Story Open";
 	public final static String logs_mediaTypeStories = "Stories";
 	public final static String logs_mediaTypePhotos = "Photos";
 	public final static String logs_mediaTypeVideos = "Videos";
@@ -641,10 +665,12 @@ public final class vz_strings {
 	public final static String logs_step = "Step";
 	public final static String logs_shareContentSize = "Content Size";
 	public final static String logs_shareContentType = "Content Type";
+	public final static String logs_shareSheetAction = "Share Sheet Action";
 	public final static String logs_shareItemShared = "Items Shared";
 	public final static String logs_storySaved = "Story Saved";
 	public final static String logs_story = "Story";
 	public final static String logs_storyDetail = "Story Detail";
+	public final static String logs_storiesSection = "Stories Section";
 	public final static String logs_settingsView= "SettingsSettings View";
 	public final static String logs_networkType = "Network Type";
 	public final static String logs_networkTypeWifi = "Wi-Fi";
@@ -668,6 +694,9 @@ public final class vz_strings {
 	public final static String logs_enabled = "Enabled";
 	public final static String logs_editPhotos = "Edit Photos";
 	public final static String logs_editPhoto = "Edit Photo";
+	public final static String logs_settings_ChatWithUs_Open = "Opened Chatbot";
+	public final static String logs_settings_ChatWithUs_HelpandFeedback = "Help & feedback";
+
 	public final static String logs_albumItemAdded = "Album Item Added";
 	public final static String logs_favoriteItemAdded = "Favorite Item Added";
 	public final static String logs_favoriteItemRemoved = "Favorite Item Removed";
@@ -675,6 +704,7 @@ public final class vz_strings {
 	public final static String logs_photoDetailMenu = "Photo Detail Menu";
 	public final static String logs_videoDetail = "Video Detail";
 	public final static String logs_photoDetail = "Photo Detail";
+	public final static String getLogs_photoDetailMenu = "Photo Detail Menu";
 	public final static String logs_collage = "Collage";
 	public final static String logs_Stickers = "Stickers";
 	public final static String logs_Storage_Upgrade = "Storage Upgrade Complete";
@@ -794,11 +824,11 @@ public final class vz_strings {
 
 
 	public final static class Vz_configs { 
-		public final static String DEVICE_NAME  = "iPhone 11 White"; //iPhone 11 YLWA";
-		public final static String PLATFORM_VERSION ="17.4";
+		public final static String DEVICE_NAME  = "iPhone 11"; //iPhone 11 YLWA";
+		public final static String PLATFORM_VERSION ="18.2";
 		public static final String FILE_NAME = "Verizon.ipa"; 
 		public final static String MDN_PROD = "2014004452";
-		public final static String PASSWORD_PROD ="Intk4097"; 
+		public final static String PASSWORD_PROD ="intk4452";
 		public final static String UDID="00008030-000E095E0ED1402E";         //"00008030-001A59883C06802E"; //readUdid();
 		public final static String APPIUM_IP = "127.0.0.1"; 
 		public final static Integer APPIUM_PORT = 4723;
